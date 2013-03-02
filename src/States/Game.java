@@ -26,11 +26,13 @@ public class Game extends BasicGameState {
     static Player player1 = null, player2 = null, player3 = null, player4 = null;
     private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/
             isInventoryOpen;
+    private static boolean changingMap = true;
     private static Image classImage;
     private static String curMap;
 
     private static void changeMap(String s) {
         curMap = s;
+        changingMap = true;
     }
 
     public static void createCharacter(String name, ClassList Class) {
@@ -90,7 +92,6 @@ public class Game extends BasicGameState {
         classImage = new Image(player1.getPlayerClassImage());
         ImageRenderComponent PlayerImage = new ImageRenderComponent("PlayerImage", classImage, 1);
         EntityPlayer = new Entity("Player");
-        CameraEntity = new Entity("Camera");
         EntityPlayer.addComponent(PlayerImage);
         EntityPlayer.addComponent(PlayerMovement);
 
@@ -100,9 +101,15 @@ public class Game extends BasicGameState {
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        float playerPosX = -EntityPlayer.getPosition().x/32;
-        float playerPosY = -EntityPlayer.getPosition().y/32;
-        Maps.renderMap(g, curMap, playerPosX, playerPosY);
+        float playerPosX = -EntityPlayer.getPosition().x/64;
+        float playerPosY = -EntityPlayer.getPosition().y/64;
+
+        if(changingMap) {
+            Maps.renderMap(curMap, playerPosX, playerPosY, true);
+            changingMap = false;
+        }else{
+            Maps.renderMap(curMap, playerPosX, playerPosY, false);
+        }
         Input input = gc.getInput();
 
         boolean gameHidden = false;

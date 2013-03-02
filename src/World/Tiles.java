@@ -9,5 +9,6 @@ public class Tiles extends BaseObject {
     public static BaseObject tGrass = new BGObject(0, 2, "tGrass", TileList.tGrass);
     public static BaseObject lGrass = new BGObject(0, 3, "lGrass", TileList.lGrass);
     public static BaseObject rGrass = new BGObject(0, 4, "rGrass", TileList.rGrass);
-    public static BaseObject tlcGrass = new BGObject(1, 1, "tlcGrass", TileList.tlcGrass);
+    public static BaseObject tlGrass = new BGObject(1, 1, "tlGrass", TileList.tlGrass);
+    public static BaseObject trGrass = new BGObject(1, 2, "trGrass", TileList.trGrass);
 }

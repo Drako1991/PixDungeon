@@ -1,5 +1,6 @@
 package TileMap;
 
+import States.Game;
 import org.newdawn.slick.Graphics;
 
 public class Maps {
@@ -7,25 +8,25 @@ public class Maps {
             "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
             "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
             "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-            "gggggggggggggggggggggctttgggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggglppprggggggggggggggggggggggggggg",
-            "ggggggggggggggggggggggbbbgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggpppgggggggggggggggggggggggggggg",
+            "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
             "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
             "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
             "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
@@ -43,12 +44,12 @@ public class Maps {
             "   ggg   ",
     };
 
-    public static void renderMap(Graphics g,  String s, float mapX, float mapY) {
+    public static void renderMap(String s, float mapX, float mapY, boolean changingMap) {
         if(s.toLowerCase() == "map1") {
-            TileConverter.renderWorld(map1, g, mapX, mapY);
+            TileConverter.renderWorld(map1, mapX, mapY, changingMap);
         }
         if(s.toLowerCase() == "map2") {
-            TileConverter.renderWorld(map2, g, mapX, mapY);
+            TileConverter.renderWorld(map2, mapX, mapY, changingMap);
         }
     }
 }
