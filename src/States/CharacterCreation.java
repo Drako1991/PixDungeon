@@ -53,7 +53,7 @@ public class CharacterCreation extends BasicGameState {
             tfFocused = true;
         }
 
-        if(input.isKeyPressed(Input.KEY_ESCAPE)) {
+        if (input.isKeyPressed(Input.KEY_ESCAPE)) {
             sbg.enterState(States.MainMenu.ordinal());
         }
     }

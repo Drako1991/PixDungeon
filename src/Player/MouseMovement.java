@@ -40,16 +40,15 @@ public class MouseMovement extends Component {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sb, int delta) {
-        Input input =  gc.getInput();
+        Input input = gc.getInput();
         float scale = owner.getScale();
         Vector2f position = owner.getPosition();
-        double speed = this.speed*delta;
-        boolean w = input.isKeyDown(Input.KEY_W), s = input.isKeyDown(Input.KEY_S), a = input.isKeyDown(Input.KEY_A), d = input.isKeyDown(Input.KEY_D);
+        double speed = this.speed * delta;
 
-        if(input.isKeyDown(Input.KEY_W)) position.y -= speed;
-        if(input.isKeyDown(Input.KEY_S)) position.y += speed;
-        if(input.isKeyDown(Input.KEY_D)) position.x += speed;
-        if(input.isKeyDown(Input.KEY_A)) position.x -= speed;
+        if (input.isKeyDown(Input.KEY_W)) position.y -= speed;
+        if (input.isKeyDown(Input.KEY_S)) position.y += speed;
+        if (input.isKeyDown(Input.KEY_D)) position.x += speed;
+        if (input.isKeyDown(Input.KEY_A)) position.x -= speed;
 
         owner.setRotation(getRotation(gc));
         owner.setPosition(position);
@@ -58,20 +57,29 @@ public class MouseMovement extends Component {
 
     private float getRotation(GameContainer gc) {
         Input input = gc.getInput();
-        float plyX = gc.getWidth()/2, plyY = gc.getHeight()/2, radiansToMouse = (float) Math.atan2(plyX - input.getMouseX(), plyY - input.getMouseY()),
-                degreesToMouse = (57.2957795f * radiansToMouse) *-1, angle = 0;
+        float plyX = gc.getWidth() / 2, plyY = gc.getHeight() / 2, radiansToMouse = (float) Math.atan2(plyX - input.getMouseX(), plyY - input.getMouseY()),
+                degreesToMouse = (57.2957795f * radiansToMouse) * -1, angle = 0;
         boolean w = gc.getInput().isKeyDown(Input.KEY_W), s = gc.getInput().isKeyDown(Input.KEY_S), a = gc.getInput().isKeyDown(Input.KEY_A),
                 d = gc.getInput().isKeyDown(Input.KEY_D);
 
-        if(!w && !s && !a && !d) angle = degreesToMouse; mouseControl = true;
-        if(w) angle += 0; mouseControl = false;
-        if(w && d) angle += 45; mouseControl = false;
-        if(d && !w && !s) angle += 90; mouseControl = false;
-        if(s && d) angle -= 45; mouseControl = false;
-        if(w && a) angle -= 45; mouseControl = false;
-        if(s && a) angle += 45; mouseControl = false;
-        if(a && !w && !s) angle -= 90; mouseControl = false;
-        if(s) angle += 180; mouseControl = false;
+        if (!w && !s && !a && !d) angle = degreesToMouse;
+        mouseControl = true;
+        if (w) angle += 0;
+        mouseControl = false;
+        if (w && d) angle += 45;
+        mouseControl = false;
+        if (d && !w && !s) angle += 90;
+        mouseControl = false;
+        if (s && d) angle -= 45;
+        mouseControl = false;
+        if (w && a) angle -= 45;
+        mouseControl = false;
+        if (s && a) angle += 45;
+        mouseControl = false;
+        if (a && !w && !s) angle -= 90;
+        mouseControl = false;
+        if (s) angle += 180;
+        mouseControl = false;
 
         return angle;
     }

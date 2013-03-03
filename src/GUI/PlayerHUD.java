@@ -18,10 +18,10 @@ public class PlayerHUD {
         g.fill(new Rectangle(0, gc.getHeight(), gc.getWidth(), -(gc.getHeight() / 5)));
 
 
-        float posX = gc.getWidth()/1.26F,
-                posY = gc.getHeight()/140,
-                width = gc.getWidth()/5,
-                height = gc.getHeight()/72;
+        float posX = gc.getWidth() / 1.26F,
+                posY = gc.getHeight() / 140,
+                width = gc.getWidth() / 5,
+                height = gc.getHeight() / 72;
 
         //Health Bar
         float perHP = (float) ply.getHealth() / (float) ply.getMaxHealth();
@@ -31,10 +31,10 @@ public class PlayerHUD {
 //              HPW = width + 0,
 //              HPH = height + 0;
 
-        float HPX = gc.getWidth()/35F,
-                HPY = gc.getHeight()/1.225F,
-                HPW = gc.getWidth()/35,
-                HPH = gc.getHeight()/6.25F;
+        float HPX = gc.getWidth() / 35F,
+                HPY = gc.getHeight() / 1.225F,
+                HPW = gc.getWidth() / 35,
+                HPH = gc.getHeight() / 6.25F;
 
 //        if (perHP >= 0.75) {
 //            g.setColor(Color.green);
@@ -51,17 +51,17 @@ public class PlayerHUD {
 
 //        g.setColor(Color.transparent);
         g.setColor(Color.red);
-        g.texture(new Rectangle(HPX+3, HPY+30, HPW-8, HPH-50), new Image("res/GUI/healthTex.png"));
+        g.texture(new Rectangle(HPX + 3, HPY + 30, HPW - 8, HPH - 50), new Image("res/GUI/healthTex.png"));
 //        g.fill(new Rectangle(HPX, HPY, HPW, HPH));
         healthPot.draw(HPX, HPY, HPW, HPH);
 
         //XP Bar
         float perXP = (float) ply.getXP() / (float) ply.getMaxXP();
 
-        float XPPosX = gc.getWidth()/10;
-        float XPPosY = gc.getHeight()/1.235F;
+        float XPPosX = gc.getWidth() / 10;
+        float XPPosY = gc.getHeight() / 1.235F;
         float XPWidth = gc.getWidth() - 300;
-        float XPHeight = gc.getHeight()/50;
+        float XPHeight = gc.getHeight() / 50;
 
         g.setColor(new Color(0, 0, 0, 100));
         g.fill(new RoundedRectangle(XPPosX, XPPosY, XPWidth, XPHeight, 3F));
@@ -69,12 +69,12 @@ public class PlayerHUD {
 //        g.setColor(new Color(0, 0, 0, 100));
 //        g.draw(new RoundedRectangle(XPPosX - 5, XPPosY - 5, XPWidth + 10, XPHeight + 10, 3F));
         g.setColor(new Color(0, 255, 0, 110));
-        g.fill(new RoundedRectangle(XPPosX+18, XPPosY, (XPWidth-34) * perXP, XPHeight, 3F));
+        g.fill(new RoundedRectangle(XPPosX + 18, XPPosY, (XPWidth - 34) * perXP, XPHeight, 3F));
         xpBar.draw(XPPosX, XPPosY, XPWidth - 5, XPHeight);
 
         g.setColor(new Color(255, 255, 255));
-        g.drawString("Level: " + ply.getLevel(), (XPWidth/2) - 15, XPPosY - (XPHeight/2) - 30);
-        g.drawString("XP: " + ply.getXP() + "/" + ply.getMaxXP(), (XPWidth/2) - 15, XPPosY - (XPHeight/2));
+        g.drawString("Level: " + ply.getLevel(), (XPWidth / 2) - 15, XPPosY - (XPHeight / 2) - 30);
+        g.drawString("XP: " + ply.getXP() + "/" + ply.getMaxXP(), (XPWidth / 2) - 15, XPPosY - (XPHeight / 2));
 
         //Power Bar
         float perPower = (float) ply.getPower() / (float) ply.getMaxPower();

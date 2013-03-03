@@ -6,7 +6,7 @@ import org.newdawn.slick.geom.Vector2f;
 
 public class BGObject extends BaseObject {
 
-    public BGObject(int x, int y,String name, Enum n) {
+    public BGObject(int x, int y, String name, Enum n) {
         int tileSize = 64;
         setColidable(false);
         setBreakable(false);

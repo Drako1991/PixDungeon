@@ -1,8 +1,5 @@
 package TileMap;
 
-import States.Game;
-import org.newdawn.slick.Graphics;
-
 public class Maps {
     public static String[] map1 = {
             "ggggggggggggggggggggggggggggggggggggggggggggggggggggg",
@@ -45,10 +42,10 @@ public class Maps {
     };
 
     public static void renderMap(String s, float mapX, float mapY, boolean changingMap) {
-        if(s.toLowerCase() == "map1") {
+        if (s.toLowerCase() == "map1") {
             TileConverter.renderWorld(map1, mapX, mapY, changingMap);
         }
-        if(s.toLowerCase() == "map2") {
+        if (s.toLowerCase() == "map2") {
             TileConverter.renderWorld(map2, mapX, mapY, changingMap);
         }
     }

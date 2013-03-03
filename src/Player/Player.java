@@ -34,9 +34,7 @@ public class Player {
         setLevel(1);
         setXP(0);
 
-        if (Name != "") {
             switch (Class) {
-
                 case Archer:
                     setStrength(v.ARCHER_STRENGTH);
                     setVitality(v.ARCHER_VITALITY);
@@ -88,7 +86,6 @@ public class Player {
                 default:
                     System.out.println("====ERROR WHEN CREATING CHARACTER====");
                     break;
-            }
         }
     }
 
@@ -105,37 +102,38 @@ public class Player {
     }
 
     public void setPower(int power) {
-        if(power >= 0 && power <= maxPower) {
+        if (power >= 0 && power <= maxPower) {
             this.power = power;
         }
-        if(power < 0) {
+        if (power < 0) {
             this.power = 0;
         }
-        if(power > maxPower); {
+        if (power > maxPower) ;
+        {
             this.power = maxPower;
         }
     }
 
     public void addPower(int power) {
-        if(this.power + power <= maxPower) {
+        if (this.power + power <= maxPower) {
             this.power += power;
-        }else{
+        } else {
             this.power = maxPower;
         }
     }
 
     public void takePower(int power) {
-        if(this.power - power >= 0) {
+        if (this.power - power >= 0) {
             this.power -= power;
-        }else{
+        } else {
             this.power = 0;
         }
     }
 
     public void setMaxPower(int maxPower) {
-        if(maxPower >= 0) {
+        if (maxPower >= 0) {
             this.maxPower = maxPower;
-        }else{
+        } else {
             this.maxPower = 0;
         }
     }
@@ -167,10 +165,10 @@ public class Player {
     }
 
     public Player setPowerType(String type) {
-        if(type.toLowerCase() == "fury") {
+        if (type.toLowerCase() == "fury") {
             powerType = PowerTypes.Fury;
         }
-        if(type.toLowerCase() == "magicka") {
+        if (type.toLowerCase() == "magicka") {
             powerType = PowerTypes.Mana;
         }
         return this;
@@ -313,11 +311,11 @@ public class Player {
     }
 
     public Color getPowerColor() {
-        if(powerType == PowerTypes.Fury) {
+        if (powerType == PowerTypes.Fury) {
             return new Color(255, 0, 0);
-        }else if(powerType == PowerTypes.Mana) {
+        } else if (powerType == PowerTypes.Mana) {
             return new Color(20, 20, 255);
-        }else{
+        } else {
             return null;
         }
     }
@@ -416,11 +414,16 @@ public class Player {
     public static String getPlayerClassString(ClassList Cls) {
 
         switch (Cls) {
-            case Archer: return "Archer";
-            case Assassin: return "Assassin";
-            case Knight: return "Knight";
-            case Wizard: return "Wizard";
-            case None: return "None";
+            case Archer:
+                return "Archer";
+            case Assassin:
+                return "Assassin";
+            case Knight:
+                return "Knight";
+            case Wizard:
+                return "Wizard";
+            case None:
+                return "None";
             default:
                 System.out.println("====ERROR WHEN GETTING PLAYER CLASS STRING====");
                 return null;
@@ -433,11 +436,16 @@ public class Player {
 
     public String getPowerTypeString() {
         switch (powerType) {
-            case Fury: return "Fury";
-            case Mana: return "Mana";
-            case tempArcher: return "tempArcher";
-            case tempAssassin: return "tempAssassin";
-            default: return null;
+            case Fury:
+                return "Fury";
+            case Mana:
+                return "Mana";
+            case tempArcher:
+                return "tempArcher";
+            case tempAssassin:
+                return "tempAssassin";
+            default:
+                return null;
         }
     }
 }

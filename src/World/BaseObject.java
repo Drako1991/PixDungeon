@@ -1,6 +1,5 @@
 package World;
 
-import TileMap.TileList;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -8,7 +7,7 @@ import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Vector2f;
 
 public class BaseObject {
-    private static boolean  isSolid, breakable, usesSpriteSheet;
+    private static boolean isSolid, breakable, usesSpriteSheet;
     private String imageLocation, name;
     private int imageSize;
     private Image img;

@@ -20,7 +20,7 @@ public class StringRenderComponent extends RenderComponent {
     public void render(GameContainer gc, StateBasedGame sb, Graphics g) {
         Vector2f pos = owner.getPosition();
         g.setColor(this.color);
-        g.drawString(text, pos.x, (gc.getHeight()/2)-20);
+        g.drawString(text, pos.x, (gc.getHeight() / 2) - 20);
     }
 
     @Override

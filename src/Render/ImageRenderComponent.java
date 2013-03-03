@@ -3,7 +3,6 @@ package Render;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class ImageRenderComponent extends RenderComponent {
@@ -20,7 +19,7 @@ public class ImageRenderComponent extends RenderComponent {
     public void render(GameContainer gc, StateBasedGame sb, Graphics g) {
 //        Vector2f pos = owner.getPosition();
 //        float scale = owner.getScale();
-        image.draw(gc.getWidth()/2, gc.getHeight()/2, scale);
+        image.draw(gc.getWidth() / 2, gc.getHeight() / 2, scale);
     }
 
     @Override

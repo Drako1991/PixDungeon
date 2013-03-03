@@ -11,18 +11,15 @@ import Player.Player;
 import Render.ImageRenderComponent;
 import Render.StringRenderComponent;
 import TileMap.Maps;
-import TileMap.TileConverter;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-import javax.swing.*;
-
 //TODO: Add overlay on top of all states for debug mode so all of the states refer back to that debug mode
 
 public class Game extends BasicGameState {
-    Entity EntityPlayer = null, EntityName = null, CameraEntity = null;
+    Entity EntityPlayer = null, EntityName = null;
     static Player player1 = null, player2 = null, player3 = null, player4 = null;
     private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/
             isInventoryOpen;
@@ -36,19 +33,19 @@ public class Game extends BasicGameState {
     }
 
     public static void createCharacter(String name, ClassList Class) {
-        if(player1 == null) {
+        if (player1 == null) {
             player1 = new Player(Class, name);
         }
-        if(player1 != null && player2 == null) {
+        if (player1 != null && player2 == null) {
             player2 = new Player(Class, name);
         }
-        if(player1 != null && player2 != null && player3 == null) {
+        if (player1 != null && player2 != null && player3 == null) {
             player3 = new Player(Class, name);
         }
-        if(player1 != null && player2 != null && player3 != null && player4 == null) {
+        if (player1 != null && player2 != null && player3 != null && player4 == null) {
             player4 = new Player(Class, name);
         }
-        if(player1 != null && player2 != null && player3 != null && player4 != null) {
+        if (player1 != null && player2 != null && player3 != null && player4 != null) {
             System.out.println("There are too many players!");
         }
     }
@@ -85,7 +82,7 @@ public class Game extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         MouseMovement PlayerMovement = new MouseMovement("PlayerMovement");
         PlayerMovement.setSpeed(0.35f);
-        curMap = "map1";
+        changeMap("map1");
         createCharacter("Zurrox", ClassList.Wizard);
         player1.setMaxHealth(100);
         player1.setHealth(100);
@@ -97,17 +94,17 @@ public class Game extends BasicGameState {
 
         EntityName = new Entity("PlayerName");
         EntityName.addComponent(new StringRenderComponent("NameRender", player1.getName(), Color.red));
-        EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth()/2), gc.getHeight()/2));
+        EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        float playerPosX = -EntityPlayer.getPosition().x/64;
-        float playerPosY = -EntityPlayer.getPosition().y/64;
+        float playerPosX = -EntityPlayer.getPosition().x / 64;
+        float playerPosY = -EntityPlayer.getPosition().y / 64;
 
-        if(changingMap) {
+        if (changingMap) {
             Maps.renderMap(curMap, playerPosX, playerPosY, true);
             changingMap = false;
-        }else{
+        } else {
             Maps.renderMap(curMap, playerPosX, playerPosY, false);
         }
         Input input = gc.getInput();
@@ -116,7 +113,7 @@ public class Game extends BasicGameState {
         if (!gameHidden) {
             EntityPlayer.render(gc, null, g);
             EntityName.render(gc, null, g);
-            EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth()/2), gc.getHeight()/2));
+            EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
         }
 
         PlayerHUD.showHUD(gc, g, player1);
@@ -137,10 +134,10 @@ public class Game extends BasicGameState {
         } else closeAllWindows();
 
         if (Main.debugMode()) {
-            if(input.isKeyDown(Input.KEY_1)) {
+            if (input.isKeyDown(Input.KEY_1)) {
                 curMap = "map1";
             }
-            if(input.isKeyDown(Input.KEY_2)) {
+            if (input.isKeyDown(Input.KEY_2)) {
                 curMap = "map2";
             }
             g.setColor(Color.red);
@@ -158,10 +155,10 @@ public class Game extends BasicGameState {
         if (Main.debugMode()) {
             gc.setShowFPS(true);
 
-            if(input.isKeyDown(Input.KEY_X)) {
+            if (input.isKeyDown(Input.KEY_X)) {
                 player1.addPower(1);
             }
-            if(input.isKeyDown(Input.KEY_Z)) {
+            if (input.isKeyDown(Input.KEY_Z)) {
                 player1.takePower(1);
             }
             if (input.isKeyDown(Input.KEY_D)) {
@@ -229,11 +226,11 @@ public class Game extends BasicGameState {
     }
 
     public static String[] getCurrentMap() {
-        if(curMap == "map1") {
+        if (curMap == "map1") {
             return Maps.map1;
-        }else if(curMap == "map2") {
+        } else if (curMap == "map2") {
             return Maps.map2;
-        }else{
+        } else {
             return null;
         }
     }
