@@ -32,7 +32,7 @@ public class PlayerHUD {
 //              HPH = height + 0;
 
         float HPX = gc.getWidth() / 35F,
-                HPY = gc.getHeight() / 1.225F,
+                HPY = gc.getHeight() / 1.3F,
                 HPW = gc.getWidth() / 35,
                 HPH = gc.getHeight() / 6.25F;
 
@@ -51,9 +51,9 @@ public class PlayerHUD {
 
 //        g.setColor(Color.transparent);
         g.setColor(Color.red);
-        g.texture(new Rectangle(HPX + 3, HPY + 30, HPW - 8, HPH - 50), new Image("res/GUI/healthTex.png"));
+        g.texture(new Rectangle(HPX + 3, HPY + 30, HPW - 8, HPH - 50), new Image("res/GUI/Tex_Health.png"));
 //        g.fill(new Rectangle(HPX, HPY, HPW, HPH));
-        healthPot.draw(HPX, HPY, HPW, HPH);
+        healthPot.draw(HPX, HPY);
 
         //XP Bar
         float perXP = (float) ply.getXP() / (float) ply.getMaxXP();
