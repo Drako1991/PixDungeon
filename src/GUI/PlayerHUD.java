@@ -51,7 +51,7 @@ public class PlayerHUD {
 
 //        g.setColor(Color.transparent);
         g.setColor(Color.red);
-        g.texture(new Rectangle(HPX + 3, HPY + 30, HPW - 8, HPH - 50), new Image("res/GUI/Tex_Health.png"));
+//        g.texture(new Rectangle(HPX + 3, HPY + 30, HPW - 8, HPH - 50), new Image("res/GUI/Tex_Health.png"));
 //        g.fill(new Rectangle(HPX, HPY, HPW, HPH));
         healthPot.draw(HPX, HPY);
 

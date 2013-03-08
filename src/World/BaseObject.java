@@ -10,11 +10,17 @@ public class BaseObject {
     private static boolean isSolid, breakable, usesSpriteSheet;
     private String imageLocation, name;
     private int imageSize;
+    private float tileSize;
     private Image img;
     private Enum tileEnum;
 
     public BaseObject() {
 
+    }
+
+    public BaseObject setCollisionSize(float size) {
+        this.tileSize = size;
+        return this;
     }
 
     public BaseObject setTileSize(int size) {
@@ -58,6 +64,10 @@ public class BaseObject {
     public BaseObject setBreakable(boolean breakable) {
         this.breakable = breakable;
         return this;
+    }
+
+    public float getCollisionSize() {
+        return tileSize;
     }
 
     public int getTileSize() {

@@ -62,24 +62,15 @@ public class MouseMovement extends Component {
         boolean w = gc.getInput().isKeyDown(Input.KEY_W), s = gc.getInput().isKeyDown(Input.KEY_S), a = gc.getInput().isKeyDown(Input.KEY_A),
                 d = gc.getInput().isKeyDown(Input.KEY_D);
 
-        if (!w && !s && !a && !d) angle = degreesToMouse;
-        mouseControl = true;
-        if (w) angle += 0;
-        mouseControl = false;
-        if (w && d) angle += 45;
-        mouseControl = false;
-        if (d && !w && !s) angle += 90;
-        mouseControl = false;
-        if (s && d) angle -= 45;
-        mouseControl = false;
-        if (w && a) angle -= 45;
-        mouseControl = false;
-        if (s && a) angle += 45;
-        mouseControl = false;
-        if (a && !w && !s) angle -= 90;
-        mouseControl = false;
-        if (s) angle += 180;
-        mouseControl = false;
+        if (!w && !s && !a && !d) angle = degreesToMouse; mouseControl = true;
+        if (w) angle += 0; mouseControl = false;
+        if (w && d) angle += 45; mouseControl = false;
+        if (d && !w && !s) angle += 90; mouseControl = false;
+        if (s && d) angle -= 45; mouseControl = false;
+        if (w && a) angle -= 45; mouseControl = false;
+        if (s && a) angle += 45; mouseControl = false;
+        if (a && !w && !s) angle -= 90; mouseControl = false;
+        if (s) angle += 180; mouseControl = false;
 
         return angle;
     }
