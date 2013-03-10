@@ -36,6 +36,7 @@ public class Main extends StateBasedGame {
         AppGameContainer gc = new AppGameContainer(new Main());
         gc.setDisplayMode(1280, 720, false);
         gc.setResizable(true);
+        gc.setIcon("res/logo.png");
 
         gc.start();
     }

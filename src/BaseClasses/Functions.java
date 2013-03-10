@@ -2,8 +2,8 @@ package BaseClasses;
 
 public class Functions {
     public static int findStringIndex(String[] s, String in) {
-        for(int i = 0; i <= s.length; i++) {
-            if(s[i] == in) {
+        for (int i = 0; i <= s.length; i++) {
+            if (s[i] == in) {
                 return i;
             }
         }
@@ -11,8 +11,8 @@ public class Functions {
     }
 
     public static int findIntIndex(int[] s, int in) {
-        for(int i = 0; i <= s.length; i++) {
-            if(s[i] == in) {
+        for (int i = 0; i <= s.length; i++) {
+            if (s[i] == in) {
                 return i;
             }
         }
@@ -20,8 +20,8 @@ public class Functions {
     }
 
     public static boolean doesStringExist(String[] s, String in) {
-        for(int i = 0; i <= s.length; i++) {
-            if(s[i] == in) {
+        for (int i = 0; i <= s.length; i++) {
+            if (s[i] == in) {
                 return true;
             }
         }
@@ -29,8 +29,8 @@ public class Functions {
     }
 
     public static boolean doesIntExist(int[] s, int in) {
-        for(int i = 0; i <= s.length; i++) {
-            if(s[i] == in) {
+        for (int i = 0; i <= s.length; i++) {
+            if (s[i] == in) {
                 return true;
             }
         }

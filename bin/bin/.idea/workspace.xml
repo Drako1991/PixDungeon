@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71a16653-6d70-406e-b154-fce54b5bba2a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MOVED" beforePath="C:\Programming\Games\PixDungeon\res\Tiles\Logo.png" afterPath="$PROJECT_DIR$/res/Logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/BGObject.java" afterPath="$PROJECT_DIR$/src/World/BGObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BaseClasses/Functions.java" afterPath="$PROJECT_DIR$/src/BaseClasses/Functions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/States/Game.java" afterPath="$PROJECT_DIR$/src/States/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Main.java" afterPath="$PROJECT_DIR$/src/Main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TileMap/Maps.java" afterPath="$PROJECT_DIR$/src/TileMap/Maps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player/MouseMovement.java" afterPath="$PROJECT_DIR$/src/Player/MouseMovement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player/Player.java" afterPath="$PROJECT_DIR$/src/Player/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TileMap/TileConverter.java" afterPath="$PROJECT_DIR$/src/TileMap/TileConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Tiles.java" afterPath="$PROJECT_DIR$/src/World/Tiles.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PixDungeon.iws" />
@@ -10,40 +20,39 @@
     <ignored path="../.metadata/" />
     <ignored path=".idea/" />
     <ignored path="bin/.idea/" />
-    <file path="/fragment.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362258694871" ignored="false" />
-    <file path="/Game.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362307494243" ignored="false" />
+    <file path="/fragment.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362872337662" ignored="false" />
+    <file path="/Game.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362929663882" ignored="false" />
     <file path="/Button.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361559438860" ignored="false" />
     <file path="/CharacterCreation.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361654642004" ignored="false" />
     <file path="/MainMenu.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361564254379" ignored="false" />
     <file path="/Options.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361564235215" ignored="false" />
     <file path="/PauseMenu.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361564222940" ignored="false" />
-    <file path="/Main.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361579204689" ignored="false" />
+    <file path="/Main.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362881733883" ignored="false" />
     <file path="/StringRenderComponent.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361548315880" ignored="false" />
-    <file path="/Player.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361715805866" ignored="false" />
+    <file path="/Player.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362920042765" ignored="false" />
     <file path="/Entity.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361557211081" ignored="false" />
-    <file path="/MouseMovement.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361561748897" ignored="false" />
+    <file path="/MouseMovement.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362930480730" ignored="false" />
     <file path="$PROJECT_DIR$/../TestGame/src/Main.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361562190526" ignored="false" />
     <file path="$PROJECT_DIR$/../TestGame/src/Main/Main.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361562570927" ignored="false" />
     <file path="/PixDungeon.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361563932251" ignored="false" />
     <file path="$PROJECT_DIR$/src/BaseClasses/PixDungeon.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361564095710" ignored="false" />
     <file path="/a.groovy" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361652223008" ignored="false" />
-    <file path="$PROJECT_DIR$/src/Skills/SkillList.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361569701598" ignored="false" />
     <file path="$PROJECT_DIR$/src/ElementalStats/ElementalTypes.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361569702357" ignored="false" />
     <file path="$PROJECT_DIR$/src/Enemies/EnemyTypes.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361569702357" ignored="false" />
     <file path="/PlayerHUD.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361714821477" ignored="false" />
     <file path="/Inventory.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361617607657" ignored="false" />
-    <file path="/BaseObject.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361653174676" ignored="false" />
+    <file path="/BaseObject.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362524094293" ignored="false" />
     <file path="/BackgroundObjects.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361618614878" ignored="false" />
-    <file path="/Tiles.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361650968636" ignored="false" />
-    <file path="/BGObject.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361650885476" ignored="false" />
+    <file path="/Tiles.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362930514229" ignored="false" />
+    <file path="/BGObject.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362929423860" ignored="false" />
     <file path="/Map.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361639163417" ignored="false" />
     <file path="/MapRender.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361639814686" ignored="false" />
     <file path="/ImageRenderComponent.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361639912017" ignored="false" />
     <file path="/Component.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361640067682" ignored="false" />
-    <file path="/TileConverter.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361653482300" ignored="false" />
+    <file path="/TileConverter.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362930368040" ignored="false" />
     <file path="/Converter.txt" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361642439661" ignored="false" />
     <file path="/Map1.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361647131168" ignored="false" />
-    <file path="/Maps.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361651625239" ignored="false" />
+    <file path="/Maps.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362930604047" ignored="false" />
     <file path="$USER_HOME$/Downloads/Cyborg_src/src/main/java/com/mojang/mojam/GameOverState.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361698685001" ignored="false" />
     <file path="$USER_HOME$/Downloads/Cyborg_src/src/main/java/com/mojang/mojam/entity/Alien.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361698968935" ignored="false" />
     <file path="/Alien.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361698968935" ignored="false" />
@@ -51,8 +60,9 @@
     <file path="/BaseClass.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361715118832" ignored="false" />
     <file path="/ClassKnight.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361715134990" ignored="false" />
     <file path="/ClassWizard.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1361715230242" ignored="false" />
-    <file path="/Dummy.txt" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362514413298" ignored="false" />
+    <file path="/Dummy.txt" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362919017971" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/vcs.xml" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362307895427" ignored="false" />
+    <file path="/Functions.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362765437194" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,82 +121,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlayerHUD.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/PlayerHUD.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="0" selection-start="1908" selection-end="1908" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="17" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/States/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="0" selection-start="4061" selection-end="4061" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TileConverter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TileMap/TileConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="52" selection-start="1218" selection-end="1218" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseObject.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/BaseObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="0" selection-start="1529" selection-end="1529" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerAnimation.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Player/PlayerAnimation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextCenter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BaseClasses/TextCenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="50" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapRender.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Render/MapRender.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="5" selection-start="2828" selection-end="2828" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="module_pixdungeon.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module_pixdungeon.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="57" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
+            <state line="201" column="0" selection-start="7071" selection-end="7071" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -195,7 +133,81 @@
       <file leaf-file-name="MouseMovement.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Player/MouseMovement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="36" selection-start="1785" selection-end="1785" vertical-scroll-proportion="0.59183675">
+            <state line="49" column="116" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.5203426">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Entity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Entity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="0" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BGObject.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/World/BGObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="17" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="107" column="24" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileConverter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TileMap/TileConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="46" selection-start="2234" selection-end="2234" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Maps.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TileMap/Maps.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="11" selection-start="4309" selection-end="4309" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tiles.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/World/Tiles.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="1" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseObject.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/World/BaseObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="23" selection-start="1793" selection-end="1793" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -226,30 +238,33 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/World/Tiles.java" />
-        <option value="$PROJECT_DIR$/src/TileMap/Maps.java" />
-        <option value="$PROJECT_DIR$/src/World/BaseObject.java" />
-        <option value="$PROJECT_DIR$/src/TileMap/TileConverter.java" />
-        <option value="$PROJECT_DIR$/src/States/CharacterCreation.java" />
-        <option value="$PROJECT_DIR$/src/Player/PowerTypes.java" />
-        <option value="$PROJECT_DIR$/src/Classes/BaseClass.java" />
         <option value="$PROJECT_DIR$/src/Classes/ClassKnight.java" />
         <option value="$PROJECT_DIR$/src/Classes/ClassWizard.java" />
         <option value="$PROJECT_DIR$/res/GUI/Thumbs.db" />
         <option value="$PROJECT_DIR$/src/BaseClasses/TextCenter.java" />
         <option value="$PROJECT_DIR$/src/Render/MapRender.java" />
-        <option value="$PROJECT_DIR$/src/Player/MouseMovement.java" />
-        <option value="$PROJECT_DIR$/src/Player/Player.java" />
-        <option value="$PROJECT_DIR$/src/States/Game.java" />
+        <option value="$PROJECT_DIR$/src/World/BaseObject.java" />
         <option value="$PROJECT_DIR$/src/GUI/PlayerHUD.java" />
+        <option value="$PROJECT_DIR$/src/BaseClasses/Functions.java" />
+        <option value="$PROJECT_DIR$/src/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/Player/Player.java" />
+        <option value="$PROJECT_DIR$/src/World/BGObject.java" />
+        <option value="$PROJECT_DIR$/src/States/Game.java" />
+        <option value="$PROJECT_DIR$/src/TileMap/TileConverter.java" />
+        <option value="$PROJECT_DIR$/src/World/Tiles.java" />
+        <option value="$PROJECT_DIR$/src/TileMap/Maps.java" />
+        <option value="$PROJECT_DIR$/src/Player/MouseMovement.java" />
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="-1288" />
     <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1036" />
+    <option name="width" value="1296" />
+    <option name="height" value="1010" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -309,6 +324,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="World" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -324,7 +343,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Player" />
+              <option name="myItemId" value="TileMap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PixDungeon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PixDungeon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -353,10 +386,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.18916667" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="fileTemplates" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/natives" />
@@ -371,6 +404,9 @@
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Programming\Games\PixDungeon\res" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -531,28 +567,48 @@
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
+    <frame x="-1288" y="-8" width="1296" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3968254" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.67539865" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3967136" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32346243" sideWeight="0.49816403" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257403" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.67723006" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2117503" sideWeight="0.67488265" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32511738" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16045381" sideWeight="0.6032864" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32276994" sideWeight="0.497552" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329806" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257403" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -632,102 +688,114 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Classes/ClassKnight.java">
+    <entry file="file://$PROJECT_DIR$/src/BaseClasses/Functions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="38" selection-start="442" selection-end="442" vertical-scroll-proportion="0.6797583" />
+        <state line="39" column="0" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Classes/BaseClass.java">
+    <entry file="file://$PROJECT_DIR$/src/States/States.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Classes/ClassWizard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="38" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player/PowerTypes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player/PlayerAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+        <state line="2" column="12" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BaseClasses/TextCenter.java">
+    <entry file="file://$PROJECT_DIR$/src/States/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="50" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0">
+        <state line="4" column="46" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/slick.jar!/org/newdawn/slick/tiled/Tile.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="11" selection-start="321" selection-end="321" vertical-scroll-proportion="0.24667473">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/PlayerHUD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="1" selection-start="3786" selection-end="3786" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Render/MapRender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="5" selection-start="2828" selection-end="2828" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module_pixdungeon.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="57" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="17" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.0">
+        <state line="60" column="109" selection-start="2619" selection-end="2619" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/World/BaseObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="1529" selection-end="1529" vertical-scroll-proportion="0.0">
+        <state line="77" column="23" selection-start="1793" selection-end="1793" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/slick.jar!/org/newdawn/slick/Image.class">
+    <entry file="file://$PROJECT_DIR$/src/World/BGObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="0" selection-start="8680" selection-end="8680" vertical-scroll-proportion="-5.88" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/PlayerHUD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="1908" selection-end="1908" vertical-scroll-proportion="0.0">
+        <state line="15" column="17" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="107" column="24" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="0" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Tiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="1" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/States/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="0" selection-start="4061" selection-end="4061" vertical-scroll-proportion="0.0">
+        <state line="201" column="0" selection-start="7071" selection-end="7071" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TileMap/Maps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="11" selection-start="4309" selection-end="4309" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TileMap/TileConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="52" selection-start="1218" selection-end="1218" vertical-scroll-proportion="0.0">
+        <state line="67" column="46" selection-start="2234" selection-end="2234" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player/MouseMovement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="36" selection-start="1785" selection-end="1785" vertical-scroll-proportion="0.59183675">
+        <state line="49" column="116" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.5203426">
           <folding />
         </state>
       </provider>
@@ -789,6 +857,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

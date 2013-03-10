@@ -11,6 +11,8 @@ import Player.Player;
 import Render.ImageRenderComponent;
 import Render.StringRenderComponent;
 import TileMap.Maps;
+import TileMap.TileConverter;
+import World.BaseObject;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
@@ -83,7 +85,7 @@ public class Game extends BasicGameState {
         MouseMovement PlayerMovement = new MouseMovement("PlayerMovement");
         PlayerMovement.setSpeed(0.35f);
         changeMap("map1");
-        createCharacter("Zurrox", ClassList.Wizard);
+        createCharacter("Zurrox", ClassList.Assassin);
         player1.setMaxHealth(100);
         player1.setHealth(100);
         classImage = new Image(player1.getPlayerClassImage());
@@ -140,8 +142,15 @@ public class Game extends BasicGameState {
             if (input.isKeyDown(Input.KEY_2)) {
                 curMap = "map2";
             }
-            g.setColor(Color.red);
-            g.drawRect(EntityPlayer.getPosition().x, EntityPlayer.getPosition().y, classImage.getWidth(), classImage.getHeight());
+
+            if (TileConverter.getTile((int) Math.ceil(playerPosX) / 32, (int) Math.ceil(playerPosY) / 32) != null) {
+                g.drawString("Tile: " + TileConverter.getTile((int) Math.ceil(playerPosX) / 32, (int) Math.ceil(playerPosY) / 32).getName(), 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: " + TileConverter.getTile((int) Math.ceil(playerPosX) / 32, (int) Math.ceil(playerPosY) / 32).isSolid(), 0, gc.getHeight() / 4 - 60);
+            } else {
+                g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
+            }
+//            g.setColor(Color.red);
+//            g.drawRect(EntityPlayer.getPosition().x, EntityPlayer.getPosition().y, classImage.getWidth(), classImage.getHeight());
 
             g.setColor(Color.white);
             g.drawString("MouseX: " + input.getMouseX() / 16 + ", MouseY: " + input.getMouseY() / 16, 0, gc.getHeight() / 4);
@@ -151,6 +160,9 @@ public class Game extends BasicGameState {
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
         Input input = gc.getInput();
+
+        if (input.isKeyDown(Input.KEY_W)) {
+        }
 
         if (Main.debugMode()) {
             gc.setShowFPS(true);
@@ -225,11 +237,9 @@ public class Game extends BasicGameState {
         isInventoryOpen = false;
     }
 
-    public static String[] getCurrentMap() {
+    public static BaseObject[][] getCurrentMap() {
         if (curMap == "map1") {
             return Maps.map1;
-        } else if (curMap == "map2") {
-            return Maps.map2;
         } else {
             return null;
         }

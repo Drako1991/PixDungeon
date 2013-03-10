@@ -8,7 +8,7 @@ import org.newdawn.slick.SlickException;
 
 public class Player {
     static ClassList Class;
-    private int MaxLevel = 30, Level, xp, Strength, Vitality, Intellect, Dexterity, Agility, maxHealth, Health,
+    private int maxLevel = 30, Level, xp, Strength, Vitality, Intellect, Dexterity, Agility, maxHealth, Health,
             xpIncreaseRate = 500, maxPower, power;
     private String Name, classImgLocation;
     private DefaultValues v = new DefaultValues();
@@ -34,58 +34,58 @@ public class Player {
         setLevel(1);
         setXP(0);
 
-            switch (Class) {
-                case Archer:
-                    setStrength(v.ARCHER_STRENGTH);
-                    setVitality(v.ARCHER_VITALITY);
-                    setIntellect(v.ARCHER_INTELLECT);
-                    setDexterity(v.ARCHER_DEXTERITY);
-                    setAgility(v.ARCHER_AGILITY);
-                    setName(Name);
-                    setClassImageLocation(v.ARCHER_LOCATION);
-                    setPowerType(PowerTypes.tempArcher);
-                    setMaxPower(100);
-                    break;
+        switch (Class) {
+            case Archer:
+                setStrength(v.ARCHER_STRENGTH);
+                setVitality(v.ARCHER_VITALITY);
+                setIntellect(v.ARCHER_INTELLECT);
+                setDexterity(v.ARCHER_DEXTERITY);
+                setAgility(v.ARCHER_AGILITY);
+                setName(Name);
+                setClassImageLocation(v.ARCHER_LOCATION);
+                setPowerType(PowerTypes.tempArcher);
+                setMaxPower(100);
+                break;
 
-                case Assassin:
-                    setStrength(v.ASSASSIN_STRENGTH);
-                    setVitality(v.ASSASSIN_VITALITY);
-                    setIntellect(v.ASSASSIN_INTELLECT);
-                    setDexterity(v.ASSASSIN_DEXTERITY);
-                    setAgility(v.ASSASSIN_AGILITY);
-                    setName(Name);
-                    setClassImageLocation(v.ASSASSIN_LOCATION);
-                    setPowerType(PowerTypes.tempAssassin);
-                    setMaxPower(100);
-                    break;
+            case Assassin:
+                setStrength(v.ASSASSIN_STRENGTH);
+                setVitality(v.ASSASSIN_VITALITY);
+                setIntellect(v.ASSASSIN_INTELLECT);
+                setDexterity(v.ASSASSIN_DEXTERITY);
+                setAgility(v.ASSASSIN_AGILITY);
+                setName(Name);
+                setClassImageLocation(v.ASSASSIN_LOCATION);
+                setPowerType(PowerTypes.tempAssassin);
+                setMaxPower(100);
+                break;
 
-                case Knight:
-                    setStrength(v.KNIGHT_STRENGTH);
-                    setVitality(v.KNIGHT_VITALITY);
-                    setIntellect(v.KNIGHT_INTELLECT);
-                    setDexterity(v.KNIGHT_DEXTERITY);
-                    setAgility(v.KNIGHT_AGILITY);
-                    setName(Name);
-                    setClassImageLocation(v.KNIGHT_LOCATION);
-                    setPowerType(PowerTypes.Fury);
-                    setMaxPower(100);
-                    break;
+            case Knight:
+                setStrength(v.KNIGHT_STRENGTH);
+                setVitality(v.KNIGHT_VITALITY);
+                setIntellect(v.KNIGHT_INTELLECT);
+                setDexterity(v.KNIGHT_DEXTERITY);
+                setAgility(v.KNIGHT_AGILITY);
+                setName(Name);
+                setClassImageLocation(v.KNIGHT_LOCATION);
+                setPowerType(PowerTypes.Fury);
+                setMaxPower(100);
+                break;
 
-                case Wizard:
-                    setStrength(v.WIZARD_STRENGTH);
-                    setVitality(v.WIZARD_VITALITY);
-                    setIntellect(v.WIZARD_INTELLECT);
-                    setDexterity(v.WIZARD_DEXTERITY);
-                    setAgility(v.WIZARD_AGILITY);
-                    setName(Name);
-                    setClassImageLocation(v.WIZARD_LOCATION);
-                    setPowerType(PowerTypes.Mana);
-                    setMaxPower(100);
-                    break;
+            case Wizard:
+                setStrength(v.WIZARD_STRENGTH);
+                setVitality(v.WIZARD_VITALITY);
+                setIntellect(v.WIZARD_INTELLECT);
+                setDexterity(v.WIZARD_DEXTERITY);
+                setAgility(v.WIZARD_AGILITY);
+                setName(Name);
+                setClassImageLocation(v.WIZARD_LOCATION);
+                setPowerType(PowerTypes.Mana);
+                setMaxPower(100);
+                break;
 
-                default:
-                    System.out.println("====ERROR WHEN CREATING CHARACTER====");
-                    break;
+            default:
+                System.out.println("====ERROR WHEN CREATING CHARACTER====");
+                break;
         }
     }
 
@@ -144,12 +144,12 @@ public class Player {
     }
 
     public void addXP(int XP) {
-        if (this.Level + 1 <= MaxLevel) {
+        if (this.Level + 1 <= maxLevel) {
 
             if (this.xp + XP < this.getMaxXP(this.Level)) {
                 this.xp += XP;
             } else {
-                if (this.Level + 1 <= this.MaxLevel) {
+                if (this.Level + 1 <= this.maxLevel) {
                     int tempXP = (this.xp + XP) - this.getMaxXP(this.Level);
 
                     if (tempXP >= 0) {
@@ -157,7 +157,7 @@ public class Player {
                         this.xp = tempXP;
                     }
                 } else {
-                    this.Level = this.MaxLevel;
+                    this.Level = this.maxLevel;
                     this.xp = 0;
                 }
             }
@@ -206,20 +206,20 @@ public class Player {
 
     public void setLevel(int Level) {
 
-        if (Level <= this.MaxLevel) {
+        if (Level <= this.maxLevel) {
             this.Level = Level;
         } else {
-            this.Level = this.MaxLevel;
+            this.Level = this.maxLevel;
         }
     }
 
     public void addLevel(int Level) {
 
-        if (this.Level + Level <= this.MaxLevel) {
+        if (this.Level + Level <= this.maxLevel) {
             this.Level += Level;
 
         } else {
-            this.Level = this.MaxLevel;
+            this.Level = this.maxLevel;
         }
     }
 
@@ -335,7 +335,7 @@ public class Player {
 
     public int getMaxLevel() {
 
-        return this.MaxLevel;
+        return this.maxLevel;
     }
 
     public int getMaxXP() {

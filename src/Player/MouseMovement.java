@@ -1,6 +1,7 @@
 package Player;
 
 import Main.Component;
+import TileMap.TileConverter;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Vector2f;
@@ -43,9 +44,17 @@ public class MouseMovement extends Component {
         Input input = gc.getInput();
         float scale = owner.getScale();
         Vector2f position = owner.getPosition();
-        double speed = this.speed * delta;
+        float speed = this.speed * delta;
 
-        if (input.isKeyDown(Input.KEY_W)) position.y -= speed;
+        if (TileConverter.getTile(position.x, position.y - speed) != null) {
+            if (input.isKeyDown(Input.KEY_W) && !TileConverter.getTile(position.x, position.y - speed).isSolid()) {
+                position.y -= speed;
+            }
+        }else{
+            if(input.isKeyDown(Input.KEY_W)) {
+                position.y -= speed;
+            }
+        }
         if (input.isKeyDown(Input.KEY_S)) position.y += speed;
         if (input.isKeyDown(Input.KEY_D)) position.x += speed;
         if (input.isKeyDown(Input.KEY_A)) position.x -= speed;
@@ -62,15 +71,50 @@ public class MouseMovement extends Component {
         boolean w = gc.getInput().isKeyDown(Input.KEY_W), s = gc.getInput().isKeyDown(Input.KEY_S), a = gc.getInput().isKeyDown(Input.KEY_A),
                 d = gc.getInput().isKeyDown(Input.KEY_D);
 
-        if (!w && !s && !a && !d) angle = degreesToMouse; mouseControl = true;
-        if (w) angle += 0; mouseControl = false;
-        if (w && d) angle += 45; mouseControl = false;
-        if (d && !w && !s) angle += 90; mouseControl = false;
-        if (s && d) angle -= 45; mouseControl = false;
-        if (w && a) angle -= 45; mouseControl = false;
-        if (s && a) angle += 45; mouseControl = false;
-        if (a && !w && !s) angle -= 90; mouseControl = false;
-        if (s) angle += 180; mouseControl = false;
+        if (!w && !s && !a && !d) {
+            angle = degreesToMouse;
+            mouseControl = true;
+        }
+
+        if (w) {
+            angle += 0;
+            mouseControl = false;
+        }
+
+        if (w && d) {
+            angle += 45;
+            mouseControl = false;
+        }
+
+        if (d && !w && !s) {
+            angle += 90;
+            mouseControl = false;
+        }
+
+        if (s && d) {
+            angle -= 45;
+            mouseControl = false;
+        }
+
+        if (w && a) {
+            angle -= 45;
+            mouseControl = false;
+        }
+
+        if (s && a) {
+            angle += 45;
+            mouseControl = false;
+        }
+
+        if (a && !w && !s) {
+            angle -= 90;
+            mouseControl = false;
+        }
+
+        if (s) {
+            angle += 180;
+            mouseControl = false;
+        }
 
         return angle;
     }

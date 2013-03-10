@@ -13,6 +13,7 @@ public class BGObject extends BaseObject {
         setEnum(n);
         setName(name);
         setTileSize(tileSize);
+        setColidable(true);
         try {
             setImage(new SpriteSheet("res/SpriteSheets/NaturalBGSS64.png", tileSize, tileSize), new Vector2f(x, y));
         } catch (SlickException e) {
