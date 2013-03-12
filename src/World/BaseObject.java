@@ -7,7 +7,7 @@ import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Vector2f;
 
 public class BaseObject {
-    private static boolean isSolid, breakable, usesSpriteSheet;
+    private boolean isSolid, breakable, usesSpriteSheet;
     private String imageLocation, name;
     private int imageSize;
     private float tileSize;
@@ -52,6 +52,10 @@ public class BaseObject {
     public BaseObject setImage(String name) {
         usesSpriteSheet = false;
         imageLocation = "res/SpriteSheets/" + name + ".png";
+        try{
+            this.img = new Image("res/SpriteSheets/" + name + ".png");
+        }catch(SlickException e){}
+
         return this;
     }
 

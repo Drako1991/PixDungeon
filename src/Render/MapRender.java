@@ -82,7 +82,7 @@ public class MapRender {
     public static void fillFromPoint(Graphics g, BaseObject obj, int posX, int posY, int width, int height) {
         for (int tempX = posX; tempX <= posX + width; tempX++) {
             for (int tempY = posY; tempY <= posY + height; tempY++) {
-                g.drawImage(obj.getImage(), tempX * 32, tempY * 32);
+                g.drawImage(obj.getImage(), tempX * 64, tempY * 64);
             }
         }
     }
@@ -90,7 +90,7 @@ public class MapRender {
     public static void fill(Graphics g, BaseObject obj, int startX, int startY, int endX, int endY) {
         for (int tempX = startX; tempX <= endX; tempX++) {
             for (int tempY = startY; tempY <= endY; tempY++) {
-                g.drawImage(obj.getImage(), tempX * 32, tempY * 32);
+                g.drawImage(obj.getImage(), tempX * 64, tempY * 64);
             }
         }
     }

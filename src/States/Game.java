@@ -10,6 +10,7 @@ import Player.MouseMovement;
 import Player.Player;
 import Render.ImageRenderComponent;
 import Render.StringRenderComponent;
+import TileMap.Map;
 import TileMap.Maps;
 import TileMap.TileConverter;
 import World.BaseObject;
@@ -28,6 +29,7 @@ public class Game extends BasicGameState {
     private static boolean changingMap = true;
     private static Image classImage;
     private static String curMap;
+    private static Map currMap;
 
     private static void changeMap(String s) {
         curMap = s;
@@ -138,22 +140,22 @@ public class Game extends BasicGameState {
         if (Main.debugMode()) {
             if (input.isKeyDown(Input.KEY_1)) {
                 curMap = "map1";
+                currMap = Maps.Map1;
             }
             if (input.isKeyDown(Input.KEY_2)) {
                 curMap = "map2";
             }
 
-            if (TileConverter.getTile((int) Math.ceil(playerPosX) / 32, (int) Math.ceil(playerPosY) / 32) != null) {
-                g.drawString("Tile: " + TileConverter.getTile((int) Math.ceil(playerPosX) / 32, (int) Math.ceil(playerPosY) / 32).getName(), 0, gc.getHeight() / 4 - 40);
-                g.drawString("Solid: " + TileConverter.getTile((int) Math.ceil(playerPosX) / 32, (int) Math.ceil(playerPosY) / 32).isSolid(), 0, gc.getHeight() / 4 - 60);
+            if (TileConverter.getTile(playerPosX, playerPosY) != null) {
+                g.drawString("Tile: " + TileConverter.getTile(playerPosX, playerPosY).getName(), 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: " + TileConverter.getTile(playerPosX, playerPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
                 g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: Null" , 0, gc.getHeight() / 4 - 60);
             }
-//            g.setColor(Color.red);
-//            g.drawRect(EntityPlayer.getPosition().x, EntityPlayer.getPosition().y, classImage.getWidth(), classImage.getHeight());
 
             g.setColor(Color.white);
-            g.drawString("MouseX: " + input.getMouseX() / 16 + ", MouseY: " + input.getMouseY() / 16, 0, gc.getHeight() / 4);
+            g.drawString("MouseX: " + (input.getMouseX() / 64) + playerPosX + ", MouseY: " + (input.getMouseY() / 64) + playerPosY, 0, gc.getHeight() / 4);
             g.drawString("Dead: " + player1.getDead(), 0, gc.getHeight() / 4 - 20);
         }
     }
@@ -161,13 +163,10 @@ public class Game extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
         Input input = gc.getInput();
 
-        if (input.isKeyDown(Input.KEY_W)) {
-        }
-
         if (Main.debugMode()) {
             gc.setShowFPS(true);
 
-            if (input.isKeyDown(Input.KEY_X)) {
+            /*if (input.isKeyDown(Input.KEY_X)) {
                 player1.addPower(1);
             }
             if (input.isKeyDown(Input.KEY_Z)) {
@@ -187,7 +186,7 @@ public class Game extends BasicGameState {
             }
             if (input.isKeyDown(Input.KEY_E)) {
                 player1.addHealth(1);
-            }
+            }*/
         } else {
             gc.setShowFPS(false);
         }
