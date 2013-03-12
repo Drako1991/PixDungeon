@@ -28,12 +28,12 @@ public class PauseMenu extends BasicGameState {
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 
-        if (sbg.getCurrentStateID() == States.PauseMenu.ordinal()) {
-            if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
+        if(sbg.getCurrentStateID() == States.PauseMenu.ordinal()) {
+            if(gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
                 sbg.enterState(States.Playing.ordinal());
             }
 
-            if (gc.getInput().isKeyPressed(Input.KEY_1)) {
+            if(gc.getInput().isKeyPressed(Input.KEY_1)) {
                 sbg.enterState(States.MainMenu.ordinal());
             }
         }

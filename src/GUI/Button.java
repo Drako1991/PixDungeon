@@ -15,24 +15,24 @@ public class Button {
 
         g.setColor(clr);
 
-        if (mlr == 0) {
+        if(mlr == 0) {
             TextX = x + myFont.getWidth(text) / 2;
         }
-        if (mlr == 1) {
+        if(mlr == 1) {
             TextX = x;
         }
-        if (mlr == 2) {
+        if(mlr == 2) {
             TextX = x + img.getWidth();
         }
 
         g.drawString(text, TextX, y + myFont.getHeight(text) / 2);
 
-        if (gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+        if(gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             int mouseX = gc.getInput().getMouseX();
             int mouseY = gc.getInput().getMouseY();
 
-            if (mouseX >= x && mouseX <= x + img.getWidth()) {
-                if (mouseY >= y && mouseY <= y + img.getHeight()) {
+            if(mouseX >= x && mouseX <= x + img.getWidth()) {
+                if(mouseY >= y && mouseY <= y + img.getHeight()) {
 //                    buttonPressed[ID.ordinal()] = true;
                     System.out.println("Button Pressed! @ " + x + ", " + y);
                 }

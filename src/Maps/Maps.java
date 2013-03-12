@@ -26,7 +26,7 @@ public class Maps {
     public static void renderMap(Map map, float mapX, float mapY) {
         if(map != null) {
             map.renderMap(mapX, mapY);
-        }else{
+        } else {
             System.out.println("Returned null then rendering map!");
         }
     }

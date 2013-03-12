@@ -2,20 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71a16653-6d70-406e-b154-fce54b5bba2a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Maps/Map.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Maps/MapsList.java" />
-      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\src\TileMap\Map.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\src\TileMap\MapsList.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Programming\Games\PixDungeon\src\TileMap\Maps.java" afterPath="$PROJECT_DIR$/src/Maps/Maps.java" />
-      <change type="MOVED" beforePath="C:\Programming\Games\PixDungeon\src\TileMap\TileConverter.java" afterPath="$PROJECT_DIR$/src/Maps/TileConverter.java" />
-      <change type="MOVED" beforePath="C:\Programming\Games\PixDungeon\src\TileMap\TileList.java" afterPath="$PROJECT_DIR$/src/Maps/TileList.java" />
-      <change type="MOVED" beforePath="C:\Programming\Games\PixDungeon\src\World\BGObject.java" afterPath="$PROJECT_DIR$/src/Tiles/BGObject.java" />
-      <change type="MOVED" beforePath="C:\Programming\Games\PixDungeon\src\World\BaseObject.java" afterPath="$PROJECT_DIR$/src/Tiles/BaseObject.java" />
-      <change type="MOVED" beforePath="C:\Programming\Games\PixDungeon\src\World\Tiles.java" afterPath="$PROJECT_DIR$/src/Tiles/Tiles.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/BGObject.java" afterPath="$PROJECT_DIR$/src/Tiles/BGObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/BaseObject.java" afterPath="$PROJECT_DIR$/src/Tiles/BaseObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Button.java" afterPath="$PROJECT_DIR$/src/GUI/Button.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/States/CharacterCreation.java" afterPath="$PROJECT_DIR$/src/States/CharacterCreation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player/CurrentStats.java" afterPath="$PROJECT_DIR$/src/Player/CurrentStats.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Entity.java" afterPath="$PROJECT_DIR$/src/Main/Entity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BaseClasses/Functions.java" afterPath="$PROJECT_DIR$/src/BaseClasses/Functions.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/States/Game.java" afterPath="$PROJECT_DIR$/src/States/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/States/MainMenu.java" afterPath="$PROJECT_DIR$/src/States/MainMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Maps/Map.java" afterPath="$PROJECT_DIR$/src/Maps/Map.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Render/MapRender.java" afterPath="$PROJECT_DIR$/src/Render/MapRender.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Maps/Maps.java" afterPath="$PROJECT_DIR$/src/Maps/Maps.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player/MouseMovement.java" afterPath="$PROJECT_DIR$/src/Player/MouseMovement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/States/PauseMenu.java" afterPath="$PROJECT_DIR$/src/States/PauseMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player/Player.java" afterPath="$PROJECT_DIR$/src/Player/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player/PlayerAnimation.java" afterPath="$PROJECT_DIR$/src/Player/PlayerAnimation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BaseClasses/TextCenter.java" afterPath="$PROJECT_DIR$/src/BaseClasses/TextCenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Maps/TileConverter.java" afterPath="$PROJECT_DIR$/src/Maps/TileConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Equipment/Weapon.java" afterPath="$PROJECT_DIR$/src/Equipment/Weapon.java" />
     </list>
     <ignored path="PixDungeon.iws" />
     <ignored path="../.idea/" />
@@ -66,6 +71,8 @@
     <file path="$PROJECT_DIR$/.idea/vcs.xml" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362307895427" ignored="false" />
     <file path="/Functions.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1362765437194" ignored="false" />
     <file path="/MapsList.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1363116877650" ignored="false" />
+    <file path="/a.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1363119679249" ignored="false" />
+    <file path="/sample.java" changelist="71a16653-6d70-406e-b154-fce54b5bba2a" time="1363119684049" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +139,7 @@
       <file leaf-file-name="Map.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Maps/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="24" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
+            <state line="41" column="24" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,19 +147,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapRender.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MapRender.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Render/MapRender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="114" selection-start="557" selection-end="571" vertical-scroll-proportion="0.0">
+            <state line="70" column="9" selection-start="2773" selection-end="2773" vertical-scroll-proportion="1.4746946">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapsList.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MapsList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Maps/MapsList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="1" selection-start="56" selection-end="56" vertical-scroll-proportion="0.118673645">
+            <state line="4" column="1" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -161,7 +168,7 @@
       <file leaf-file-name="Maps.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Maps/Maps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="79" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0">
+            <state line="21" column="6" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -171,24 +178,6 @@
         <entry file="file://$PROJECT_DIR$/src/Maps/TileConverter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="75" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/States/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="45" selection-start="4116" selection-end="4116" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MouseMovement.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Player/MouseMovement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="10" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -229,12 +218,12 @@
         <option value="$PROJECT_DIR$/src/Main/Entity.java" />
         <option value="$PROJECT_DIR$/src/Player/MouseMovement.java" />
         <option value="$PROJECT_DIR$/src/States/Game.java" />
-        <option value="$PROJECT_DIR$/src/Render/MapRender.java" />
         <option value="$PROJECT_DIR$/src/TileMap/TileConverter.java" />
         <option value="$PROJECT_DIR$/src/TileMap/Maps.java" />
         <option value="$PROJECT_DIR$/src/TileMap/Map.java" />
         <option value="$PROJECT_DIR$/src/TileMap/MapsList.java" />
         <option value="$PROJECT_DIR$/src/Maps/MapsList.java" />
+        <option value="$PROJECT_DIR$/src/Render/MapRender.java" />
       </list>
     </option>
   </component>
@@ -388,7 +377,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.18916667" />
-    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Java" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/natives" />
@@ -739,16 +728,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player/MouseMovement.java">
+    <entry file="file://$PROJECT_DIR$/src/Maps/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="10" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="41" column="24" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/States/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="45" selection-start="4116" selection-end="4116" vertical-scroll-proportion="0.0">
+        <state line="122" column="45" selection-start="4116" selection-end="4116" vertical-scroll-proportion="0.85863876">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player/MouseMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="10" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.5078534">
           <folding />
         </state>
       </provider>
@@ -762,30 +760,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Maps/Maps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="79" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Maps/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="24" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Render/MapRender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="114" selection-start="557" selection-end="571" vertical-scroll-proportion="0.0">
+        <state line="21" column="6" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Maps/MapsList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1" selection-start="56" selection-end="56" vertical-scroll-proportion="0.118673645">
+        <state line="4" column="1" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Render/MapRender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="9" selection-start="2773" selection-end="2773" vertical-scroll-proportion="1.4746946">
           <folding />
         </state>
       </provider>
@@ -866,6 +855,17 @@
         </settings>
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
         <settings>
           <splitter-proportions>
             <option name="proportions">

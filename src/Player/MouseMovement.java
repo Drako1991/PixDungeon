@@ -46,17 +46,17 @@ public class MouseMovement extends Component {
         float speed = this.speed * delta;
 
 //        if (TileConverter.getTile(position.x, position.y - speed) != null) {
-            if (input.isKeyDown(Input.KEY_W)/* && !TileConverter.getTile(position.x, position.y - speed).isSolid()*/) {
-                position.y -= speed;
-            }
+        if(input.isKeyDown(Input.KEY_W)/* && !TileConverter.getTile(position.x, position.y - speed).isSolid()*/) {
+            position.y -= speed;
+        }
         /*}else{
             if(input.isKeyDown(Input.KEY_W)) {
                 position.y -= speed;
             }
         }*/
-        if (input.isKeyDown(Input.KEY_S)) position.y += speed;
-        if (input.isKeyDown(Input.KEY_D)) position.x += speed;
-        if (input.isKeyDown(Input.KEY_A)) position.x -= speed;
+        if(input.isKeyDown(Input.KEY_S)) position.y += speed;
+        if(input.isKeyDown(Input.KEY_D)) position.x += speed;
+        if(input.isKeyDown(Input.KEY_A)) position.x -= speed;
 
         owner.setRotation(getRotation(gc));
         owner.setPosition(position);
@@ -70,47 +70,47 @@ public class MouseMovement extends Component {
         boolean w = gc.getInput().isKeyDown(Input.KEY_W), s = gc.getInput().isKeyDown(Input.KEY_S), a = gc.getInput().isKeyDown(Input.KEY_A),
                 d = gc.getInput().isKeyDown(Input.KEY_D);
 
-        if (!w && !s && !a && !d) {
+        if(!w && !s && !a && !d) {
             angle = degreesToMouse;
             mouseControl = true;
         }
 
-        if (w) {
+        if(w) {
             angle += 0;
             mouseControl = false;
         }
 
-        if (w && d) {
+        if(w && d) {
             angle += 45;
             mouseControl = false;
         }
 
-        if (d && !w && !s) {
+        if(d && !w && !s) {
             angle += 90;
             mouseControl = false;
         }
 
-        if (s && d) {
+        if(s && d) {
             angle -= 45;
             mouseControl = false;
         }
 
-        if (w && a) {
+        if(w && a) {
             angle -= 45;
             mouseControl = false;
         }
 
-        if (s && a) {
+        if(s && a) {
             angle += 45;
             mouseControl = false;
         }
 
-        if (a && !w && !s) {
+        if(a && !w && !s) {
             angle -= 90;
             mouseControl = false;
         }
 
-        if (s) {
+        if(s) {
             angle += 180;
             mouseControl = false;
         }

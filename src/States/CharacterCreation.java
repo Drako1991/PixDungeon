@@ -48,12 +48,12 @@ public class CharacterCreation extends BasicGameState {
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
         Input input = gc.getInput();
-        if (textField.hasFocus() && tfFocused == false) {
+        if(textField.hasFocus() && tfFocused == false) {
             textField.setText("");
             tfFocused = true;
         }
 
-        if (input.isKeyPressed(Input.KEY_ESCAPE)) {
+        if(input.isKeyPressed(Input.KEY_ESCAPE)) {
             sbg.enterState(States.MainMenu.ordinal());
         }
     }

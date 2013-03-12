@@ -56,7 +56,7 @@ public class Weapon extends Equipable {
 
     public ElementalTypes getElementalType() {
 
-        if (this.isElemental) {
+        if(this.isElemental) {
             return this.ElementalType;
         } else {
             return null;

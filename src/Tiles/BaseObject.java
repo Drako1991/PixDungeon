@@ -52,9 +52,10 @@ public class BaseObject {
     public BaseObject setImage(String name) {
         usesSpriteSheet = false;
         imageLocation = "res/SpriteSheets/" + name + ".png";
-        try{
+        try {
             this.img = new Image("res/SpriteSheets/" + name + ".png");
-        }catch(SlickException e){}
+        } catch(SlickException e) {
+        }
 
         return this;
     }
@@ -99,12 +100,12 @@ public class BaseObject {
     }
 
     public Image getImage() {
-        if (usesSpriteSheet) {
+        if(usesSpriteSheet) {
             return img;
         } else {
             try {
                 return new Image(imageLocation);
-            } catch (SlickException e) {
+            } catch(SlickException e) {
                 e.printStackTrace();
             }
             return null;
@@ -122,7 +123,7 @@ public class BaseObject {
 
     public BaseObject animate(int frames) throws SlickException {
         SpriteSheet ss = new SpriteSheet(new Image("res/BackgroundObjects.png"), 32, 32);
-        for (int curFrame = 0; curFrame <= frames; curFrame++) {
+        for(int curFrame = 0; curFrame <= frames; curFrame++) {
             new Animation(ss, 2);
         }
         return this;

@@ -2,7 +2,7 @@ package Player;
 
 public class PlayerAnimation {
     public static void animated(PlayerAnimStates anim) {
-        switch (anim) {
+        switch(anim) {
             case WalkingW:
                 System.out.println("WalkingW");
             case WalkingS:

@@ -3,11 +3,11 @@ package BaseClasses;
 public class TextCenter {
 
     public static float getCenterTextX(String name, float x) {
-        if (name.length() > 6) {
+        if(name.length() > 6) {
             x = (float) (x - name.length() * 2.5);
-        } else if (name.length() > 4 && name.length() <= 6) {
+        } else if(name.length() > 4 && name.length() <= 6) {
             x = x - name.length() - 1;
-        } else if (name.length() == 4) {
+        } else if(name.length() == 4) {
             x = x - name.length() + 3;
         }
         return x;

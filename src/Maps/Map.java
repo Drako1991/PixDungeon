@@ -22,7 +22,8 @@ public class Map {
         return this;
     }
 
-    public Map() {}
+    public Map() {
+    }
 
     public Map(BaseObject[][] map) {
         this.map = map;

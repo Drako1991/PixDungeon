@@ -6,12 +6,12 @@ import GUI.CharacterCreation;
 import GUI.PlayerHUD;
 import Main.Entity;
 import Main.Main;
+import Maps.Map;
+import Maps.Maps;
 import Player.MouseMovement;
 import Player.Player;
 import Render.ImageRenderComponent;
 import Render.StringRenderComponent;
-import Maps.Map;
-import Maps.Maps;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
@@ -40,19 +40,19 @@ public class Game extends BasicGameState {
     }
 
     public static void createCharacter(String name, ClassList Class) {
-        if (player1 == null) {
+        if(player1 == null) {
             player1 = new Player(Class, name);
         }
-        if (player1 != null && player2 == null) {
+        if(player1 != null && player2 == null) {
             player2 = new Player(Class, name);
         }
-        if (player1 != null && player2 != null && player3 == null) {
+        if(player1 != null && player2 != null && player3 == null) {
             player3 = new Player(Class, name);
         }
-        if (player1 != null && player2 != null && player3 != null && player4 == null) {
+        if(player1 != null && player2 != null && player3 != null && player4 == null) {
             player4 = new Player(Class, name);
         }
-        if (player1 != null && player2 != null && player3 != null && player4 != null) {
+        if(player1 != null && player2 != null && player3 != null && player4 != null) {
             System.out.println("There are too many players!");
         }
     }
@@ -110,7 +110,7 @@ public class Game extends BasicGameState {
         float playerPosY = -EntityPlayer.getPosition().y / 64;
         Maps.renderMap(currMap, playerPosX, playerPosY);
 
-        if (changingMap) {
+        if(changingMap) {
 //            Maps.renderMap(curMap, playerPosX, playerPosY, true);
             changingMap = false;
         } /*else {
@@ -119,7 +119,7 @@ public class Game extends BasicGameState {
         Input input = gc.getInput();
 
         boolean gameHidden = false;
-        if (!gameHidden) {
+        if(!gameHidden) {
             EntityPlayer.render(gc, null, g);
             EntityName.render(gc, null, g);
             EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
@@ -129,25 +129,25 @@ public class Game extends BasicGameState {
 
         try {
             Thread.sleep(2);
-        } catch (InterruptedException e) {
+        } catch(InterruptedException e) {
             e.printStackTrace();
         }
 
-        if (isMenuOpen) {
-            if (createCharacterOpen) {
+        if(isMenuOpen) {
+            if(createCharacterOpen) {
                 CharacterCreation.createWindow(gc, g);
             }
-            if (isInventoryOpen) {
+            if(isInventoryOpen) {
                 Inventory(gc, g);
             }
         } else closeAllWindows();
 
-        if (Main.debugMode()) {
-            if (input.isKeyDown(Input.KEY_1)) {
+        if(Main.debugMode()) {
+            if(input.isKeyDown(Input.KEY_1)) {
                 curMap = "map1";
                 changeMap(Maps.Map1);
             }
-            if (input.isKeyDown(Input.KEY_2)) {
+            if(input.isKeyDown(Input.KEY_2)) {
                 curMap = "map2";
             }
 
@@ -168,7 +168,7 @@ public class Game extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
         Input input = gc.getInput();
 
-        if (Main.debugMode()) {
+        if(Main.debugMode()) {
             gc.setShowFPS(true);
 
             /*if (input.isKeyDown(Input.KEY_X)) {
@@ -196,35 +196,35 @@ public class Game extends BasicGameState {
             gc.setShowFPS(false);
         }
 
-        if (input.isKeyPressed(Input.KEY_LCONTROL) || gc.getInput().isKeyPressed(Input.KEY_RCONTROL)) {
+        if(input.isKeyPressed(Input.KEY_LCONTROL) || gc.getInput().isKeyPressed(Input.KEY_RCONTROL)) {
             Main.setDebugMode(!Main.debugMode());
         }
 
 
         boolean gamePaused = false;
-        if (!gamePaused) {
+        if(!gamePaused) {
             EntityPlayer.update(gc, null, delta);
             EntityName.update(gc, null, delta);
         }
 
 
-        if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
+        if(gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
             sbg.enterState(States.PauseMenu.ordinal());
         }
 
-        if (gc.getInput().isKeyPressed(Input.KEY_B)) {
+        if(gc.getInput().isKeyPressed(Input.KEY_B)) {
             isMenuOpen = !isMenuOpen;
             isInventoryOpen = !isInventoryOpen;
         }
 
-        if (gc.getInput().isKeyPressed(Input.KEY_C)) {
+        if(gc.getInput().isKeyPressed(Input.KEY_C)) {
             isMenuOpen = !isMenuOpen;
             createCharacterOpen = !createCharacterOpen;
         }
 
         try {
             Thread.sleep(2);
-        } catch (InterruptedException e) {
+        } catch(InterruptedException e) {
             e.printStackTrace();
         }
     }

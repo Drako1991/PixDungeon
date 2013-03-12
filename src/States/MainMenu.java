@@ -33,12 +33,12 @@ public class MainMenu extends BasicGameState {
             System.out.println("Button Pressed");
         }*/
 
-        if (sbg.getCurrentStateID() == getID()) {
-            if (gc.getInput().isKeyPressed(Input.KEY_1)) {
+        if(sbg.getCurrentStateID() == getID()) {
+            if(gc.getInput().isKeyPressed(Input.KEY_1)) {
                 sbg.enterState(States.CharacterCreation.ordinal());
             }
 
-            if (gc.getInput().isKeyPressed(Input.KEY_2)) {
+            if(gc.getInput().isKeyPressed(Input.KEY_2)) {
                 sbg.enterState(States.Playing.ordinal());
             }
         }

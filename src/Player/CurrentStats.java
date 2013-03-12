@@ -8,7 +8,7 @@ public class CurrentStats {
 
     public void setPlayerStrength(int Strength) {
 
-        if (!details.isServer()) {
+        if(!details.isServer()) {
             this.Strength = Strength;
         } else {
             System.out.println("====NEED TO SET PLAYER WHEN SETTING STRENGTH====");
@@ -22,7 +22,7 @@ public class CurrentStats {
 
     public void setPlayerVitality(int Vitality) {
 
-        if (!details.isServer()) {
+        if(!details.isServer()) {
             this.Vitality = Vitality;
         } else {
             System.out.println("====NEED TO SET PLAYER WHEN SETTING VITALITY====");
@@ -31,7 +31,7 @@ public class CurrentStats {
 
     public void setPlayerIntellect(int Intellect) {
 
-        if (!details.isServer()) {
+        if(!details.isServer()) {
             this.Intellect = Intellect;
         } else {
             System.out.println("====NEED TO SET PLAYER WHEN SETTING INTELLECT====");
@@ -40,7 +40,7 @@ public class CurrentStats {
 
     public void setPlayerDexterity(int Dexterity) {
 
-        if (!details.isServer()) {
+        if(!details.isServer()) {
             this.Dexterity = Dexterity;
         } else {
             System.out.println("====NEED TO SET PLAYER WHEN SETTING Dexterity====");
@@ -49,7 +49,7 @@ public class CurrentStats {
 
     public void setPlayerAgility(int Agility) {
 
-        if (!details.isServer()) {
+        if(!details.isServer()) {
             this.Agility = Agility;
         } else {
             System.out.println("====NEED TO SET PLAYER WHEN SETTING AGILITY====");

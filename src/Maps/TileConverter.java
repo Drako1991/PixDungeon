@@ -9,10 +9,10 @@ public class TileConverter {
     public static void renderWorld(BaseObject[][] t, float mapX, float mapY) {
         int maxX, maxY = t.length;
 
-        for (int y = 0; y < maxY; y++) {
+        for(int y = 0; y < maxY; y++) {
             maxX = t[y].length;
-            for (int x = 0; x < maxX; x++) {
-                if (t[y][x] != null) {
+            for(int x = 0; x < maxX; x++) {
+                if(t[y][x] != null) {
                     tilesMap[x][y] = t[y][x];
                     MapRender.drawTile(t[y][x], x, y, mapX, mapY, true);
                 }
@@ -21,13 +21,13 @@ public class TileConverter {
     }
 
     public static BaseObject getTile(int x, int y) {
-        if (tilesMap != null) {
-            if (x >= 0 && y >= 0) {
+        if(tilesMap != null) {
+            if(x >= 0 && y >= 0) {
                 if(tilesMap[x][y] != null) {
-                    if (x <= tilesMap.length && y <= tilesMap[x].length) {
+                    if(x <= tilesMap.length && y <= tilesMap[x].length) {
                         return tilesMap[x][y];
                     } else return null;
-                }else return null;
+                } else return null;
             } else return null;
         } else return null;
     }

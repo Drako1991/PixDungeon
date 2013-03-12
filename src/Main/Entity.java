@@ -30,7 +30,7 @@ public class Entity {
     }
 
     public void addComponent(Component component) {
-        if (RenderComponent.class.isInstance(component))
+        if(RenderComponent.class.isInstance(component))
             renderComponent = (RenderComponent) component;
 
         component.setOwnerEntity(this);
@@ -38,8 +38,8 @@ public class Entity {
     }
 
     public Component getComponent(String id) {
-        for (Component comp : components) {
-            if (comp.getId().equalsIgnoreCase(id))
+        for(Component comp : components) {
+            if(comp.getId().equalsIgnoreCase(id))
                 return comp;
         }
 
@@ -75,13 +75,13 @@ public class Entity {
     }
 
     public void update(GameContainer gc, StateBasedGame sb, int delta) {
-        for (Component component : components) {
+        for(Component component : components) {
             component.update(gc, sb, delta);
         }
     }
 
     public void render(GameContainer gc, StateBasedGame sb, Graphics g) {
-        if (renderComponent != null)
+        if(renderComponent != null)
             renderComponent.render(gc, sb, g);
     }
 }
