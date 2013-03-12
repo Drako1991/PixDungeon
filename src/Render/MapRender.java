@@ -22,6 +22,7 @@ public class MapRender {
     public static void drawTile(BaseObject obj, int posX, int posY, float mapX, float mapY, boolean connectsToPath) {
         float scale = 64;
         boolean sideGrass = false;
+        float mPosX = posX + mapX, mPosY = posY + mapY;
 
         if((obj.getEnum() != TileList.grass && connectsToPath) || !connectsToPath) {
             obj.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
@@ -32,12 +33,13 @@ public class MapRender {
                 if(posX >= 1) {
                     if(TileConverter.getTile(posX - 1, posY) == Tiles.path) {
                         sideGrass = true;
-                        Tiles.rGrass.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
+                        Tiles.rGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
                     }
+
                     if(TileConverter.getTile(posX - 1, posY + 1) == Tiles.path) {
                         if(TileConverter.getTile(posX - 1, posY) == Tiles.grass) {
                             sideGrass = true;
-                            Tiles.trGrass.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
+                            Tiles.trGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
                         }
                     }
                 }
@@ -45,27 +47,27 @@ public class MapRender {
                 if(posY >= 1) {
                     if(TileConverter.getTile(posX, posY - 1) == Tiles.path) {
                         sideGrass = true;
-                        Tiles.bGrass.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
+                        Tiles.bGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
                     }
                 }
 
                 if(TileConverter.getTile(posX + 1, posY + 1) == Tiles.path) {
                     sideGrass = true;
-                    Tiles.tlGrass.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
+                    Tiles.tlGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
                 }
 
                 if(TileConverter.getTile(posX + 1, posY) == Tiles.path) {
                     sideGrass = true;
-                    Tiles.lGrass.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
+                    Tiles.lGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
                 }
 
                 if(TileConverter.getTile(posX, posY + 1) == Tiles.path) {
                     sideGrass = true;
-                    Tiles.tGrass.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
+                    Tiles.tGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
                 }
 
                 if(!sideGrass) {
-                    Tiles.grass.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
+                    Tiles.grass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
                 }
             }
         }
