@@ -10,10 +10,8 @@ import Player.MouseMovement;
 import Player.Player;
 import Render.ImageRenderComponent;
 import Render.StringRenderComponent;
-import TileMap.Map;
-import TileMap.Maps;
-import TileMap.TileConverter;
-import World.BaseObject;
+import Maps.Map;
+import Maps.Maps;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
@@ -33,6 +31,11 @@ public class Game extends BasicGameState {
 
     private static void changeMap(String s) {
         curMap = s;
+        changingMap = true;
+    }
+
+    private static void changeMap(Map map) {
+        currMap = map;
         changingMap = true;
     }
 
@@ -86,7 +89,8 @@ public class Game extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         MouseMovement PlayerMovement = new MouseMovement("PlayerMovement");
         PlayerMovement.setSpeed(0.35f);
-        changeMap("map1");
+//        changeMap("map1");
+        changeMap(Maps.Map1);
         createCharacter("Zurrox", ClassList.Assassin);
         player1.setMaxHealth(100);
         player1.setHealth(100);
@@ -104,13 +108,14 @@ public class Game extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         float playerPosX = -EntityPlayer.getPosition().x / 64;
         float playerPosY = -EntityPlayer.getPosition().y / 64;
+        Maps.renderMap(currMap, playerPosX, playerPosY);
 
         if (changingMap) {
-            Maps.renderMap(curMap, playerPosX, playerPosY, true);
+//            Maps.renderMap(curMap, playerPosX, playerPosY, true);
             changingMap = false;
-        } else {
+        } /*else {
             Maps.renderMap(curMap, playerPosX, playerPosY, false);
-        }
+        }*/
         Input input = gc.getInput();
 
         boolean gameHidden = false;
@@ -140,19 +145,19 @@ public class Game extends BasicGameState {
         if (Main.debugMode()) {
             if (input.isKeyDown(Input.KEY_1)) {
                 curMap = "map1";
-                currMap = Maps.Map1;
+                changeMap(Maps.Map1);
             }
             if (input.isKeyDown(Input.KEY_2)) {
                 curMap = "map2";
             }
 
-            if (TileConverter.getTile(playerPosX, playerPosY) != null) {
-                g.drawString("Tile: " + TileConverter.getTile(playerPosX, playerPosY).getName(), 0, gc.getHeight() / 4 - 40);
-                g.drawString("Solid: " + TileConverter.getTile(playerPosX, playerPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
-            } else {
-                g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
-                g.drawString("Solid: Null" , 0, gc.getHeight() / 4 - 60);
-            }
+//            if (TileConverter.getTile(playerPosX, playerPosY) != null) {
+//                g.drawString("Tile: " + TileConverter.getTile(playerPosX, playerPosY).getName(), 0, gc.getHeight() / 4 - 40);
+//                g.drawString("Solid: " + TileConverter.getTile(playerPosX, playerPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
+//            } else {
+//                g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
+//                g.drawString("Solid: Null" , 0, gc.getHeight() / 4 - 60);
+//            }
 
             g.setColor(Color.white);
             g.drawString("MouseX: " + (input.getMouseX() / 64) + playerPosX + ", MouseY: " + (input.getMouseY() / 64) + playerPosY, 0, gc.getHeight() / 4);
@@ -236,11 +241,15 @@ public class Game extends BasicGameState {
         isInventoryOpen = false;
     }
 
-    public static BaseObject[][] getCurrentMap() {
+    /*public static BaseObject[][] getCurrentMap() {
         if (curMap == "map1") {
             return Maps.map1;
         } else {
             return null;
         }
+    }*/
+
+    public static Map getCurrentMap() {
+        return currMap;
     }
 }

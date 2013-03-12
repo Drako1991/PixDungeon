@@ -1,9 +1,9 @@
 package Render;
 
-import TileMap.TileConverter;
-import TileMap.TileList;
-import World.BaseObject;
-import World.Tiles;
+import Maps.TileConverter;
+import Maps.TileList;
+import Tiles.BaseObject;
+import Tiles.Tiles;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Vector2f;
 
