@@ -2,20 +2,21 @@ package Maps;
 
 import Render.MapRender;
 import Tiles.BaseObject;
+import org.newdawn.slick.SlickException;
 
 public class Map {
     private BaseObject[][] map;
     private String name;
     private int mapID;
 
-    public Map renderMap(float mapX, float mapY) {
+    public Map renderMap(float mapX, float mapY) throws SlickException {
         int maxY = map[0].length;
         int maxX = map.length;
 
         if(map != null) {
             for(int y = 0; y < maxY; y++) {
                 for(int x = 0; x < maxX; x++) {
-                    MapRender.drawTile(map[x][y], x, y, mapX, mapY, true);
+                    MapRender.drawTile(map[x][y], x, y, mapX, mapY, this, true);
                 }
             }
         }
@@ -87,7 +88,13 @@ public class Map {
     }
 
     public BaseObject getTile(int x, int y) {
-        return map[x][y];
+        if(map != null) {
+            if(x < map[0].length) {
+                if(y < map.length) {
+                    return map[y][x];
+                }else return null;
+            }else return null;
+        }else return null;
     }
 
     public int getMapID() {

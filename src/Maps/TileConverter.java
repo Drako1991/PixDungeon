@@ -2,23 +2,10 @@ package Maps;
 
 import Render.MapRender;
 import Tiles.BaseObject;
+import org.newdawn.slick.SlickException;
 
 public class TileConverter {
     private static BaseObject[][] tilesMap = new BaseObject[250][250];
-
-    public static void renderWorld(BaseObject[][] t, float mapX, float mapY) {
-        int maxX, maxY = t.length;
-
-        for(int y = 0; y < maxY; y++) {
-            maxX = t[y].length;
-            for(int x = 0; x < maxX; x++) {
-                if(t[y][x] != null) {
-                    tilesMap[x][y] = t[y][x];
-                    MapRender.drawTile(t[y][x], x, y, mapX, mapY, true);
-                }
-            }
-        }
-    }
 
     public static BaseObject getTile(int x, int y) {
         if(tilesMap != null) {

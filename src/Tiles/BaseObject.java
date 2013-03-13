@@ -49,14 +49,10 @@ public class BaseObject {
         return this;
     }
 
-    public BaseObject setImage(String name) {
+    public BaseObject setImage(String name) throws SlickException {
         usesSpriteSheet = false;
         imageLocation = "res/SpriteSheets/" + name + ".png";
-        try {
             this.img = new Image("res/SpriteSheets/" + name + ".png");
-        } catch(SlickException e) {
-        }
-
         return this;
     }
 
@@ -99,16 +95,11 @@ public class BaseObject {
         return this.tileEnum;
     }
 
-    public Image getImage() {
+    public Image getImage() throws SlickException {
         if(usesSpriteSheet) {
             return img;
         } else {
-            try {
                 return new Image(imageLocation);
-            } catch(SlickException e) {
-                e.printStackTrace();
-            }
-            return null;
         }
     }
 

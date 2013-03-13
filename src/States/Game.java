@@ -151,13 +151,13 @@ public class Game extends BasicGameState {
                 curMap = "map2";
             }
 
-//            if (TileConverter.getTile(playerPosX, playerPosY) != null) {
-//                g.drawString("Tile: " + TileConverter.getTile(playerPosX, playerPosY).getName(), 0, gc.getHeight() / 4 - 40);
-//                g.drawString("Solid: " + TileConverter.getTile(playerPosX, playerPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
-//            } else {
-//                g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
-//                g.drawString("Solid: Null" , 0, gc.getHeight() / 4 - 60);
-//            }
+            if (currMap.getTile(playerPosX, playerPosY) != null) {
+                g.drawString("Tile: " + currMap.getTile(playerPosX, playerPosY).getName(), 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: " + currMap.getTile(playerPosX, playerPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
+            } else {
+                g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: Null" , 0, gc.getHeight() / 4 - 60);
+            }
 
             g.setColor(Color.white);
             g.drawString("MouseX: " + (input.getMouseX() / 64) + playerPosX + ", MouseY: " + (input.getMouseY() / 64) + playerPosY, 0, gc.getHeight() / 4);

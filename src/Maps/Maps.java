@@ -2,6 +2,7 @@ package Maps;
 
 import Tiles.BaseObject;
 import Tiles.Tiles;
+import org.newdawn.slick.SlickException;
 
 public class Maps {
 
@@ -23,7 +24,7 @@ public class Maps {
 
     public static Map Map1 = new Map(start, "Starting", MapsList.startingMap);
 
-    public static void renderMap(Map map, float mapX, float mapY) {
+    public static void renderMap(Map map, float mapX, float mapY) throws SlickException {
         if(map != null) {
             map.renderMap(mapX, mapY);
         } else {
