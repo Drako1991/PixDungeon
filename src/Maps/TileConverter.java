@@ -1,8 +1,6 @@
 package Maps;
 
-import Render.MapRender;
 import Tiles.BaseObject;
-import org.newdawn.slick.SlickException;
 
 public class TileConverter {
     private static BaseObject[][] tilesMap = new BaseObject[250][250];

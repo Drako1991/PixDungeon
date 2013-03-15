@@ -1,12 +1,11 @@
 package Render;
 
-import Maps.TileConverter;
+import Maps.Map;
 import Maps.TileList;
 import Tiles.BaseObject;
 import Tiles.Tiles;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
-import Maps.Map;
 
 public class MapRender {
     public static int toMapX(int X) {
@@ -21,7 +20,7 @@ public class MapRender {
         return new Vector2f(pos.x * 64, pos.y * 64);
     }
 
-    public static void drawTile(BaseObject obj, int posX, int posY, float mapX, float mapY, Map map, boolean connectsToPath) throws SlickException{
+    public static void drawTile(BaseObject obj, int posX, int posY, float mapX, float mapY, Map map, boolean connectsToPath) throws SlickException {
         float scale = 64;
         boolean sideGrass = false;
         float mPosX = posX + mapX, mPosY = posY + mapY;

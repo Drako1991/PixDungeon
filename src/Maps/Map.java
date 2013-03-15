@@ -92,9 +92,9 @@ public class Map {
             if(x < map[0].length) {
                 if(y < map.length) {
                     return map[y][x];
-                }else return null;
-            }else return null;
-        }else return null;
+                } else return null;
+            } else return null;
+        } else return null;
     }
 
     public int getMapID() {

@@ -151,12 +151,12 @@ public class Game extends BasicGameState {
                 curMap = "map2";
             }
 
-            if (currMap.getTile(playerPosX, playerPosY) != null) {
+            if(currMap.getTile(playerPosX, playerPosY) != null) {
                 g.drawString("Tile: " + currMap.getTile(playerPosX, playerPosY).getName(), 0, gc.getHeight() / 4 - 40);
                 g.drawString("Solid: " + currMap.getTile(playerPosX, playerPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
                 g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
-                g.drawString("Solid: Null" , 0, gc.getHeight() / 4 - 60);
+                g.drawString("Solid: Null", 0, gc.getHeight() / 4 - 60);
             }
 
             g.setColor(Color.white);

@@ -52,7 +52,7 @@ public class BaseObject {
     public BaseObject setImage(String name) throws SlickException {
         usesSpriteSheet = false;
         imageLocation = "res/SpriteSheets/" + name + ".png";
-            this.img = new Image("res/SpriteSheets/" + name + ".png");
+        this.img = new Image("res/SpriteSheets/" + name + ".png");
         return this;
     }
 
@@ -99,7 +99,7 @@ public class BaseObject {
         if(usesSpriteSheet) {
             return img;
         } else {
-                return new Image(imageLocation);
+            return new Image(imageLocation);
         }
     }
 
