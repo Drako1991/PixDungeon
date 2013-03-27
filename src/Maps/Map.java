@@ -102,10 +102,20 @@ public class Map {
     }
 
     public BaseObject getTile(float x, float y) {
-        int tempX = (int) Math.floor(x) / 64;
-        int tempY = (int) Math.floor(y) / 64;
+//        int tempX = (int) Math.floor(x) / 64;
+//        int tempY = (int) Math.floor(y) / 64;
+        int tempX = (int) Math.ceil(x);
+        int tempY = (int) Math.ceil(y);
 
-        return map[tempX][tempY];
+        if(tempX >= 0 && tempX <= map[0].length) {
+            if(tempY >= 0 && tempY <= map.length) {
+                return map[tempX][tempY];
+            }else{
+                return null;
+            }
+        }else{
+            return null;
+        }
     }
 
     public String getName() {

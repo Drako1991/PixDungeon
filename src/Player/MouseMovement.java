@@ -1,6 +1,8 @@
 package Player;
 
 import Main.Component;
+import Main.Main;
+import States.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Vector2f;
@@ -45,15 +47,12 @@ public class MouseMovement extends Component {
         Vector2f position = owner.getPosition();
         float speed = this.speed * delta;
 
-//        if (TileConverter.getTile(position.x, position.y - speed) != null) {
-        if(input.isKeyDown(Input.KEY_W)/* && !TileConverter.getTile(position.x, position.y - speed).isSolid()*/) {
-            position.y -= speed;
-        }
-        /*}else{
-            if(input.isKeyDown(Input.KEY_W)) {
+//        if (Game.getCurrentMap().getTile(position.x, position.y - speed) != null) {
+            if(input.isKeyDown(Input.KEY_W)/* && !Game.getCurrentMap().getTile(position.x, position.y - speed).isSolid()*/) {
                 position.y -= speed;
             }
-        }*/
+//        }
+
         if(input.isKeyDown(Input.KEY_S)) position.y += speed;
         if(input.isKeyDown(Input.KEY_D)) position.x += speed;
         if(input.isKeyDown(Input.KEY_A)) position.x -= speed;

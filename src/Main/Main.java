@@ -34,6 +34,10 @@ public class Main extends StateBasedGame {
     public static void main(String[] args) throws SlickException {
 
         AppGameContainer gc = new AppGameContainer(new Main());
+        gc.setVSync(Options.isVSync);
+        if(Options.isFrameLimit) {
+            gc.setTargetFrameRate(60);
+        }
         gc.setDisplayMode(1280, 720, false);
         gc.setResizable(true);
         gc.setIcon("res/logo.png");

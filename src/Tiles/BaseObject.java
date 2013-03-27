@@ -18,6 +18,11 @@ public class BaseObject {
 
     }
 
+    public BaseObject(String name) {
+
+        this.name = name;
+    }
+
     public BaseObject setCollisionSize(float size) {
         this.tileSize = size;
         return this;

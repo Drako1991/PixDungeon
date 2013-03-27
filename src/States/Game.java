@@ -160,7 +160,8 @@ public class Game extends BasicGameState {
             }
 
             g.setColor(Color.white);
-            g.drawString("MouseX: " + (input.getMouseX() / 64) + playerPosX + ", MouseY: " + (input.getMouseY() / 64) + playerPosY, 0, gc.getHeight() / 4);
+            g.drawString("MouseX: " + (int) Math.ceil(input.getMouseX()) + ", MouseY: " + (int) Math.ceil(input.getMouseY()), 0, gc.getHeight() / 4);
+            g.drawString("PlayerX: " + (int) Math.ceil(playerPosX) + " PlayerPosY: " + (int) Math.ceil(playerPosY), 0, gc.getHeight() / 4 + 20);
             g.drawString("Dead: " + player1.getDead(), 0, gc.getHeight() / 4 - 20);
         }
     }
