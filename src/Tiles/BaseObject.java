@@ -1,16 +1,13 @@
 package Tiles;
 
-import org.newdawn.slick.Animation;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Vector2f;
 
 public class BaseObject {
     private boolean isSolid, breakable, usesSpriteSheet;
     private String imageLocation, name;
-    private int imageSize;
-    private float tileSize;
+    private int defaultImageSize;
+    private float collisionSize, imageW, imageH;
     private Image img;
     private Enum tileEnum;
 
@@ -18,18 +15,20 @@ public class BaseObject {
 
     }
 
-    public BaseObject(String name) {
+    public BaseObject(String name, GameContainer gc) {
 
+        imageW = defaultImageSize*(gc.getWidth()/1280);
+        imageH = defaultImageSize*(gc.getHeight()/720);
         this.name = name;
     }
 
     public BaseObject setCollisionSize(float size) {
-        this.tileSize = size;
+        this.collisionSize = size;
         return this;
     }
 
-    public BaseObject setTileSize(int size) {
-        this.imageSize = size;
+    public BaseObject setCollisionSize(int size) {
+        this.defaultImageSize = size;
         return this;
     }
 
@@ -45,6 +44,16 @@ public class BaseObject {
 
     public BaseObject setColidable(boolean solid) {
         this.isSolid = solid;
+        return this;
+    }
+
+    public BaseObject setTileHeight(float height) {
+        this.imageH = height;
+        return this;
+    }
+
+    public BaseObject setTileWidth(float width) {
+        this.imageW = width;
         return this;
     }
 
@@ -73,11 +82,23 @@ public class BaseObject {
     }
 
     public float getCollisionSize() {
-        return tileSize;
+        return collisionSize;
     }
 
-    public int getTileSize() {
-        return imageSize;
+    public int getOriginalTileSize() {
+        return defaultImageSize;
+    }
+
+    public Vector2f getTileSize(GameContainer gc) {
+        return new Vector2f(defaultImageSize *gc.getWidth()/1280, defaultImageSize *gc.getHeight()/720);
+    }
+
+    public float getTileHeight() {
+        return imageH;
+    }
+
+    public float getTileWidth() {
+        return imageW;
     }
 
     public boolean isSolid() {

@@ -95,20 +95,20 @@ public class Game extends BasicGameState {
         player1.setMaxHealth(100);
         player1.setHealth(100);
         classImage = new Image(player1.getPlayerClassImage());
-        ImageRenderComponent PlayerImage = new ImageRenderComponent("PlayerImage", classImage, 1);
         EntityPlayer = new Entity("Player");
-        EntityPlayer.addComponent(PlayerImage);
         EntityPlayer.addComponent(PlayerMovement);
-
         EntityName = new Entity("PlayerName");
+        ImageRenderComponent PlayerImage = new ImageRenderComponent("PlayerImage", classImage, 42 * (gc.getWidth()/1280), 58 * (gc.getHeight()/720));
+        EntityPlayer.addComponent(PlayerImage);
         EntityName.addComponent(new StringRenderComponent("NameRender", player1.getName(), Color.red));
         EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        EntityPlayer.setScale(42 * (gc.getWidth()/1280), 58 * (gc.getHeight()/720));
         float playerPosX = -EntityPlayer.getPosition().x / 64;
         float playerPosY = -EntityPlayer.getPosition().y / 64;
-        Maps.renderMap(currMap, playerPosX, playerPosY);
+        Maps.renderMap(currMap, playerPosX, playerPosY, gc);
 
         if(changingMap) {
 //            Maps.renderMap(curMap, playerPosX, playerPosY, true);
@@ -151,9 +151,9 @@ public class Game extends BasicGameState {
                 curMap = "map2";
             }
 
-            if(currMap.getTile(playerPosX, playerPosY) != null) {
-                g.drawString("Tile: " + currMap.getTile(playerPosX, playerPosY).getName(), 0, gc.getHeight() / 4 - 40);
-                g.drawString("Solid: " + currMap.getTile(playerPosX, playerPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
+            if(currMap.getTile(playerPosX+1, playerPosY+1) != null) {
+                g.drawString("Tile: " + currMap.getTile(playerPosX+1, playerPosY+1).getName(), 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: " + currMap.getTile(playerPosX+1, playerPosY+1).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
                 g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
                 g.drawString("Solid: Null", 0, gc.getHeight() / 4 - 60);

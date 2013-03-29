@@ -2,6 +2,7 @@ package Maps;
 
 import Tiles.BaseObject;
 import Tiles.Tiles;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 
 public class Maps {
@@ -24,9 +25,9 @@ public class Maps {
 
     public static Map Map1 = new Map(start, "Starting", MapsList.startingMap);
 
-    public static void renderMap(Map map, float mapX, float mapY) throws SlickException {
+    public static void renderMap(Map map, float mapX, float mapY, GameContainer gc) throws SlickException {
         if(map != null) {
-            map.renderMap(mapX, mapY);
+            map.renderMap(mapX, mapY, gc);
         } else {
             System.out.println("Returned null then rendering map!");
         }

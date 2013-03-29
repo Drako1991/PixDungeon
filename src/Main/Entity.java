@@ -11,9 +11,8 @@ import java.util.ArrayList;
 public class Entity {
     String id;
 
-    Vector2f position;
-    float scale;
-    float rotation;
+    Vector2f position, scale;
+    float scaleW, scaleH, rotation;
 
     RenderComponent renderComponent = null;
 
@@ -25,7 +24,8 @@ public class Entity {
         components = new ArrayList<Component>();
 
         position = new Vector2f(0, 0);
-        scale = 1;
+        scaleW = 1;
+        scaleH = 1;
         rotation = 0;
     }
 
@@ -50,12 +50,20 @@ public class Entity {
         return position;
     }
 
-    public float getScale() {
-        return scale;
+    public float getScaleW() {
+        return scale.x;
+    }
+
+    public float getScaleH() {
+        return scale.y;
     }
 
     public float getRotation() {
         return rotation;
+    }
+
+    public Vector2f getScale() {
+        return scale;
     }
 
     public String getId() {
@@ -70,8 +78,20 @@ public class Entity {
         rotation = rotate;
     }
 
-    public void setScale(float scale) {
+    public void setScaleW(float scaleW) {
+        this.scale.x = scaleW;
+    }
+
+    public void setScaleH(float scaleH) {
+        this.scale.y = scaleH;
+    }
+
+    public void setScale(Vector2f scale) {
         this.scale = scale;
+    }
+
+    public void setScale(float width, float height) {
+        this.scale = new Vector2f(width, height);
     }
 
     public void update(GameContainer gc, StateBasedGame sb, int delta) {

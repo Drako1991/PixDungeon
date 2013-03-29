@@ -4,6 +4,7 @@ import Maps.Map;
 import Maps.TileList;
 import Tiles.BaseObject;
 import Tiles.Tiles;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 
@@ -20,13 +21,13 @@ public class MapRender {
         return new Vector2f(pos.x * 64, pos.y * 64);
     }
 
-    public static void drawTile(BaseObject obj, int posX, int posY, float mapX, float mapY, Map map, boolean connectsToPath) throws SlickException {
-        float scale = 64;
+    public static void drawTile(BaseObject obj, int posX, int posY, float mapX, float mapY, Map map, boolean connectsToPath, GameContainer gc) throws SlickException {
+        float height = 64 * gc.getHeight()/720, width = 64 * gc.getWidth()/1280;
         boolean sideGrass = false;
         float mPosX = posX + mapX, mPosY = posY + mapY;
 
         if((obj.getEnum() != TileList.grass && connectsToPath) || !connectsToPath) {
-            obj.getImage().draw((posX + mapX) * scale, (posY + mapY) * scale, scale, scale);
+            obj.getImage().draw((posX + mapX) * width, (posY + mapY) * height, width, height);
         }
 
         if(connectsToPath) {
@@ -34,13 +35,13 @@ public class MapRender {
                 if(posX >= 1) {
                     if(map.getTile(posX - 1, posY) == Tiles.path) {
                         sideGrass = true;
-                        Tiles.rGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
+                        Tiles.rGrass.getImage().draw(mPosX * width, mPosY * height, width, height);
                     }
 
                     if(map.getTile(posX - 1, posY + 1) == Tiles.path) {
                         if(map.getTile(posX - 1, posY) == Tiles.grass) {
                             sideGrass = true;
-                            Tiles.trGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
+                            Tiles.trGrass.getImage().draw(mPosX * width, mPosY * height, width, height);
                         }
                     }
                 }
@@ -48,27 +49,27 @@ public class MapRender {
                 if(posY >= 1) {
                     if(map.getTile(posX, posY - 1) == Tiles.path) {
                         sideGrass = true;
-                        Tiles.bGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
+                        Tiles.bGrass.getImage().draw(mPosX * width, mPosY * height, width, height);
                     }
                 }
 
                 if(map.getTile(posX + 1, posY + 1) == Tiles.path) {
                     sideGrass = true;
-                    Tiles.tlGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
+                    Tiles.tlGrass.getImage().draw(mPosX * width, mPosY * height, width, height);
                 }
 
                 if(map.getTile(posX + 1, posY) == Tiles.path) {
                     sideGrass = true;
-                    Tiles.lGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
+                    Tiles.lGrass.getImage().draw(mPosX * width, mPosY * height, width, height);
                 }
 
                 if(map.getTile(posX, posY + 1) == Tiles.path) {
                     sideGrass = true;
-                    Tiles.tGrass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
+                    Tiles.tGrass.getImage().draw(mPosX * width, mPosY * height, width, height);
                 }
 
                 if(!sideGrass) {
-                    Tiles.grass.getImage().draw(mPosX * scale, mPosY * scale, scale, scale);
+                    Tiles.grass.getImage().draw(mPosX * width, mPosY * height, width, height);
                 }
             }
         }

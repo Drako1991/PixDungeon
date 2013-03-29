@@ -43,7 +43,7 @@ public class MouseMovement extends Component {
     @Override
     public void update(GameContainer gc, StateBasedGame sb, int delta) {
         Input input = gc.getInput();
-        float scale = owner.getScale();
+        Vector2f scale = owner.getScale();
         Vector2f position = owner.getPosition();
         float speed = this.speed * delta;
 

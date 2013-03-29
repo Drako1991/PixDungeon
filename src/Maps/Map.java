@@ -2,6 +2,7 @@ package Maps;
 
 import Render.MapRender;
 import Tiles.BaseObject;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 
 public class Map {
@@ -9,14 +10,14 @@ public class Map {
     private String name;
     private int mapID;
 
-    public Map renderMap(float mapX, float mapY) throws SlickException {
+    public Map renderMap(float mapX, float mapY, GameContainer gc) throws SlickException {
         int maxY = map[0].length;
         int maxX = map.length;
 
         if(map != null) {
             for(int y = 0; y < maxY; y++) {
                 for(int x = 0; x < maxX; x++) {
-                    MapRender.drawTile(map[x][y], x, y, mapX, mapY, this, true);
+                    MapRender.drawTile(map[x][y], x, y, mapX, mapY, this, true, gc);
                 }
             }
         }
@@ -102,20 +103,16 @@ public class Map {
     }
 
     public BaseObject getTile(float x, float y) {
-//        int tempX = (int) Math.floor(x) / 64;
-//        int tempY = (int) Math.floor(y) / 64;
         int tempX = (int) Math.ceil(x);
         int tempY = (int) Math.ceil(y);
 
-        if(tempX >= 0 && tempX <= map[0].length) {
-            if(tempY >= 0 && tempY <= map.length) {
-                return map[tempX][tempY];
-            }else{
-                return null;
-            }
-        }else{
-            return null;
-        }
+        if(map != null) {
+            if(tempX >= 0 && tempX <= map[0].length) {
+                if(tempY >= 0 && tempY <= map.length) {
+                    return map[tempX][tempY];
+                }else return null;
+            }else return null;
+        }else return null;
     }
 
     public String getName() {
