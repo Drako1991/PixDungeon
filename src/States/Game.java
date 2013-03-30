@@ -4,7 +4,6 @@ import Audio.MusicList;
 import BaseClasses.TextCenter;
 import Classes.ClassList;
 import GUI.CharacterCreation;
-import GUI.PlayerHUD;
 import Main.Entity;
 import Main.Main;
 import Maps.Map;
@@ -18,13 +17,10 @@ import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-//TODO: Add overlay on top of all states for debug mode so all of the states refer back to that debug mode
-
 public class Game extends BasicGameState {
     Entity EntityPlayer = null, EntityName = null;
     static Player player1 = null, player2 = null, player3 = null, player4 = null;
-    private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/
-            isInventoryOpen;
+    private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/ isInventoryOpen;
     private static boolean changingMap = true, creatingCharacter = false;
     private static Image classImage;
     private static Map currMap;
@@ -66,14 +62,6 @@ public class Game extends BasicGameState {
 //        return isMenuOpen;
 //    }
 //
-//    public boolean isCreateCharacterOpen() {
-//        return createCharacterOpen;
-//    }
-//
-//    public void start() {
-//        isRunning = true;
-//    }
-//
 //    public void stop() {
 //        isRunning = false;
 //    }
@@ -91,7 +79,7 @@ public class Game extends BasicGameState {
         createCharacter("Zurrox", ClassList.Assassin);
         player1.setMaxHealth(100);
         player1.setHealth(100);
-        classImage = new Image(player1.getPlayerClassImage());
+        classImage = player1.getPlayerClass().getClassImage();
         EntityPlayer = new Entity("Player");
         EntityPlayer.addComponent(PlayerMovement);
         EntityName = new Entity("PlayerName");
@@ -120,7 +108,6 @@ public class Game extends BasicGameState {
             EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
         }
 
-        PlayerHUD.showHUD(gc, g, player1);
 
         try {
             Thread.sleep(2);
@@ -137,6 +124,7 @@ public class Game extends BasicGameState {
             }
         } else closeAllWindows();
 
+        //DEBUG
         if(Main.debugMode()) {
             if(input.isKeyDown(Input.KEY_1)) {
                 changeMap(Maps.Map1);

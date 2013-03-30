@@ -5,33 +5,34 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 public class BaseClass {
-    private int Level, Vitality, Strength, Intellect, Dexterity, Agility;
+    private int Vitality, Strength, Intellect, Dexterity, Agility, maxPower;
     private String className, imgLocation;
     private PowerTypes powerType;
 
-    public BaseClass() {
-        Class(0, 0, 0, 0, 0, 0, "");
+    public BaseClass(int Vitality, int Strength, int Intellect, int Dexterity, int Agility, PowerTypes power, int maxPower) {
+
+        Class(Vitality, Strength, Intellect, Dexterity, Agility, className, power, maxPower);
     }
 
-    public BaseClass(int Vitality, int Strength, int Intellect, int Dexterity, int Agility, String name) {
-
-        Class(1, Vitality, Strength, Intellect, Dexterity, Agility, name);
+    public BaseClass(int Vitality, int Strength, int Intellect, int Dexterity, int Agility, String className, PowerTypes power, int maxPower) {
+        Class(Vitality, Strength, Intellect, Dexterity, Agility, className, power, maxPower);
     }
 
-    public BaseClass(int Level, int Vitality, int Strength, int Intellect, int Dexterity, int Agility, String name) {
-
-        Class(Level, Vitality, Strength, Intellect, Dexterity, Agility, name);
-    }
-
-    private void Class(int Level, int Vitality, int Strength, int Intellect, int Dexterity, int Agility, String name) {
-
-        this.Level = Level;
+    private void Class(int Vitality, int Strength, int Intellect, int Dexterity, int Agility, String className, PowerTypes power, int maxPower) {
         this.Vitality = Vitality;
         this.Strength = Strength;
         this.Intellect = Intellect;
         this.Dexterity = Dexterity;
         this.Agility = Agility;
-        this.className = name;
+        this.className = className;
+        this.imgLocation = "res/player/" + className + ".png";
+        this.powerType = power;
+        this.maxPower = maxPower;
+    }
+
+    public BaseClass setMaxPower(int maxPower) {
+        this.maxPower = maxPower;
+        return this;
     }
 
     public BaseClass setPowerType(PowerTypes type) {
@@ -81,18 +82,21 @@ public class BaseClass {
         return this;
     }
 
+    public int getMaxPower() {
+        return maxPower;
+    }
+
     public PowerTypes getPowerType() {
         return powerType;
     }
 
-    public Image getClassImage() throws SlickException {
-
-        return new Image(this.imgLocation);
-    }
-
-    public int getLevel() {
-
-        return this.Level;
+    public Image getClassImage()  {
+        try{
+            return new Image(this.imgLocation);
+        }catch(SlickException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public String getName() {

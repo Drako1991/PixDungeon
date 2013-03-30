@@ -1,21 +1,22 @@
 package Player;
 
+import Classes.BaseClass;
 import Classes.ClassList;
+import Classes.Classes;
 import Classes.DefaultValues;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 public class Player {
-    static ClassList Class;
     private int maxLevel = 30, Level, xp, Strength, Vitality, Intellect, Dexterity, Agility, maxHealth, Health,
             xpIncreaseRate = 500, maxPower, power;
     private String Name, classImgLocation;
-    private DefaultValues v = new DefaultValues();
     private int maxXP = Level * xpIncreaseRate;
     private boolean Dead = false;
     private PowerTypes powerType;
     private static PlayerAnimStates animState;
+    private static BaseClass playerClass;
 
     //TODO: Set increasing stats on level increase
     //TODO: When creating a Player, access Class<ClassName> instead of DefaultValues class
@@ -30,63 +31,33 @@ public class Player {
     }
 
     public Player(ClassList Class, String Name) {
-        setClass(Class);
         setLevel(1);
         setXP(0);
+        setName(Name);
 
         switch(Class) {
             case Archer:
-                setStrength(v.ARCHER_STRENGTH);
-                setVitality(v.ARCHER_VITALITY);
-                setIntellect(v.ARCHER_INTELLECT);
-                setDexterity(v.ARCHER_DEXTERITY);
-                setAgility(v.ARCHER_AGILITY);
-                setName(Name);
-                setClassImageLocation(v.ARCHER_LOCATION);
-                setPowerType(PowerTypes.tempArcher);
-                setMaxPower(100);
+                playerClass = Classes.Archer;
                 break;
 
             case Assassin:
-                setStrength(v.ASSASSIN_STRENGTH);
-                setVitality(v.ASSASSIN_VITALITY);
-                setIntellect(v.ASSASSIN_INTELLECT);
-                setDexterity(v.ASSASSIN_DEXTERITY);
-                setAgility(v.ASSASSIN_AGILITY);
-                setName(Name);
-                setClassImageLocation(v.ASSASSIN_LOCATION);
-                setPowerType(PowerTypes.tempAssassin);
-                setMaxPower(100);
+                playerClass = Classes.Assassin;
                 break;
 
             case Knight:
-                setStrength(v.KNIGHT_STRENGTH);
-                setVitality(v.KNIGHT_VITALITY);
-                setIntellect(v.KNIGHT_INTELLECT);
-                setDexterity(v.KNIGHT_DEXTERITY);
-                setAgility(v.KNIGHT_AGILITY);
-                setName(Name);
-                setClassImageLocation(v.KNIGHT_LOCATION);
-                setPowerType(PowerTypes.Fury);
-                setMaxPower(100);
+                playerClass = Classes.Knight;
                 break;
 
             case Wizard:
-                setStrength(v.WIZARD_STRENGTH);
-                setVitality(v.WIZARD_VITALITY);
-                setIntellect(v.WIZARD_INTELLECT);
-                setDexterity(v.WIZARD_DEXTERITY);
-                setAgility(v.WIZARD_AGILITY);
-                setName(Name);
-                setClassImageLocation(v.WIZARD_LOCATION);
-                setPowerType(PowerTypes.Mana);
-                setMaxPower(100);
+                playerClass = Classes.Wizard;
                 break;
 
             default:
                 System.out.println("====ERROR WHEN CREATING CHARACTER====");
                 break;
         }
+
+        maxPower = playerClass.getMaxPower();
     }
 
     public static void writePlayerToFile() {
@@ -164,16 +135,6 @@ public class Player {
         }
     }
 
-    public Player setPowerType(String type) {
-        if(type.toLowerCase() == "fury") {
-            powerType = PowerTypes.Fury;
-        }
-        if(type.toLowerCase() == "magicka") {
-            powerType = PowerTypes.Mana;
-        }
-        return this;
-    }
-
     public void setPowerType(PowerTypes type) {
         powerType = type;
     }
@@ -194,6 +155,10 @@ public class Player {
 
     public void setDead(boolean dead) {
         this.Dead = dead;
+    }
+
+    public void toggleDeath() {
+        Dead = !Dead;
     }
 
     public void setAlive() {
@@ -292,6 +257,10 @@ public class Player {
     public void setAgility(int Agility) {
 
         this.Agility = Agility;
+    }
+
+    public BaseClass getPlayerClass() {
+        return playerClass;
     }
 
     public int getPower() {
@@ -396,42 +365,6 @@ public class Player {
     public int getAgility() {
 
         return this.Agility;
-    }
-
-    public void setClass(ClassList cl) {
-        if(cl != null) {
-            this.Class = cl;
-        } else {
-            System.out.println("====ERROR WHEN SETTING CLASS====");
-        }
-    }
-
-    public ClassList getPlayerClass() {
-
-        return this.Class;
-    }
-
-    public static String getPlayerClassString(ClassList Cls) {
-
-        switch(Cls) {
-            case Archer:
-                return "Archer";
-            case Assassin:
-                return "Assassin";
-            case Knight:
-                return "Knight";
-            case Wizard:
-                return "Wizard";
-            case None:
-                return "None";
-            default:
-                System.out.println("====ERROR WHEN GETTING PLAYER CLASS STRING====");
-                return null;
-        }
-    }
-
-    public String getPlayerClassImage() {
-        return "res/Player/" + getPlayerClassString(Class) + ".png";
     }
 
     public String getPowerTypeString() {
