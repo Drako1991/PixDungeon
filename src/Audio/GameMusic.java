@@ -23,23 +23,27 @@ public class GameMusic {
     }
 
     public void play() {
-        try{
+        try {
             music = new Music(musicLocation);
-        }catch(SlickException e) {
+        } catch(SlickException e) {
             e.printStackTrace();
         }
 
-        if(this.looping) {
-            music.loop();
+        if(!music.paused()) {
+            if(this.looping) {
+                music.loop();
+            } else {
+                music.play(pitch, volume);
+            }
         }else{
-            music.play(volume, pitch);
+            music.release();
         }
     }
 
     public void playAt(float startPos) {
-        try{
+        try {
             music = new Music(musicLocation);
-        }catch(SlickException e) {
+        } catch(SlickException e) {
             e.printStackTrace();
         }
 
@@ -47,7 +51,7 @@ public class GameMusic {
 
         if(this.looping) {
             music.loop();
-        }else{
+        } else {
             music.play();
         }
     }
@@ -66,6 +70,20 @@ public class GameMusic {
 
     public GameMusic(String musicLocation) {
         this.musicLocation = musicLocation;
+        this.volume = 1.0F;
+        this.pitch = 0.5F;
+    }
+
+    public GameMusic(String musicLocation, float volume) {
+        this.musicLocation = musicLocation;
+        this.volume = volume;
+        this.pitch = 0.5F;
+    }
+
+    public GameMusic(String musicLocation, float volume, float pitch) {
+        this.musicLocation = musicLocation;
+        this.volume = volume;
+        this.pitch = pitch;
     }
 
     public GameMusic setLooping(boolean looping) {

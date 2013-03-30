@@ -18,7 +18,7 @@ public class GameFX {
             e.printStackTrace();
         }
         if(!is3D) {
-            fx.play(volume, pitch);
+            fx.play(pitch, volume);
         }else{
             fx.playAt(pitch, volume, position.x, position.y, z);
         }
