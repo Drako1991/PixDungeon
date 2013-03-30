@@ -141,7 +141,6 @@ public class Player {
 
 
     public void xp(int XP, boolean at) {
-
         if(at) {
             this.xp += XP;
         } else {
@@ -170,7 +169,6 @@ public class Player {
     }
 
     public void setLevel(int Level) {
-
         if(Level <= this.maxLevel) {
             this.Level = Level;
         } else {
@@ -179,7 +177,6 @@ public class Player {
     }
 
     public void addLevel(int Level) {
-
         if(this.Level + Level <= this.maxLevel) {
             this.Level += Level;
 
@@ -189,12 +186,10 @@ public class Player {
     }
 
     public void setClassImageLocation(String location) {
-
         this.classImgLocation = location;
     }
 
     public void setName(String Name) {
-
         this.Name = Name;
     }
 
@@ -235,27 +230,22 @@ public class Player {
     }
 
     public void setStrength(int Strength) {
-
         this.Strength = Strength;
     }
 
     public void setVitality(int Vitality) {
-
         this.Vitality = Vitality;
     }
 
     public void setIntellect(int Intellect) {
-
         this.Intellect = Intellect;
     }
 
     public void setDexterity(int Dexterity) {
-
         this.Dexterity = Dexterity;
     }
 
     public void setAgility(int Agility) {
-
         this.Agility = Agility;
     }
 
@@ -298,87 +288,68 @@ public class Player {
     }
 
     public Image getClassImage() throws SlickException {
-
         return new Image(this.classImgLocation);
     }
 
     public int getMaxLevel() {
-
         return this.maxLevel;
     }
 
     public int getMaxXP() {
-        int maximumXP = this.Level * xpIncreaseRate;
-        return maximumXP;
+        return this.Level * xpIncreaseRate;
     }
 
     public int getMaxXP(int level) {
-
         return level * this.xpIncreaseRate;
     }
 
     public int getXP() {
-
         return this.xp;
     }
 
     public int getLevel() {
-
         return this.Level;
     }
 
     public String getName() {
-
         return this.Name;
     }
 
     public int getHealth() {
-
         return this.Health;
     }
 
     public int getMaxHealth() {
-
         return this.maxHealth;
     }
 
     public int getStrength() {
-
         return this.Strength;
     }
 
     public int getVitality() {
-
         return this.Vitality;
     }
 
     public int getIntellect() {
-
         return this.Intellect;
     }
 
     public int getDexterity() {
-
         return this.Dexterity;
     }
 
     public int getAgility() {
-
         return this.Agility;
     }
 
     public String getPowerTypeString() {
         switch(powerType) {
-            case Fury:
-                return "Fury";
-            case Mana:
-                return "Mana";
-            case tempArcher:
-                return "tempArcher";
-            case tempAssassin:
-                return "tempAssassin";
-            default:
-                return null;
+            case Fury: return "Fury";
+            case Mana: return "Mana";
+            case tempArcher: return "tempArcher";
+            case tempAssassin: return "tempAssassin";
+            default: return null;
         }
     }
 }
