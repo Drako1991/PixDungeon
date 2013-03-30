@@ -106,8 +106,8 @@ public class Game extends BasicGameState {
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         EntityPlayer.setScale(42 * (gc.getWidth()/1280), 58 * (gc.getHeight()/720));
-        float playerPosX = -EntityPlayer.getPosition().x / 64;
-        float playerPosY = -EntityPlayer.getPosition().y / 64;
+        float playerPosX = -EntityPlayer.getPosition().x / 64 * (gc .getWidth()/1280) + 2;
+        float playerPosY = -EntityPlayer.getPosition().y / 64 * (gc.getHeight()/720);
         Maps.renderMap(currMap, playerPosX, playerPosY, gc);
 
         if(changingMap) {
@@ -151,9 +151,10 @@ public class Game extends BasicGameState {
                 curMap = "map2";
             }
 
-            if(currMap.getTile(playerPosX+1, playerPosY+1) != null) {
-                g.drawString("Tile: " + currMap.getTile(playerPosX+1, playerPosY+1).getName(), 0, gc.getHeight() / 4 - 40);
-                g.drawString("Solid: " + currMap.getTile(playerPosX+1, playerPosY+1).isSolid(), 0, gc.getHeight() / 4 - 60);
+            int tempPosX = (int) Math.ceil(playerPosX), tempPosY = (int) Math.ceil(playerPosY);
+            if(currMap.getTile(tempPosX+1, tempPosY+1) != null) {
+                g.drawString("Tile: " + currMap.getTile(tempPosX+1, tempPosY+1).getName(), 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: " + currMap.getTile(tempPosX+1, tempPosY+1).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
                 g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
                 g.drawString("Solid: Null", 0, gc.getHeight() / 4 - 60);

@@ -1,7 +1,6 @@
 package Player;
 
 import Main.Component;
-import Main.Main;
 import States.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -46,12 +45,15 @@ public class MouseMovement extends Component {
         Vector2f scale = owner.getScale();
         Vector2f position = owner.getPosition();
         float speed = this.speed * delta;
+        int playerPosX = (int) Math.ceil(position.x / (64 * (gc.getWidth() / 1280))), playerPosY = (int) Math.ceil(position.y / (64 * (gc.getHeight() / 720)));
 
-//        if (Game.getCurrentMap().getTile(position.x, position.y - speed) != null) {
-            if(input.isKeyDown(Input.KEY_W)/* && !Game.getCurrentMap().getTile(position.x, position.y - speed).isSolid()*/) {
-                position.y -= speed;
+        if(Game.getCurrentMap().getTile(playerPosX + 1, playerPosY + (int) Math.ceil(speed) + 1) != null) {
+            if(input.isKeyDown(Input.KEY_W)) {
+                if(!Game.getCurrentMap().getTile(playerPosX + 1, playerPosY + (int) Math.ceil(speed) + 1).isSolid()) {
+                    position.y -= speed;
+                }
             }
-//        }
+        }
 
         if(input.isKeyDown(Input.KEY_S)) position.y += speed;
         if(input.isKeyDown(Input.KEY_D)) position.x += speed;
@@ -65,7 +67,7 @@ public class MouseMovement extends Component {
     private float getRotation(GameContainer gc) {
         Input input = gc.getInput();
         float plyX = gc.getWidth() / 2, plyY = gc.getHeight() / 2, radiansToMouse = (float) Math.atan2(plyX - input.getMouseX(), plyY - input.getMouseY()),
-                degreesToMouse = (57.2957795f * radiansToMouse) * -1, angle = 0;
+                degreesToMouse = -(57.2957795f * radiansToMouse), angle = 0;
         boolean w = gc.getInput().isKeyDown(Input.KEY_W), s = gc.getInput().isKeyDown(Input.KEY_S), a = gc.getInput().isKeyDown(Input.KEY_A),
                 d = gc.getInput().isKeyDown(Input.KEY_D);
 

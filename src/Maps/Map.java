@@ -2,6 +2,7 @@ package Maps;
 
 import Render.MapRender;
 import Tiles.BaseObject;
+import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 
@@ -90,8 +91,8 @@ public class Map {
 
     public BaseObject getTile(int x, int y) {
         if(map != null) {
-            if(x < map[0].length) {
-                if(y < map.length) {
+            if(x >= 0  && x < map[0].length) {
+                if(y >= 0 && y < map.length) {
                     return map[y][x];
                 } else return null;
             } else return null;
@@ -102,18 +103,18 @@ public class Map {
         return mapID;
     }
 
-    public BaseObject getTile(float x, float y) {
+    /*public BaseObject getTile(float x, float y) {
         int tempX = (int) Math.ceil(x);
         int tempY = (int) Math.ceil(y);
 
         if(map != null) {
-            if(tempX >= 0 && tempX <= map[0].length) {
-                if(tempY >= 0 && tempY <= map.length) {
+            if(tempY >= 0 && tempY < map.length) {
+                if(tempX >= 0 && tempX < map[tempY].length) {
                     return map[tempX][tempY];
                 }else return null;
             }else return null;
         }else return null;
-    }
+    }*/
 
     public String getName() {
         return name;
