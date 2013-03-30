@@ -11,9 +11,7 @@ public class BaseObject {
     private Image img;
     private Enum tileEnum;
 
-    public BaseObject() {
-
-    }
+    public BaseObject() {}
 
     public BaseObject(String name, GameContainer gc) {
 
