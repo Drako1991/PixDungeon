@@ -27,6 +27,10 @@ public class Main extends StateBasedGame {
         debugMode = debugMode1;
     }
 
+    public static void toggleDebug() {
+        debugMode = !debugMode;
+    }
+
     public static boolean debugMode() {
         return debugMode;
     }
