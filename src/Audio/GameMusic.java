@@ -10,7 +10,7 @@ public class GameMusic {
     private float volume, pitch;
 
     public void play(boolean looping) {
-        looping = true;
+        this.looping = looping;
         play();
     }
 
@@ -34,6 +34,26 @@ public class GameMusic {
         }else{
             music.play(volume, pitch);
         }
+    }
+
+    public void playAt(float startPos) {
+        try{
+            music = new Music(musicLocation);
+        }catch(SlickException e) {
+            e.printStackTrace();
+        }
+
+        music.setPosition(startPos);
+
+        if(this.looping) {
+            music.loop();
+        }else{
+            music.play();
+        }
+    }
+
+    public float getPosition() {
+        return music.getPosition();
     }
 
     public boolean isPlaying() {

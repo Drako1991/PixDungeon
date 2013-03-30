@@ -2,11 +2,14 @@ package Audio;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
+import org.newdawn.slick.geom.Vector2f;
 
 public class GameFX {
     private String soundLocation;
-    private float volume, pitch;
+    private float volume, pitch, z;
     private Sound fx;
+    private boolean is3D;
+    private Vector2f position;
 
     public void play() {
         try{
@@ -14,11 +17,22 @@ public class GameFX {
         }catch(SlickException e) {
             e.printStackTrace();
         }
-        fx.play(volume, pitch);
+        if(!is3D) {
+            fx.play(volume, pitch);
+        }else{
+            fx.playAt(pitch, volume, position.x, position.y, z);
+        }
     }
 
     public void stop() {
         fx.stop();
+    }
+
+    public GameFX setPosition(float x, float y, float z) {
+        is3D = true;
+        this.position = new Vector2f(x, y);
+        this.z = z;
+        return this;
     }
 
     public GameFX(String soundLocation) {
