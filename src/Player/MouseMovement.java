@@ -1,6 +1,7 @@
 package Player;
 
 import Main.Component;
+import Main.Main;
 import States.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -47,11 +48,17 @@ public class MouseMovement extends Component {
         float speed = this.speed * delta;
         int playerPosX = (int) Math.ceil(position.x / (64 * (gc.getWidth() / 1280))), playerPosY = (int) Math.ceil(position.y / (64 * (gc.getHeight() / 720)));
 
-        if(Game.getCurrentMap().getTile(playerPosX + 1, playerPosY + (int) Math.ceil(speed) + 1) != null) {
-            if(input.isKeyDown(Input.KEY_W)) {
-                if(!Game.getCurrentMap().getTile(playerPosX + 1, playerPosY + (int) Math.ceil(speed) + 1).isSolid()) {
-                    position.y -= speed;
+        if(!Main.debugMode()) {
+            if(Game.getCurrentMap().getTile(playerPosX, playerPosY + (int) Math.ceil(speed)) != null) {
+                if(input.isKeyDown(Input.KEY_W)) {
+                    if(!Game.getCurrentMap().getTile(playerPosX, playerPosY + (int) Math.ceil(speed)).isSolid()) {
+                        position.y -= speed;
+                    }
                 }
+            }
+        }else{
+            if(input.isKeyDown(Input.KEY_W)) {
+                position.y -= speed;
             }
         }
 

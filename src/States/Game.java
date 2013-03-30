@@ -1,6 +1,5 @@
 package States;
 
-import Audio.FXList;
 import Audio.MusicList;
 import BaseClasses.TextCenter;
 import Classes.ClassList;
@@ -96,16 +95,16 @@ public class Game extends BasicGameState {
         EntityPlayer = new Entity("Player");
         EntityPlayer.addComponent(PlayerMovement);
         EntityName = new Entity("PlayerName");
-        ImageRenderComponent PlayerImage = new ImageRenderComponent("PlayerImage", classImage, 42 * (gc.getWidth()/1280), 58 * (gc.getHeight()/720));
+        ImageRenderComponent PlayerImage = new ImageRenderComponent("PlayerImage", classImage, 42 * (gc.getWidth() / 1280), 58 * (gc.getHeight() / 720));
         EntityPlayer.addComponent(PlayerImage);
         EntityName.addComponent(new StringRenderComponent("NameRender", player1.getName(), Color.red));
         EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        EntityPlayer.setScale(42 * (gc.getWidth()/1280), 58 * (gc.getHeight()/720));
-        float playerPosX = -EntityPlayer.getPosition().x / 64 * (gc .getWidth()/1280) + 2;
-        float playerPosY = -EntityPlayer.getPosition().y / 64 * (gc.getHeight()/720);
+        EntityPlayer.setScale(42 * (gc.getWidth() / 1280), 58 * (gc.getHeight() / 720));
+        float playerPosX = -EntityPlayer.getPosition().x / 64 * (gc.getWidth() / 1280) + 2;
+        float playerPosY = -EntityPlayer.getPosition().y / 64 * (gc.getHeight() / 720);
         Maps.renderMap(currMap, playerPosX, playerPosY, gc);
 
         if(changingMap) {
@@ -148,11 +147,14 @@ public class Game extends BasicGameState {
             if(input.isKeyPressed(Input.KEY_3)) {
                 MusicList.cave1.stop();
             }
+            if(input.isKeyDown(Input.KEY_E)) {
+                Main.exitGame();
+            }
 
             int tempPosX = (int) Math.ceil(playerPosX), tempPosY = (int) Math.ceil(playerPosY);
-            if(currMap.getTile(tempPosX+1, tempPosY+1) != null) {
-                g.drawString("Tile: " + currMap.getTile(tempPosX+1, tempPosY+1).getName(), 0, gc.getHeight() / 4 - 40);
-                g.drawString("Solid: " + currMap.getTile(tempPosX+1, tempPosY+1).isSolid(), 0, gc.getHeight() / 4 - 60);
+            if(currMap.getTile(tempPosX, tempPosY) != null) {
+                g.drawString("Tile: " + currMap.getTile(tempPosX, tempPosY).getName(), 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: " + currMap.getTile(tempPosX, tempPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
                 g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
                 g.drawString("Solid: Null", 0, gc.getHeight() / 4 - 60);

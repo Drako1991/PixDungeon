@@ -35,7 +35,7 @@ public class GameMusic {
             } else {
                 music.play(pitch, volume);
             }
-        }else{
+        } else {
             music.release();
         }
     }

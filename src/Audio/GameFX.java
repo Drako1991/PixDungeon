@@ -12,14 +12,14 @@ public class GameFX {
     private Vector2f position;
 
     public void play() {
-        try{
+        try {
             fx = new Sound(soundLocation);
-        }catch(SlickException e) {
+        } catch(SlickException e) {
             e.printStackTrace();
         }
         if(!is3D) {
             fx.play(pitch, volume);
-        }else{
+        } else {
             fx.playAt(pitch, volume, position.x, position.y, z);
         }
     }

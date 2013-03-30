@@ -11,12 +11,13 @@ public class BaseObject {
     private Image img;
     private Enum tileEnum;
 
-    public BaseObject() {}
+    public BaseObject() {
+    }
 
     public BaseObject(String name, GameContainer gc) {
 
-        imageW = defaultImageSize*(gc.getWidth()/1280);
-        imageH = defaultImageSize*(gc.getHeight()/720);
+        imageW = defaultImageSize * (gc.getWidth() / 1280);
+        imageH = defaultImageSize * (gc.getHeight() / 720);
         this.name = name;
     }
 
@@ -88,7 +89,7 @@ public class BaseObject {
     }
 
     public Vector2f getTileSize(GameContainer gc) {
-        return new Vector2f(defaultImageSize *gc.getWidth()/1280, defaultImageSize *gc.getHeight()/720);
+        return new Vector2f(defaultImageSize * gc.getWidth() / 1280, defaultImageSize * gc.getHeight() / 720);
     }
 
     public float getTileHeight() {

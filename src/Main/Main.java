@@ -43,7 +43,7 @@ public class Main extends StateBasedGame {
             gc.setTargetFrameRate(60);
         }
         gc.setDisplayMode(1280, 720, false);
-        gc.setResizable(true);
+        gc.setResizable(false);
         gc.setIcon("res/logo.png");
 
         gc.start();

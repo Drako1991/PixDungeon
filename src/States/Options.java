@@ -9,6 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Options extends BasicGameState {
     public static boolean isVSync, isFrameLimit;
+
     private enum Buttons {
 
     }

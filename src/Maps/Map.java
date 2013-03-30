@@ -2,7 +2,6 @@ package Maps;
 
 import Render.MapRender;
 import Tiles.BaseObject;
-import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 
@@ -15,17 +14,12 @@ public class Map {
         int maxY = map[0].length;
         int maxX = map.length;
 
-        if(map != null) {
-            for(int y = 0; y < maxY; y++) {
-                for(int x = 0; x < maxX; x++) {
-                    MapRender.drawTile(map[x][y], x, y, mapX, mapY, this, true, gc);
-                }
+        for(int y = 0; y < maxY; y++) {
+            for(int x = 0; x < maxX; x++) {
+                MapRender.drawTile(map[x][y], y, x, mapX, mapY, this, true, gc);
             }
         }
         return this;
-    }
-
-    public Map() {
     }
 
     public Map(BaseObject[][] map) {
@@ -67,6 +61,11 @@ public class Map {
         return this;
     }
 
+    public Map setName(String name) {
+        this.name = name;
+        return this;
+    }
+
     public Map setID(int mapID) {
         this.mapID = mapID;
         return this;
@@ -81,20 +80,10 @@ public class Map {
         return this;
     }
 
-    public Map setTile(float x, float y, BaseObject t) {
-        int tempX = (int) Math.floor(x) / 64;
-        int tempY = (int) Math.floor(y) / 64;
-
-        map[tempX][tempY] = t;
-        return this;
-    }
-
     public BaseObject getTile(int x, int y) {
-        if(map != null) {
-            if(x >= 0  && x < map[0].length) {
-                if(y >= 0 && y < map.length) {
-                    return map[y][x];
-                } else return null;
+        if(y >= 0 && y < map.length) {
+            if(x >= 0 && x < map[y].length) {
+                return map[y][x];
             } else return null;
         } else return null;
     }
@@ -102,19 +91,6 @@ public class Map {
     public int getMapID() {
         return mapID;
     }
-
-    /*public BaseObject getTile(float x, float y) {
-        int tempX = (int) Math.ceil(x);
-        int tempY = (int) Math.ceil(y);
-
-        if(map != null) {
-            if(tempY >= 0 && tempY < map.length) {
-                if(tempX >= 0 && tempX < map[tempY].length) {
-                    return map[tempX][tempY];
-                }else return null;
-            }else return null;
-        }else return null;
-    }*/
 
     public String getName() {
         return name;
