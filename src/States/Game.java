@@ -1,5 +1,7 @@
 package States;
 
+import Audio.FXList;
+import Audio.MusicList;
 import BaseClasses.TextCenter;
 import Classes.ClassList;
 import GUI.CharacterCreation;
@@ -24,13 +26,12 @@ public class Game extends BasicGameState {
     static Player player1 = null, player2 = null, player3 = null, player4 = null;
     private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/
             isInventoryOpen;
-    private static boolean changingMap = true;
+    private static boolean changingMap = true, creatingCharacter = false;
     private static Image classImage;
-    private static String curMap;
     private static Map currMap;
+    private static int players = 0;
 
     private static void changeMap(String s) {
-        curMap = s;
         changingMap = true;
     }
 
@@ -40,20 +41,17 @@ public class Game extends BasicGameState {
     }
 
     public static void createCharacter(String name, ClassList Class) {
-        if(player1 == null) {
-            player1 = new Player(Class, name);
-        }
-        if(player1 != null && player2 == null) {
-            player2 = new Player(Class, name);
-        }
-        if(player1 != null && player2 != null && player3 == null) {
-            player3 = new Player(Class, name);
-        }
-        if(player1 != null && player2 != null && player3 != null && player4 == null) {
-            player4 = new Player(Class, name);
-        }
-        if(player1 != null && player2 != null && player3 != null && player4 != null) {
-            System.out.println("There are too many players!");
+        creatingCharacter = true;
+        if(creatingCharacter) {
+            creatingCharacter = false;
+            switch(players) {
+                default: System.out.println("The amount of players is either too high or too low! " + players);
+                case 4: System.out.println("There are too many players! " + players);
+                case 3: player4 = new Player(Class, name); players = 4;
+                case 2: player3 = new Player(Class, name); players = 3;
+                case 1: player2 = new Player(Class, name); players = 2;
+                case 0: player1 = new Player(Class, name); players = 1;
+            }
         }
     }
 
@@ -111,11 +109,9 @@ public class Game extends BasicGameState {
         Maps.renderMap(currMap, playerPosX, playerPosY, gc);
 
         if(changingMap) {
-//            Maps.renderMap(curMap, playerPosX, playerPosY, true);
             changingMap = false;
-        } /*else {
-            Maps.renderMap(curMap, playerPosX, playerPosY, false);
-        }*/
+        }
+
         Input input = gc.getInput();
 
         boolean gameHidden = false;
@@ -144,11 +140,13 @@ public class Game extends BasicGameState {
 
         if(Main.debugMode()) {
             if(input.isKeyDown(Input.KEY_1)) {
-                curMap = "map1";
                 changeMap(Maps.Map1);
             }
-            if(input.isKeyDown(Input.KEY_2)) {
-                curMap = "map2";
+            if(input.isKeyPressed(Input.KEY_2)) {
+                MusicList.cave1.play();
+            }
+            if(input.isKeyPressed(Input.KEY_3)) {
+                MusicList.cave1.stop();
             }
 
             int tempPosX = (int) Math.ceil(playerPosX), tempPosY = (int) Math.ceil(playerPosY);
@@ -199,7 +197,7 @@ public class Game extends BasicGameState {
         }
 
         if(input.isKeyPressed(Input.KEY_LCONTROL) || gc.getInput().isKeyPressed(Input.KEY_RCONTROL)) {
-            Main.setDebugMode(!Main.debugMode());
+            Main.toggleDebug();
         }
 
 
@@ -242,14 +240,6 @@ public class Game extends BasicGameState {
         createCharacterOpen = false;
         isInventoryOpen = false;
     }
-
-    /*public static BaseObject[][] getCurrentMap() {
-        if (curMap == "map1") {
-            return Maps.map1;
-        } else {
-            return null;
-        }
-    }*/
 
     public static Map getCurrentMap() {
         return currMap;
