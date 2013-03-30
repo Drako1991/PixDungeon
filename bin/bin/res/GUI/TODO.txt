@@ -1,1 +1,0 @@
-Texture from the inside of the health vial in own file same shape but taller so almost reaching the top so it can be put on top of the vial image to be able to incrase and decrease as needed.

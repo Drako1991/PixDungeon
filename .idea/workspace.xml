@@ -2,18 +2,106 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71a16653-6d70-406e-b154-fce54b5bba2a" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\.idea\copyright\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\.idea\dictionaries\Charlie.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\.idea\dictionaries\pagem1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\GUI\Button.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\GUI\CharacterCreation.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\GUI\Inventory.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\GUI\PlayerHUD.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\GUI\ToolTips.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\Skills\SkillList.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\Skills\SkillTreeRender.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\Skills\SkillTrees.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\CharacterCreation$Buttons.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\CharacterCreation.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\Game.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\MainMenu$Buttons.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\MainMenu.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\Options$Buttons.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\Options.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\PauseMenu$Buttons.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\PauseMenu.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\States\States.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\.idea\dictionaries\Charlie.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\.idea\dictionaries\pagem1.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\.idea\workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/States/Game.class" afterPath="$PROJECT_DIR$/bin/States/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/BGObject.java" afterPath="$PROJECT_DIR$/src/Tiles/BGObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/BaseObject.java" afterPath="$PROJECT_DIR$/src/Tiles/BaseObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/States/Game.java" afterPath="$PROJECT_DIR$/src/States/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Audio/GameFX.java" afterPath="$PROJECT_DIR$/src/Audio/GameFX.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Audio/GameMusic.java" afterPath="$PROJECT_DIR$/src/Audio/GameMusic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Maps/Map.java" afterPath="$PROJECT_DIR$/src/Maps/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player/MouseMovement.java" afterPath="$PROJECT_DIR$/src/Player/MouseMovement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Tiles.java" afterPath="$PROJECT_DIR$/src/Tiles/Tiles.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\AppleJavaExtensions.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\asm-debug-all.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\jinput.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\lwjgl-debug.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\lwjgl.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\lwjgl_test.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\lwjgl_util.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\lwjgl_util_applet.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\lzma.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\lib\slick.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\AppleJavaExtensions.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\asm-debug-all.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\jinput.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\libjinput-osx.jnilib" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\liblwjgl.jnilib" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\lwjgl-debug.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\lwjgl.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\lwjgl_test.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\lwjgl_util.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\lwjgl_util_applet.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\lzma.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\mac\openal.dylib" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\windows\OpenAL32.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\windows\OpenAL64.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\windows\jinput-dx8.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\windows\jinput-dx8_64.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\windows\jinput-raw.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\windows\jinput-raw_64.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\windows\lwjgl.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\natives\windows\lwjgl64.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\Player\Archer.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\Player\Assassin.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\Player\Knight.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\Player\Wizard.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\SpriteSheets\NaturalBGSS.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\SpriteSheets\NaturalBGSS64.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\SpriteSheets\Thumbs.db" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\Tiles\Thumbs.db" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\Tiles\TileGrass.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\Tiles\left grass to stone path.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\res\fonts\pixelated.ttf" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\bin\src\META-INF\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\AppleJavaExtensions.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\asm-debug-all.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\jinput.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\lwjgl-debug.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\lwjgl.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\lwjgl_test.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\lwjgl_util.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\lwjgl_util_applet.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\lzma.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\lib\slick.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\AppleJavaExtensions.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\asm-debug-all.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\jinput.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\libjinput-osx.jnilib" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\liblwjgl.jnilib" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\lwjgl-debug.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\lwjgl.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\lwjgl_test.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\lwjgl_util.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\lwjgl_util_applet.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\lzma.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\mac\openal.dylib" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\windows\OpenAL32.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\windows\OpenAL64.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\windows\jinput-dx8.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\windows\jinput-dx8_64.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\windows\jinput-raw.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\windows\jinput-raw_64.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\windows\lwjgl.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\natives\windows\lwjgl64.dll" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\res\Player\Archer.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\res\Player\Assassin.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\res\Player\Knight.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Programming\Games\PixDungeon\bin\res\Player\Wizard.png" afterPath="" />
       <change type="MODIFICATION" beforePath="C:\Programming\Games\PixDungeon\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\.idea\workspace.xml" afterPath="C:\Programming\Games\PixDungeon\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\.idea\workspace.xml" />
       <change type="MODIFICATION" beforePath="C:\Programming\Games\PixDungeon\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\.idea\workspace.xml" afterPath="C:\Programming\Games\PixDungeon\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\.idea\workspace.xml" />
       <change type="MODIFICATION" beforePath="C:\Programming\Games\PixDungeon\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\.idea\workspace.xml" afterPath="C:\Programming\Games\PixDungeon\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\bin\.idea\workspace.xml" />
@@ -213,7 +301,7 @@
       <file leaf-file-name="GameMusic.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Audio/GameMusic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="21" selection-start="426" selection-end="426" vertical-scroll-proportion="-0.46312177">
+            <state line="49" column="0" selection-start="958" selection-end="958" vertical-scroll-proportion="1.0531732">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -927,7 +1015,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Audio/GameMusic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="21" selection-start="426" selection-end="426" vertical-scroll-proportion="-0.46312177">
+        <state line="49" column="0" selection-start="958" selection-end="958" vertical-scroll-proportion="1.0531732">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
