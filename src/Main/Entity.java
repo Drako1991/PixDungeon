@@ -50,14 +50,6 @@ public class Entity {
         return position;
     }
 
-    public float getScaleW() {
-        return scale.x;
-    }
-
-    public float getScaleH() {
-        return scale.y;
-    }
-
     public float getRotation() {
         return rotation;
     }
@@ -76,14 +68,6 @@ public class Entity {
 
     public void setRotation(float rotate) {
         rotation = rotate;
-    }
-
-    public void setScaleW(float scaleW) {
-        this.scale.x = scaleW;
-    }
-
-    public void setScaleH(float scaleH) {
-        this.scale.y = scaleH;
     }
 
     public void setScale(Vector2f scale) {
