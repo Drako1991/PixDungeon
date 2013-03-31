@@ -10,11 +10,10 @@ public class ImageRenderComponent extends RenderComponent {
     Image image;
     Vector2f scale = new Vector2f(0, 0);
 
-    public ImageRenderComponent(String id, Image image, float scaleW, float scaleH) {
+    public ImageRenderComponent(String id, Image image, float w, float h) {
         super(id);
         this.image = image;
-        this.scale.x = scaleW;
-        this.scale.y = scaleH;
+        scale = new Vector2f(w, h);
     }
 
     public ImageRenderComponent(String id, Image img, Vector2f scale) {

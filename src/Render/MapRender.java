@@ -32,7 +32,7 @@ public class MapRender {
 
         if(connectsToPath) {
             if(obj.getEnum() == TileList.grass) {
-                if(posX >= 1) {
+//                if(posX >= 1) {
 //                    if(map.getTile(posX - 1, posY) == Tiles.path) {
 //                        sideGrass = true;
 //                        Tiles.rGrass.getImage().draw(mPosX * width, mPosY * height, width, height);
@@ -110,7 +110,6 @@ public class MapRender {
                     if(!sideGrass) {
                         Tiles.grass.getImage().draw(mPosX * width, mPosY * height, width, height);
                     }
-                }
             }
         }
     }
