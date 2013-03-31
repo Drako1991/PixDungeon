@@ -1,256 +1,225 @@
 package Player;
 
-import Classes.BaseClass;
-import Classes.ClassList;
 import Classes.Classes;
-import Classes.DefaultValues;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
+import Classes.BaseClass;
 
 public class Player {
-    private int maxLevel = 30, Level, xp, Strength, Vitality, Intellect, Dexterity, Agility, maxHealth, Health,
-            xpIncreaseRate = 500, maxPower, power;
-    private String Name, classImgLocation;
-    private int maxXP = Level * xpIncreaseRate;
-    private boolean Dead = false;
-    private PowerTypes powerType;
-    private static PlayerAnimStates animState;
-    private static BaseClass playerClass;
+    private static int maxPower, power, Strength, Vitality, Agility, Intellect, Dexterity, health, maxHealth, xpIncreaseRate = 500, xp, level, maxLevel = 30, maxXP = level*xpIncreaseRate;
+    private static Vector2f pos, scale;
+    private static String name;
+    private static BaseClass plyClass;
+    private static boolean isDead;
+    private static PowerTypes powerType;
+    private static float speed;
 
-    //TODO: Set increasing stats on level increase
-    //TODO: When creating a Player, access Class<ClassName> instead of DefaultValues class
-    //TODO: Add death function and allow the player to be killed when at 0 Health
-    //TODO: Add death overlay when the player is killed telling the player what killed them
-    //TODO: Add player animations & Better images
+    public Player(String name, BaseClass plyClass) {
+        this.plyClass = plyClass;
+        this.name = name;
 
-    public Player() {
-        setLevel(1);
-        setXP(0);
-        setName("");
+        initPly();
     }
 
-    public Player(ClassList Class, String Name) {
-        setLevel(1);
-        setXP(0);
-        setName(Name);
+    public void initPly() {
+        level = 1;
+        xp = 0;
+        isDead = false;
+        Strength = plyClass.getStrength();
+        Vitality = plyClass.getVitality();
+        Agility = plyClass.getAgility();
+        Intellect = plyClass.getIntellect();
+        Dexterity = plyClass.getDexterity();
+    }
 
-        switch(Class) {
-            case Archer:
-                playerClass = Classes.Archer;
-                break;
+    public Player setSpeed(float Speed) {
+        speed = Speed;
+        return this;
+    }
 
-            case Assassin:
-                playerClass = Classes.Assassin;
-                break;
-
-            case Knight:
-                playerClass = Classes.Knight;
-                break;
-
-            case Wizard:
-                playerClass = Classes.Wizard;
-                break;
-
-            default:
-                System.out.println("====ERROR WHEN CREATING CHARACTER====");
-                break;
+    public Player takeHealth(int Health) {
+        if(health - Health > 0 && Health > 0) {
+            health -= Health;
         }
-
-        maxPower = playerClass.getMaxPower();
-    }
-
-    public static void writePlayerToFile() {
-
-    }
-
-    public static void readPlayerFromFile() {
-
-    }
-
-    public static void setAnimState(PlayerAnimStates animaState) {
-        animState = animaState;
-    }
-
-    public void setPower(int power) {
-        if(power >= 0 && power <= maxPower) {
-            this.power = power;
+        if(health - Health <= 0) {
+            health = 0;
+            isDead = true;
         }
-        if(power < 0) {
-            this.power = 0;
+        return this;
+    }
+
+    public Player addHealth(int Health) {
+        if(health + Health <= maxHealth && Health > 0) {
+            health += Health;
         }
-        if(power > maxPower) ;
-        {
-            this.power = maxPower;
+        if(health + Health > maxHealth) {
+            health = maxHealth;
         }
+        return this;
     }
 
-    public void addPower(int power) {
-        if(this.power + power <= maxPower) {
-            this.power += power;
-        } else {
-            this.power = maxPower;
+    public Player setHealth(int Health) {
+        if(Health > 0 && Health <= maxHealth) {
+            health = Health;
         }
-    }
-
-    public void takePower(int power) {
-        if(this.power - power >= 0) {
-            this.power -= power;
-        } else {
-            this.power = 0;
-        }
-    }
-
-    public void setMaxPower(int maxPower) {
-        if(maxPower >= 0) {
-            this.maxPower = maxPower;
-        } else {
-            this.maxPower = 0;
-        }
-    }
-
-    public void setXP(int XP) {
-
-        this.xp = XP;
-    }
-
-    public void addXP(int XP) {
-        if(this.Level + 1 <= maxLevel) {
-
-            if(this.xp + XP < this.getMaxXP(this.Level)) {
-                this.xp += XP;
-            } else {
-                if(this.Level + 1 <= this.maxLevel) {
-                    int tempXP = (this.xp + XP) - this.getMaxXP(this.Level);
-
-                    if(tempXP >= 0) {
-                        this.addLevel(1);
-                        this.xp = tempXP;
-                    }
-                } else {
-                    this.Level = this.maxLevel;
-                    this.xp = 0;
-                }
-            }
-        }
-    }
-
-    public void setPowerType(PowerTypes type) {
-        powerType = type;
-    }
-
-
-    public void xp(int XP, boolean at) {
-        if(at) {
-            this.xp += XP;
-        } else {
-            this.xp -= XP;
-        }
-    }
-
-    public void setDead() {
-        this.Dead = true;
-    }
-
-    public void setDead(boolean dead) {
-        this.Dead = dead;
-    }
-
-    public void toggleDeath() {
-        Dead = !Dead;
-    }
-
-    public void setAlive() {
-        this.Dead = false;
-    }
-
-    public void setAlive(boolean alive) {
-        this.Dead = !alive;
-    }
-
-    public void setLevel(int Level) {
-        if(Level <= this.maxLevel) {
-            this.Level = Level;
-        } else {
-            this.Level = this.maxLevel;
-        }
-    }
-
-    public void addLevel(int Level) {
-        if(this.Level + Level <= this.maxLevel) {
-            this.Level += Level;
-
-        } else {
-            this.Level = this.maxLevel;
-        }
-    }
-
-    public void setClassImageLocation(String location) {
-        this.classImgLocation = location;
-    }
-
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
-    public void takeHealth(int Health) {
-        if(this.Health - Health > 0) {
-            this.Health -= Health;
-        } else {
-            this.Health = 0;
-            setDead();
-        }
-    }
-
-    public void addHealth(int Health) {
-        if(this.Health + Health <= maxHealth) {
-            this.Health += Health;
-        } else {
-            this.Health = maxHealth;
-        }
-    }
-
-    public void setHealth(int Health) {
         if(Health <= 0) {
-            setDead();
-            this.Health = 0;
+            isDead = true;
         }
-        if(Health == maxHealth) {
-            this.Health = maxHealth;
+        if(Health > maxHealth) {
+            health = maxHealth;
         }
-        this.Health = Health;
+        return this;
     }
 
-    public void setMaxHealth(int MaxHealth) {
-        if(MaxHealth > 0) {
-            this.maxHealth = MaxHealth;
-        } else {
-            this.maxHealth = 1;
+    public Player setName(String Name) {
+        name = Name;
+        return this;
+    }
+
+    public Player setPowerType(PowerTypes pow) {
+        powerType = pow;
+        return this;
+    }
+
+    public Player setPower(int pow) {
+        power = pow;
+        return this;
+    }
+
+    public Player setMaxPower(int pow) {
+        maxPower = pow;
+        return this;
+    }
+
+    public Player setLevel(int lvl) {
+        if(lvl > 0 && lvl <= maxLevel) {
+            level = lvl;
         }
+        if(lvl > maxLevel) {
+            level = maxLevel;
+        }
+        return this;
     }
 
-    public void setStrength(int Strength) {
-        this.Strength = Strength;
+    public Player addLevel(int lvl) {
+        if(lvl > 0 && lvl + level <= maxLevel) {
+            level += lvl;
+        }
+        if(lvl + level > maxLevel) {
+            level = maxLevel;
+        }
+        return this;
     }
 
-    public void setVitality(int Vitality) {
-        this.Vitality = Vitality;
+    public Player setDead() {
+        isDead = true;
+        return this;
     }
 
-    public void setIntellect(int Intellect) {
-        this.Intellect = Intellect;
+    public Player setAlive() {
+        isDead = false;
+        return this;
     }
 
-    public void setDexterity(int Dexterity) {
-        this.Dexterity = Dexterity;
+    public Player setDead(boolean dead) {
+        isDead = dead;
+        return this;
     }
 
-    public void setAgility(int Agility) {
-        this.Agility = Agility;
+    public Player setAlive(boolean alive) {
+        isDead = !alive;
+        return this;
     }
 
-    public BaseClass getPlayerClass() {
-        return playerClass;
+    public Player toggleDead() {
+        isDead = !isDead;
+        return this;
+    }
+
+    public Player setXP(int XP) {
+        if(XP >= 0 && XP+xp < maxXP) {
+            xp = XP;
+        }
+        if(XP < 0) {
+            xp = 0;
+        }
+        if(XP == maxXP && level+1 <= maxLevel) {
+            level++;
+        }
+        if(XP+xp > maxXP) {
+            int tempXP = maxXP - (XP+xp);
+
+            level++;
+            xp = tempXP;
+        }
+        return this;
+    }
+
+    public Player addXP(int XP) {
+        setXP(getXP()+XP);
+        return this;
+    }
+
+    public Player setHelath(int health) {
+        this.health = health;
+        return this;
+    }
+
+    public Player setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+        return this;
+    }
+
+    public Player setStrength(int str) {
+        Strength = str;
+        return this;
+    }
+
+    public Player setVitality(int vit) {
+        Vitality = vit;
+        return this;
+    }
+
+    public Player setAgility(int agi) {
+        Agility = agi;
+        return this;
+    }
+
+    public Player setIntellect(int inte) {
+        Intellect = inte;
+        return this;
+    }
+
+    public Player setDexterity(int dex) {
+        Dexterity = dex;
+        return this;
+    }
+
+    public Player setPos(float x, float y) {
+        pos = new Vector2f(x, y);
+        return this;
+    }
+
+    public Player setPos(Vector2f pos) {
+        this.pos = pos;
+        return this;
+    }
+
+    public Player setScale(float h, float w) {
+        scale = new Vector2f(h, w);
+        return this;
+    }
+
+    public Player setScale(Vector2f scale) {
+        this.scale = scale;
+        return this;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public PowerTypes getPowerType() {
+        return powerType;
     }
 
     public int getPower() {
@@ -261,95 +230,63 @@ public class Player {
         return maxPower;
     }
 
-    public PlayerAnimStates getAnimState() {
-        return this.animState;
-    }
-
-    public PowerTypes getPowerType() {
-        return powerType;
-    }
-
-    public Color getPowerColor() {
-        if(powerType == PowerTypes.Fury) {
-            return new Color(255, 0, 0);
-        } else if(powerType == PowerTypes.Mana) {
-            return new Color(20, 20, 255);
-        } else {
-            return null;
-        }
-    }
-
-    public int getPowerTypeID() {
-        return powerType.ordinal();
-    }
-
-    public boolean getDead() {
-        return this.Dead;
-    }
-
-    public Image getClassImage() throws SlickException {
-        return new Image(this.classImgLocation);
-    }
-
-    public int getMaxLevel() {
-        return this.maxLevel;
-    }
-
-    public int getMaxXP() {
-        return this.Level * xpIncreaseRate;
-    }
-
-    public int getMaxXP(int level) {
-        return level * this.xpIncreaseRate;
+    public boolean isDead() {
+        return isDead;
     }
 
     public int getXP() {
-        return this.xp;
+        return xp;
+    }
+
+    public int getMaxXP() {
+        return maxXP;
     }
 
     public int getLevel() {
-        return this.Level;
-    }
-
-    public String getName() {
-        return this.Name;
+        return level;
     }
 
     public int getHealth() {
-        return this.Health;
+        return health;
     }
 
     public int getMaxHealth() {
-        return this.maxHealth;
+        return maxHealth;
     }
 
     public int getStrength() {
-        return this.Strength;
+        return Strength;
     }
 
     public int getVitality() {
-        return this.Vitality;
-    }
-
-    public int getIntellect() {
-        return this.Intellect;
-    }
-
-    public int getDexterity() {
-        return this.Dexterity;
+        return Vitality;
     }
 
     public int getAgility() {
-        return this.Agility;
+        return Agility;
     }
 
-    public String getPowerTypeString() {
-        switch(powerType) {
-            case Fury: return "Fury";
-            case Mana: return "Mana";
-            case tempArcher: return "tempArcher";
-            case tempAssassin: return "tempAssassin";
-            default: return null;
-        }
+    public int getIntellect() {
+        return Intellect;
+    }
+
+    public int getDexterity() {
+        return Dexterity;
+    }
+
+    public Vector2f getPos() {
+        return pos;
+    }
+
+    public Vector2f getScale() {
+        return scale;
+    }
+
+    public BaseClass getPlayerClass() {
+        return plyClass;
+    }
+
+    public String getName() {
+        return name;
     }
 }

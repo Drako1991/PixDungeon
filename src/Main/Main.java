@@ -11,13 +11,13 @@ public class Main extends StateBasedGame {
     //TODO: Install and use Gradle to build the project
     private static boolean debugMode = false;
 
-    public static void saveGame() {
-        Player.writePlayerToFile();
-    }
-
-    public static void loadGame() {
-        Player.readPlayerFromFile();
-    }
+//    public static void saveGame() {
+//        Player.writePlayerToFile();
+//    }
+//
+//    public static void loadGame() {
+//        OLD_Player.readPlayerFromFile();
+//    }
 
     public static void exitGame() {
         System.exit(0);

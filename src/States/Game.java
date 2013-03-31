@@ -2,16 +2,15 @@ package States;
 
 import Audio.MusicList;
 import BaseClasses.TextCenter;
-import Classes.ClassList;
+import Classes.BaseClass;
+import Classes.Classes;
 import GUI.CharacterCreation;
 import Main.Entity;
 import Main.Main;
 import Maps.Map;
 import Maps.Maps;
-import Player.MouseMovement;
 import Player.Player;
-import Render.ImageRenderComponent;
-import Render.StringRenderComponent;
+import Render.PlayerRender;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
@@ -22,7 +21,6 @@ public class Game extends BasicGameState {
     static Player player1 = null, player2 = null, player3 = null, player4 = null;
     private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/ isInventoryOpen;
     private static boolean changingMap = true, creatingCharacter = false;
-    private static Image classImage;
     private static Map currMap;
     private static int players = 0;
 
@@ -35,17 +33,17 @@ public class Game extends BasicGameState {
         changingMap = true;
     }
 
-    public static void createCharacter(String name, ClassList Class) {
+    public static void createCharacter(String name, BaseClass Class) {
         creatingCharacter = true;
         if(creatingCharacter) {
             creatingCharacter = false;
             switch(players) {
                 default: System.out.println("The amount of players is either too high or too low! " + players);
                 case 4: System.out.println("There are too many players! " + players);
-                case 3: player4 = new Player(Class, name); players = 4;
-                case 2: player3 = new Player(Class, name); players = 3;
-                case 1: player2 = new Player(Class, name); players = 2;
-                case 0: player1 = new Player(Class, name); players = 1;
+                case 3: player4 = new Player(name, Class); players = 4;
+                case 2: player3 = new Player(name, Class); players = 3;
+                case 1: player2 = new Player(name, Class); players = 2;
+                case 0: player1 = new Player(name, Class); players = 1;
             }
         }
     }
@@ -72,21 +70,15 @@ public class Game extends BasicGameState {
 
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        MouseMovement PlayerMovement = new MouseMovement("PlayerMovement");
-        PlayerMovement.setSpeed(0.35f);
-//        changeMap("map1");
         changeMap(Maps.Map1);
-        createCharacter("Zurrox", ClassList.Assassin);
-        player1.setMaxHealth(100);
-        player1.setHealth(100);
-        classImage = player1.getPlayerClass().getClassImage();
+//        createCharacter("Zurrox", Classes.Archer);
+
+        player1 = new Player("Zurrox", Classes.Archer);
+        System.out.println("MaxHealth: " + player1.getMaxHealth());
         EntityPlayer = new Entity("Player");
-        EntityPlayer.addComponent(PlayerMovement);
         EntityName = new Entity("PlayerName");
-        ImageRenderComponent PlayerImage = new ImageRenderComponent("PlayerImage", classImage, 42 * (gc.getWidth() / 1280), 58 * (gc.getHeight() / 720));
-        EntityPlayer.addComponent(PlayerImage);
-        EntityName.addComponent(new StringRenderComponent("NameRender", player1.getName(), Color.red));
-        EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
+//        ImageRenderComponent PlayerImage = new ImageRenderComponent("PlayerImage", classImage, 42 * (gc.getWidth() / 1280), 58 * (gc.getHeight() / 720));
+//        EntityPlayer.addComponent(PlayerImage);
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
@@ -94,6 +86,7 @@ public class Game extends BasicGameState {
         float playerPosX = -EntityPlayer.getPosition().x / 64 * (gc.getWidth() / 1280) + 2;
         float playerPosY = -EntityPlayer.getPosition().y / 64 * (gc.getHeight() / 720);
         Maps.renderMap(currMap, playerPosX, playerPosY, gc);
+        PlayerRender.renderPlayer(gc, player1);
 
         if(changingMap) {
             changingMap = false;
@@ -107,7 +100,6 @@ public class Game extends BasicGameState {
             EntityName.render(gc, null, g);
             EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player1.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
         }
-
 
         try {
             Thread.sleep(2);
@@ -151,7 +143,7 @@ public class Game extends BasicGameState {
             g.setColor(Color.white);
             g.drawString("MouseX: " + (int) Math.ceil(input.getMouseX()) + ", MouseY: " + (int) Math.ceil(input.getMouseY()), 0, gc.getHeight() / 4);
             g.drawString("PlayerX: " + (int) Math.ceil(playerPosX) + " PlayerPosY: " + (int) Math.ceil(playerPosY), 0, gc.getHeight() / 4 + 20);
-            g.drawString("Dead: " + player1.getDead(), 0, gc.getHeight() / 4 - 20);
+            g.drawString("Dead: " + player1.isDead(), 0, gc.getHeight() / 4 - 20);
         }
     }
 
