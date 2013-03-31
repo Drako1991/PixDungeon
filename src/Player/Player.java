@@ -6,12 +6,12 @@ import Classes.BaseClass;
 
 public class Player {
     private static int maxPower, power, Strength, Vitality, Agility, Intellect, Dexterity, health, maxHealth, xpIncreaseRate = 500, xp, level, maxLevel = 30, maxXP = level*xpIncreaseRate;
-    private static Vector2f pos, scale;
+    private static Vector2f pos = new Vector2f(0, 0), scale = new Vector2f(32, 49);
     private static String name;
     private static BaseClass plyClass;
     private static boolean isDead;
     private static PowerTypes powerType;
-    private static float speed;
+    private static float speed = 0.4f, rotation;
 
     public Player(String name, BaseClass plyClass) {
         this.plyClass = plyClass;
@@ -29,6 +29,39 @@ public class Player {
         Agility = plyClass.getAgility();
         Intellect = plyClass.getIntellect();
         Dexterity = plyClass.getDexterity();
+    }
+
+    public Player takeRotation(float Rotation) {
+        if(Rotation > 0 && rotation - Rotation >= 0 && rotation - Rotation <= 360) {
+            Rotation -= Rotation;
+        }
+        if(rotation - Rotation < 0) {
+            rotation = 0;
+        }
+        return this;
+    }
+
+    public Player addRotation(float Rotation) {
+        if(Rotation > 0 && rotation + Rotation <= 360) {
+            rotation += Rotation;
+        }
+        if(rotation + Rotation > 360) {
+            rotation = 360;
+        }
+        return this;
+    }
+
+    public Player setRotation(float Rotation) {
+        if(Rotation <= 360 && Rotation >= 0) {
+            rotation = Rotation;
+        }
+        if(Rotation > 360) {
+            rotation = 360;
+        }
+        if(Rotation < 0) {
+            rotation = 0;
+        }
+        return this;
     }
 
     public Player setSpeed(float Speed) {
