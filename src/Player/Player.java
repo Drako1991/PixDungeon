@@ -227,6 +227,16 @@ public class Player {
         return this;
     }
 
+    public Player addPos(float X, float Y) {
+        pos = new Vector2f(pos.x+X, pos.y+Y);
+        return this;
+    }
+
+    public Player takePos(float X, float Y) {
+        pos = new Vector2f(pos.x-X, pos.y-Y);
+        return this;
+    }
+
     public Player setPos(float x, float y) {
         pos = new Vector2f(x, y);
         return this;
@@ -245,6 +255,10 @@ public class Player {
     public Player setScale(Vector2f scale) {
         this.scale = scale;
         return this;
+    }
+
+    public float getRotation() {
+        return rotation;
     }
 
     public float getSpeed() {
