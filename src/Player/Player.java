@@ -274,7 +274,7 @@ public class Player {
     }
 
     public Vector2f getTilePos() {
-        return new Vector2f((int) Math.ceil(pos.x/Game.getTileSize().x), (int) Math.ceil(pos.y/Game.getTileSize().y));
+        return new Vector2f((int) Math.floor(pos.x/Game.getTileSize().x), (int) Math.floor(pos.y/Game.getTileSize().y));
     }
 
     public Directions getDirection() {

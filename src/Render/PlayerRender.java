@@ -1,11 +1,13 @@
 package Render;
 
+import Main.Main;
 import Player.Directions;
 import Player.Player;
 import States.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import Player.Movement;
 
 public class PlayerRender {
     private static Image playerImage;
@@ -25,49 +27,8 @@ public class PlayerRender {
         playerImage.rotate(ply.getRotation());
         playerImage.draw(gc.getWidth() / 2, gc.getHeight() / 2, ply.getScale().x, ply.getScale().y);
 
-        move();
         rotate();
-        return this;
-    }
-
-    private PlayerRender move() {
-        Input input = gc.getInput();
-        float speedX = -ply.getSpeed() * (Game.getTileSize().x / 64) / 30f, speedY = ply.getSpeed() * (Game.getTileSize().y / 64) / 30f;
-        ply.addPos(xSpeed, ySpeed);
-
-        if(input.isKeyDown(Input.KEY_S)) {
-            if(Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y - speedY)) != null) {
-                if(!Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y - speedY)).isSolid()) {
-                    ySpeed = -speedY;
-                }
-            }
-        }
-        if(Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y - speedY)) == null) {
-            ySpeed = -speedY;
-        }
-        if(input.isKeyDown(Input.KEY_D)) {
-            xSpeed = -speedX;
-        }
-        if(input.isKeyDown(Input.KEY_W)) {
-            if(Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y + speedY)) != null) {
-                if(!Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y + speedY)).isSolid()) {
-                    ySpeed = speedY;
-                }
-            }
-            if(Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y + speedY)) == null) {
-                ySpeed = speedY;
-            }
-        }
-        if(input.isKeyDown(Input.KEY_A)) {
-            xSpeed = speedX;
-        }
-        if(!input.isKeyDown(Input.KEY_W) && !input.isKeyDown(Input.KEY_S)) {
-            ySpeed = 0;
-        }
-        if(!input.isKeyDown(Input.KEY_A) && !input.isKeyDown(Input.KEY_D)) {
-            xSpeed = 0;
-        }
-
+        Movement.move(gc, ply);
         return this;
     }
 
