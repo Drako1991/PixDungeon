@@ -5,33 +5,46 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
 import Player.Player;
 import org.newdawn.slick.Input;
+import Player.Directions;
 
 public class PlayerRender {
     private static Image playerImage;
     private static float xSpeed, ySpeed;
+    private static boolean mouseControl;
+    private Player ply;
+    private GameContainer gc;
 
-    public static void renderPlayer(GameContainer gc, Player ply) {
-        playerImage = ply.getPlayerClass().getClassImage();
-
-        updatePlayer(gc, ply);
-        renderPlayer(ply);
+    public PlayerRender(Player ply, GameContainer gc) {
+        this.ply = ply;
+        this.gc = gc;
     }
 
-    public static void updatePlayer(GameContainer gc, Player ply) {
-        Input input = gc.getInput();
-        ply.addPos(xSpeed, ySpeed);
-        float speedX = ply.getSpeed()*Game.getTileSize().x/64, speedY = ply.getSpeed()*Game.getTileSize().y/64;
+    public PlayerRender renderPlayer() {
+        playerImage = ply.getPlayerClass().getClassImage();
 
-        if(input.isKeyDown(Input.KEY_W)) {
+        playerImage.rotate(ply.getRotation());
+        playerImage.draw(gc.getWidth() / 2, gc.getHeight() / 2, ply.getScale().x, ply.getScale().y);
+
+        move();
+        rotate();
+        return this;
+    }
+
+    private PlayerRender move() {
+        Input input = gc.getInput();
+        float speedX = -ply.getSpeed()*(Game.getTileSize().x/64)/30f, speedY = ply.getSpeed()*(Game.getTileSize().y/64)/30f;
+        ply.addPos(xSpeed, ySpeed);
+
+        if(input.isKeyDown(Input.KEY_S)) {
             ySpeed = -speedY;
         }
-        if(input.isKeyDown(Input.KEY_A)) {
+        if(input.isKeyDown(Input.KEY_D)) {
             xSpeed = -speedX;
         }
-        if(input.isKeyDown(Input.KEY_S)) {
+        if(input.isKeyDown(Input.KEY_W)) {
             ySpeed = speedY;
         }
-        if(input.isKeyDown(Input.KEY_D)) {
+        if(input.isKeyDown(Input.KEY_A)) {
             xSpeed = speedX;
         }
         if(!input.isKeyDown(Input.KEY_W) && !input.isKeyDown(Input.KEY_S)) {
@@ -40,10 +53,73 @@ public class PlayerRender {
         if(!input.isKeyDown(Input.KEY_A) && !input.isKeyDown(Input.KEY_D)) {
             xSpeed = 0;
         }
+
+        return this;
     }
 
-    public static void renderPlayer(Player ply) {
-        playerImage.draw(ply.getPos().x, ply.getPos().y, ply.getScale().x, ply.getScale().y);
-        playerImage.rotate(ply.getRotation());
+    private PlayerRender rotate() {
+        Input input = gc.getInput();
+        boolean w = input.isKeyDown(Input.KEY_W), a = input.isKeyDown(Input.KEY_A), s = input.isKeyDown(Input.KEY_S), d = input.isKeyDown(Input.KEY_D);
+        float plyX = gc.getWidth() / 2, plyY = gc.getHeight() / 2, radiansToMouse = (float) Math.atan2(plyX - input.getMouseX(), plyY - input.getMouseY()),
+                degreesToMouse = -(57.2957795f * radiansToMouse), angle = 0;
+
+        if(!w && !a && !s && !d) {
+            mouseControl = true;
+        }else{
+            mouseControl = false;
+        }
+
+        if(!mouseControl) {
+            if(w) {
+                angle += 0;
+                ply.setDirection(Directions.North);
+                mouseControl = false;
+            }
+
+            if(w && d) {
+                angle += 45;
+                ply.setDirection(Directions.NorthEast);
+                mouseControl = false;
+            }
+            if(d && !w && !s) {
+                angle += 90;
+                ply.setDirection(Directions.East);
+                mouseControl = false;
+            }
+            if(s && d) {
+                angle -= 45;
+                ply.setDirection(Directions.SouthEast);
+                mouseControl = false;
+            }
+            if(w && a) {
+                angle -= 45;
+                ply.setDirection(Directions.NorthWest);
+                mouseControl = false;
+            }
+            if(s && a) {
+                angle += 45;
+                ply.setDirection(Directions.SouthWest);
+                mouseControl = false;
+            }
+
+            if(a && !w && !s) {
+                angle -= 90;
+                ply.setDirection(Directions.West);
+                mouseControl = false;
+            }
+            if(s) {
+                angle += 180;
+                ply.setDirection(Directions.South);
+                mouseControl = false;
+            }
+        }
+
+        if(mouseControl) {
+            angle = degreesToMouse;
+        }
+
+        ply.setRotation(angle);
+
+        return this;
     }
 }

@@ -1,5 +1,8 @@
 package Player;
 
+import Render.PlayerRender;
+import States.Game;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.geom.Vector2f;
 import Classes.BaseClass;
 
@@ -10,7 +13,9 @@ public class Player {
     private static BaseClass plyClass;
     private static boolean isDead;
     private static PowerTypes powerType;
-    private static float speed = 0.5f, rotation;
+    private static float speed = 1f, rotation;
+    private static Directions plyDirection;
+    private static PlayerRender plyRender;
 
     public Player(String name, BaseClass plyClass) {
         this.plyClass = plyClass;
@@ -19,7 +24,7 @@ public class Player {
         initPly();
     }
 
-    public void initPly() {
+    private void initPly() {
         level = 1;
         xp = 0;
         isDead = false;
@@ -28,6 +33,19 @@ public class Player {
         Agility = plyClass.getAgility();
         Intellect = plyClass.getIntellect();
         Dexterity = plyClass.getDexterity();
+
+        plyRender = new PlayerRender(this, Game.getGameContainer());
+    }
+
+    public Player update() {
+        plyRender.renderPlayer();
+        return this;
+    }
+
+
+    public Player setDirection(Directions direction) {
+        plyDirection = direction;
+        return this;
     }
 
     public Player takeRotation(float Rotation) {
@@ -51,14 +69,11 @@ public class Player {
     }
 
     public Player setRotation(float Rotation) {
-        if(Rotation <= 360 && Rotation >= 0) {
+        if(Rotation <= 360) {
             rotation = Rotation;
         }
         if(Rotation > 360) {
             rotation = 360;
-        }
-        if(Rotation < 0) {
-            rotation = 0;
         }
         return this;
     }
@@ -254,6 +269,14 @@ public class Player {
     public Player setScale(Vector2f scale) {
         this.scale = scale;
         return this;
+    }
+
+    public Vector2f getTilePos() {
+        return new Vector2f((int) Math.ceil(pos.x/Game.getTileSize().x), (int) Math.ceil(pos.y/Game.getTileSize().y));
+    }
+
+    public Directions getDirection() {
+        return plyDirection;
     }
 
     public float getRotation() {
