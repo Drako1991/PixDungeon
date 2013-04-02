@@ -8,37 +8,42 @@ import org.newdawn.slick.geom.Vector2f;
 
 public class PlayerRender {
     private static Image playerImage;
-    private static Vector2f scale = new Vector2f(32, 49), pos = new Vector2f(0, 0);
-    private static float speed;
+    private static float xSpeed, ySpeed;
 
     public static void renderPlayer(GameContainer gc, Player ply) {
         playerImage = ply.getPlayerClass().getClassImage();
-        pos = ply.getPos();
-        scale = ply.getScale();
-        speed = ply.getSpeed();
 
-        updatePlayer(gc);
-        renderPlayer();
+        updatePlayer(gc, ply);
+        renderPlayer(ply);
     }
 
-    public static void updatePlayer(GameContainer gc) {
+    public static void updatePlayer(GameContainer gc, Player ply) {
         Input input = gc.getInput();
+        ply.addPos(xSpeed, ySpeed);
+        float speed = ply.getSpeed();
 
         if(input.isKeyDown(Input.KEY_W)) {
-            pos.y -= speed;
+            ySpeed = -speed;
         }
         if(input.isKeyDown(Input.KEY_A)) {
-            pos.x -= speed;
+            xSpeed = -speed;
         }
         if(input.isKeyDown(Input.KEY_S)) {
-            pos.y += speed;
+            ySpeed = speed;
         }
         if(input.isKeyDown(Input.KEY_D)) {
-            pos.x += speed;
+            xSpeed = speed;
+        }
+        if(!input.isKeyDown(Input.KEY_W) && !input.isKeyDown(Input.KEY_S)) {
+            ySpeed = 0;
+        }
+        if(!input.isKeyDown(Input.KEY_A) && !input.isKeyDown(Input.KEY_D)) {
+            xSpeed = 0;
         }
     }
 
-    public static void renderPlayer() {
-        playerImage.draw(pos.x, pos.y, scale.x, scale.y);
+    public static void renderPlayer(Player ply) {
+        playerImage.draw(ply.getPos().x, ply.getPos().y, ply.getScale().x, ply.getScale().y);
+        playerImage.rotate(ply.getRotation());
     }
 }
