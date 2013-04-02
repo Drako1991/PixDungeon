@@ -80,22 +80,12 @@ public class Map {
         return this;
     }
 
-    /*public BaseObject getTile(int x, int y) {
-        int tempX = x-3, tempY = y+6;
-        if(tempY >= 0 && tempY < map.length) {
-            if(tempX >= 0 && tempX < map[tempY].length) {
-                return map[tempY][tempX];
-            } else return null;
-        } else return null;
-    }*/
-
     public BaseObject getTile(int x, int y) {
-        int tempX = x, tempY = y;
-        if(tempY >= 0 && tempY < map.length) {
-            if(tempX >= 0 && tempX < map[tempY].length) {
-                return map[tempY][tempX];
-            } else return null;
-        } else return null;
+        if(y >= 0 && y < map.length) {
+            if(x >= 0 && x < map[y].length) {
+                return map[y][x];
+            }else return null;
+        }else return null;
     }
 
     public int getMapID() {

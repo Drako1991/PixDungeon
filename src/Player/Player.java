@@ -6,6 +6,8 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.geom.Vector2f;
 import Classes.BaseClass;
 
+import java.util.Vector;
+
 public class Player {
     private static int maxPower, power, Strength, Vitality, Agility, Intellect, Dexterity, health, maxHealth, xpIncreaseRate = 500, xp, level, maxLevel = 30, maxXP = level*xpIncreaseRate;
     private static Vector2f pos = new Vector2f(0, 0), scale = new Vector2f(32, 49);
@@ -344,7 +346,8 @@ public class Player {
     }
 
     public Vector2f getPos() {
-        return pos;
+        return new Vector2f(pos.x, pos.y);
+
     }
 
     public Vector2f getScale() {

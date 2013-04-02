@@ -95,7 +95,7 @@ public class Game extends BasicGameState {
         EntityPlayer.setScale(42 * (gc.getWidth() / 1280), 58 * (gc.getHeight() / 720));
 //        float playerPosX = -EntityPlayer.getPosition().x / 64 * (gc.getWidth() / 1280) + 2;
 //        float playerPosY = -EntityPlayer.getPosition().y / 64 * (gc.getHeight() / 720);
-        Maps.renderMap(currMap, -player1.getPos().x, player1.getPos().y, gc);
+        Maps.renderMap(currMap, -player1.getPos().x-4, player1.getPos().y+2, gc);
         PlayerRender plyRender = new PlayerRender(player1, gc);
         plyRender.renderPlayer();
 
@@ -143,9 +143,10 @@ public class Game extends BasicGameState {
             }
 
             int tempPosX = (int) player1.getTilePos().x, tempPosY = (int) player1.getTilePos().y;
-            if(currMap.getTile(tempPosX, tempPosY) != null) {
-                g.drawString("Tile: " + currMap.getTile(tempPosX, tempPosY).getName(), 0, gc.getHeight() / 4 - 40);
-                g.drawString("Solid: " + currMap.getTile(tempPosX, tempPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
+            if(currMap.getTile((int) player1.getPos().x, (int) player1.getPos().y) != null) {
+//                g.drawString("Tile: " + currMap.getTile(tempPosX, tempPosY).getName(), 0, gc.getHeight() / 4 - 40);
+                    g.drawString("Tile: " + currMap.getTile((int) player1.getPos().x, (int) player1.getPos().y).getName(), 0, gc.getHeight() / 4 - 40);
+                    g.drawString("Solid: " + currMap.getTile((int) player1.getPos().x, (int) player1.getPos().y).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
                 g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
                 g.drawString("Solid: Null", 0, gc.getHeight() / 4 - 60);
@@ -243,7 +244,7 @@ public class Game extends BasicGameState {
     public static Map getCurrentMap() {
         return currMap;
     }
-    
+
     public static boolean isKeyDown(int key) {
         return gc.getInput().isKeyDown(key);
     }

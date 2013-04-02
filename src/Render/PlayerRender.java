@@ -1,11 +1,11 @@
 package Render;
 
+import Player.Directions;
+import Player.Player;
 import States.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
-import Player.Player;
 import org.newdawn.slick.Input;
-import Player.Directions;
 
 public class PlayerRender {
     private static Image playerImage;
@@ -32,17 +32,31 @@ public class PlayerRender {
 
     private PlayerRender move() {
         Input input = gc.getInput();
-        float speedX = -ply.getSpeed()*(Game.getTileSize().x/64)/30f, speedY = ply.getSpeed()*(Game.getTileSize().y/64)/30f;
+        float speedX = -ply.getSpeed() * (Game.getTileSize().x / 64) / 30f, speedY = ply.getSpeed() * (Game.getTileSize().y / 64) / 30f;
         ply.addPos(xSpeed, ySpeed);
 
         if(input.isKeyDown(Input.KEY_S)) {
+            if(Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y - speedY)) != null) {
+                if(!Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y - speedY)).isSolid()) {
+                    ySpeed = -speedY;
+                }
+            }
+        }
+        if(Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y - speedY)) == null) {
             ySpeed = -speedY;
         }
         if(input.isKeyDown(Input.KEY_D)) {
             xSpeed = -speedX;
         }
         if(input.isKeyDown(Input.KEY_W)) {
-            ySpeed = speedY;
+            if(Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y + speedY)) != null) {
+                if(!Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y + speedY)).isSolid()) {
+                    ySpeed = speedY;
+                }
+            }
+            if(Game.getCurrentMap().getTile((int) ply.getPos().x, (int) Math.ceil(ply.getPos().y + speedY)) == null) {
+                ySpeed = speedY;
+            }
         }
         if(input.isKeyDown(Input.KEY_A)) {
             xSpeed = speedX;
@@ -65,7 +79,7 @@ public class PlayerRender {
 
         if(!w && !a && !s && !d) {
             mouseControl = true;
-        }else{
+        } else {
             mouseControl = false;
         }
 
