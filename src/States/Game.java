@@ -24,6 +24,11 @@ public class Game extends BasicGameState {
     private static Map currMap;
     private static int players = 0;
     private static Vector2f tileSize;
+    private static GameContainer gc;
+
+    public static GameContainer getGameContainer() {
+        return gc;
+    }
 
     private static void changeMap(String s) {
         changingMap = true;
@@ -76,19 +81,23 @@ public class Game extends BasicGameState {
 //        createCharacter("Zurrox", Classes.Archer);
 
         player1 = new Player("Zurrox", Classes.Archer);
-        System.out.println("MaxHealth: " + player1.getMaxHealth());
         EntityPlayer = new Entity("Player");
         EntityName = new Entity("PlayerName");
-//        ImageRenderComponent PlayerImage = new ImageRenderComponent("PlayerImage", classImage, 42 * (gc.getWidth() / 1280), 58 * (gc.getHeight() / 720));
-//        EntityPlayer.addComponent(PlayerImage);
+
+        initGameContainer(gc);
+    }
+
+    public static void initGameContainer(GameContainer gameContainer) {
+        gc = gameContainer;
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         EntityPlayer.setScale(42 * (gc.getWidth() / 1280), 58 * (gc.getHeight() / 720));
-        float playerPosX = -EntityPlayer.getPosition().x / 64 * (gc.getWidth() / 1280) + 2;
-        float playerPosY = -EntityPlayer.getPosition().y / 64 * (gc.getHeight() / 720);
-        Maps.renderMap(currMap, playerPosX, playerPosY, gc);
-        PlayerRender.renderPlayer(gc, player1);
+//        float playerPosX = -EntityPlayer.getPosition().x / 64 * (gc.getWidth() / 1280) + 2;
+//        float playerPosY = -EntityPlayer.getPosition().y / 64 * (gc.getHeight() / 720);
+        Maps.renderMap(currMap, -player1.getPos().x, player1.getPos().y, gc);
+        PlayerRender plyRender = new PlayerRender(player1, gc);
+        plyRender.renderPlayer();
 
         if(changingMap) {
             changingMap = false;
@@ -133,7 +142,7 @@ public class Game extends BasicGameState {
                 Main.exitGame();
             }
 
-            int tempPosX = (int) Math.ceil(playerPosX), tempPosY = (int) Math.ceil(playerPosY);
+            int tempPosX = (int) player1.getTilePos().x, tempPosY = (int) player1.getTilePos().y;
             if(currMap.getTile(tempPosX, tempPosY) != null) {
                 g.drawString("Tile: " + currMap.getTile(tempPosX, tempPosY).getName(), 0, gc.getHeight() / 4 - 40);
                 g.drawString("Solid: " + currMap.getTile(tempPosX, tempPosY).isSolid(), 0, gc.getHeight() / 4 - 60);
@@ -144,7 +153,7 @@ public class Game extends BasicGameState {
 
             g.setColor(Color.white);
             g.drawString("MouseX: " + (int) Math.ceil(input.getMouseX()) + ", MouseY: " + (int) Math.ceil(input.getMouseY()), 0, gc.getHeight() / 4);
-            g.drawString("PlayerX: " + (int) Math.ceil(playerPosX) + " PlayerPosY: " + (int) Math.ceil(playerPosY), 0, gc.getHeight() / 4 + 20);
+            g.drawString("PlayerX: " + (int) Math.ceil(player1.getPos().x) + " PlayerPosY: " + (int) Math.ceil(player1.getPos().y), 0, gc.getHeight() / 4 + 20);
             g.drawString("Dead: " + player1.isDead(), 0, gc.getHeight() / 4 - 20);
         }
     }
