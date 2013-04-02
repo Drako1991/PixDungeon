@@ -1,6 +1,5 @@
 package Player;
 
-import Classes.Classes;
 import org.newdawn.slick.geom.Vector2f;
 import Classes.BaseClass;
 
@@ -11,7 +10,7 @@ public class Player {
     private static BaseClass plyClass;
     private static boolean isDead;
     private static PowerTypes powerType;
-    private static float speed = 0.4f, rotation;
+    private static float speed = 0.5f, rotation;
 
     public Player(String name, BaseClass plyClass) {
         this.plyClass = plyClass;

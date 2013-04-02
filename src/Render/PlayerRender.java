@@ -1,5 +1,6 @@
 package Render;
 
+import States.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
 import Player.Player;
@@ -20,19 +21,19 @@ public class PlayerRender {
     public static void updatePlayer(GameContainer gc, Player ply) {
         Input input = gc.getInput();
         ply.addPos(xSpeed, ySpeed);
-        float speed = ply.getSpeed();
+        float speedX = ply.getSpeed()*Game.getTileSize().x/64, speedY = ply.getSpeed()*Game.getTileSize().y/64;
 
         if(input.isKeyDown(Input.KEY_W)) {
-            ySpeed = -speed;
+            ySpeed = -speedY;
         }
         if(input.isKeyDown(Input.KEY_A)) {
-            xSpeed = -speed;
+            xSpeed = -speedX;
         }
         if(input.isKeyDown(Input.KEY_S)) {
-            ySpeed = speed;
+            ySpeed = speedY;
         }
         if(input.isKeyDown(Input.KEY_D)) {
-            xSpeed = speed;
+            xSpeed = speedX;
         }
         if(!input.isKeyDown(Input.KEY_W) && !input.isKeyDown(Input.KEY_S)) {
             ySpeed = 0;

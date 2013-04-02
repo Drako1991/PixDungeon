@@ -23,6 +23,7 @@ public class Game extends BasicGameState {
     private static boolean changingMap = true, creatingCharacter = false;
     private static Map currMap;
     private static int players = 0;
+    private static Vector2f tileSize;
 
     private static void changeMap(String s) {
         changingMap = true;
@@ -71,6 +72,7 @@ public class Game extends BasicGameState {
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         changeMap(Maps.Map1);
+        tileSize = new Vector2f(64*(gc.getWidth()/1280), 64*(gc.getHeight()/720));
 //        createCharacter("Zurrox", Classes.Archer);
 
         player1 = new Player("Zurrox", Classes.Archer);
@@ -150,6 +152,8 @@ public class Game extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
         Input input = gc.getInput();
 
+        tileSize = new Vector2f(64*(gc.getWidth()/1280), 64*(gc.getHeight()/720));
+
         if(Main.debugMode()) {
             gc.setShowFPS(true);
 
@@ -221,6 +225,10 @@ public class Game extends BasicGameState {
 
         createCharacterOpen = false;
         isInventoryOpen = false;
+    }
+
+    public static Vector2f getTileSize() {
+        return tileSize;
     }
 
     public static Map getCurrentMap() {
