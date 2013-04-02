@@ -243,4 +243,12 @@ public class Game extends BasicGameState {
     public static Map getCurrentMap() {
         return currMap;
     }
+    
+    public static boolean isKeyDown(int key) {
+        return gc.getInput().isKeyDown(key);
+    }
+
+    public static boolean isKeyPressed(int key) {
+        return gc.getInput().isKeyPressed(key);
+    }
 }
