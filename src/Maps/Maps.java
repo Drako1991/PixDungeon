@@ -23,7 +23,7 @@ public class Maps {
             {Tiles.grass, Tiles.grass, Tiles.grass, Tiles.grass, Tiles.grass, Tiles.grass, Tiles.grass, Tiles.grass}
     };
 
-    public static Map Map1 = new Map(start, "Starting", MapsList.startingMap);
+    public static Map Map1 = new Map(start, "Starting", MapsList.startingMap, 1, 1);
 
     public static void renderMap(Map map, float mapX, float mapY, GameContainer gc) throws SlickException {
         if(map != null) {

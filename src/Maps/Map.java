@@ -1,18 +1,25 @@
 package Maps;
 
 import Render.MapRender;
+import States.Game;
 import Tiles.BaseObject;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
 
 public class Map {
     private BaseObject[][] map;
     private String name;
     private int mapID;
+    private Vector2f startPos = new Vector2f(0, 0);
 
     public Map renderMap(float mapX, float mapY, GameContainer gc) throws SlickException {
+        boolean changingMap = true;
         int maxY = map[0].length;
         int maxX = map.length;
+        if(changingMap) {
+            Game.player.changeMap(this);
+        }
 
         for(int y = 0; y < maxY; y++) {
             for(int x = 0; x < maxX; x++) {
@@ -20,6 +27,10 @@ public class Map {
             }
         }
         return this;
+    }
+
+    public Vector2f getStartPos() {
+        return startPos;
     }
 
     public Map(BaseObject[][] map) {
@@ -54,6 +65,30 @@ public class Map {
         this.map = map;
         this.name = name;
         this.mapID = ml.ordinal();
+    }
+
+    public Map(BaseObject[][] map, String name, MapsList ml, Vector2f sPos) {
+        this.map = map;
+        this.name = name;
+        this.mapID = ml.ordinal();
+        startPos = sPos;
+    }
+
+    public Map(BaseObject[][] map, String name, MapsList ml, int x, int y) {
+        this.map = map;
+        this.name = name;
+        this.mapID = ml.ordinal();
+        startPos = new Vector2f(x, y);
+    }
+
+    public Map setStartPos(int x, int y) {
+        startPos = new Vector2f(x, y);
+        return this;
+    }
+
+    public Map setStartPos(Vector2f pos) {
+        startPos = pos;
+        return this;
     }
 
     public Map setMap(BaseObject[][] map) {
