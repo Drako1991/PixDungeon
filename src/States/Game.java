@@ -142,9 +142,7 @@ public class Game extends BasicGameState {
                 Main.exitGame();
             }
 
-            int tempPosX = (int) player1.getTilePos().x, tempPosY = (int) player1.getTilePos().y;
             if(currMap.getTile((int) player1.getPos().x, (int) player1.getPos().y) != null) {
-//                g.drawString("Tile: " + currMap.getTile(tempPosX, tempPosY).getName(), 0, gc.getHeight() / 4 - 40);
                     g.drawString("Tile: " + currMap.getTile((int) player1.getPos().x, (int) player1.getPos().y).getName(), 0, gc.getHeight() / 4 - 40);
                     g.drawString("Solid: " + currMap.getTile((int) player1.getPos().x, (int) player1.getPos().y).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
