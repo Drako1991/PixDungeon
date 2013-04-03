@@ -7,7 +7,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 
 public class Movement {
-    private static float xSpeed, ySpeed;
+    private static float xSpeed = 0, ySpeed = 0;
 
     public static void move(GameContainer gc, Player ply) {
         Input input = gc.getInput();
