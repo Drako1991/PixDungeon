@@ -36,7 +36,6 @@ public class Main extends StateBasedGame {
     }
 
     public static void main(String[] args) throws SlickException {
-
         AppGameContainer gc = new AppGameContainer(new Main());
         gc.setVSync(Options.isVSync);
         if(Options.isFrameLimit) {
@@ -54,7 +53,6 @@ public class Main extends StateBasedGame {
     }
 
     public void initStatesList(GameContainer gc) throws SlickException {
-
         addState(new MainMenu());
         addState(new Game());
         addState(new Options());
