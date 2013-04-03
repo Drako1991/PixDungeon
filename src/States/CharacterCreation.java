@@ -1,6 +1,10 @@
 package States;
 
+import GUI.Button;
 import org.newdawn.slick.*;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.Font;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.gui.TextField;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -9,12 +13,7 @@ public class CharacterCreation extends BasicGameState {
     private TextField textField;
     private Font font;
     private boolean tfFocused;
-
-
-    private enum Buttons {
-        CreateCharacter,
-        Back;
-    }
+    private Button createCharacter;
 
     public int getID() {
         return States.CharacterCreation.ordinal();
@@ -41,9 +40,11 @@ public class CharacterCreation extends BasicGameState {
         g.setColor(Color.red);
         g.drawString("Character Creation", 200, 50);
 
-//        Button.addMenuButton(Buttons.CreateCharacter, gc, "Create Character", g, 1, Color.white, gc.getWidth() / 2, gc.getHeight() / 2);
-
-
+        createCharacter = new Button(gc, g, gc.getWidth()/3, gc.getHeight()/2, 128, 102.4f);
+        createCharacter.addListener();
+        if(createCharacter.isPressed()) {
+            System.out.println(textField.getText());
+        }
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
