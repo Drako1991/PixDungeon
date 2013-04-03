@@ -1,6 +1,7 @@
 package States;
 
 import GUI.Button;
+import Main.Main;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Font;
@@ -30,17 +31,18 @@ public class CharacterCreation extends BasicGameState {
         textField = new TextField(gc, font, posX, posY, width, height);
 
         textField.setMaxLength(10);
-        textField.setBackgroundColor(Color.white);
         textField.setText("Name");
-        textField.setTextColor(Color.black);
     }
 
     public void render(GameContainer gc, StateBasedGame game, Graphics g) throws SlickException {
+        g.setColor(Color.white);
+        textField.setBackgroundColor(Color.white);
+        textField.setTextColor(Color.black);
         textField.render(gc, g);
         g.setColor(Color.red);
         g.drawString("Character Creation", 200, 50);
 
-        createCharacter = new Button(gc, g, gc.getWidth()/3, gc.getHeight()/2, 128, 102.4f);
+        createCharacter = new Button(gc, g, "Create Character", gc.getWidth()/3, gc.getHeight()/2, 250, 25);
         createCharacter.addListener();
         if(createCharacter.isPressed()) {
             System.out.println(textField.getText());
