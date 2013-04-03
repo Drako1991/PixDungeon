@@ -23,8 +23,8 @@ public class Movement {
             if(s) ySpeed = -speedY;
             if(a) xSpeed = speedX;
             if(d) xSpeed = -speedX;
-            if(!w && !s) speedY = 0;
-            if(!a && !d) speedX = 0;
+            if(!w && !s) ySpeed = 0;
+            if(!a && !d) xSpeed = 0;
         }
 
         if(!Main.debugMode()) {
