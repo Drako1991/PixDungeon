@@ -50,7 +50,6 @@ public class Main extends StateBasedGame {
     }
 
     public Main() {
-
         super("Pix. Dungeon (WIP)");
     }
 
