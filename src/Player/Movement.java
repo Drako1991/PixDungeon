@@ -67,4 +67,78 @@ public class Movement {
             }
         }
     }
+
+    public static void rotate(GameContainer gc, Player ply) {
+        Input input = gc.getInput();
+        boolean w = input.isKeyDown(Input.KEY_W), a = input.isKeyDown(Input.KEY_A), s = input.isKeyDown(Input.KEY_S), d = input.isKeyDown(Input.KEY_D);
+        float plyX = gc.getWidth() / 2, plyY = gc.getHeight() / 2, radiansToMouse = (float) Math.atan2(plyX - input.getMouseX(), plyY - input.getMouseY()),
+                degreesToMouse = -(57.2957795f * radiansToMouse), angle = 0;
+        boolean mouseControl;
+
+        if(!w && !a && !s && !d) {
+            mouseControl = true;
+        } else {
+            mouseControl = false;
+        }
+
+        if(!mouseControl) {
+            if(w) {
+                angle += 0;
+                ply.setDirection(Directions.North);
+                mouseControl = false;
+            }
+
+            if(w && d) {
+                angle += 45;
+                ply.setDirection(Directions.NorthEast);
+                mouseControl = false;
+            }
+            if(d && !w && !s) {
+                angle += 90;
+                ply.setDirection(Directions.East);
+                mouseControl = false;
+            }
+            if(s && d) {
+                angle -= 45;
+                ply.setDirection(Directions.SouthEast);
+                mouseControl = false;
+            }
+            if(w && a) {
+                angle -= 45;
+                ply.setDirection(Directions.NorthWest);
+                mouseControl = false;
+            }
+            if(s && a) {
+                angle += 45;
+                ply.setDirection(Directions.SouthWest);
+                mouseControl = false;
+            }
+
+            if(a && !w && !s) {
+                angle -= 90;
+                ply.setDirection(Directions.West);
+                mouseControl = false;
+            }
+            if(s) {
+                angle += 180;
+                ply.setDirection(Directions.South);
+                mouseControl = false;
+            }
+        }
+
+        if(mouseControl) {
+            angle = degreesToMouse;
+            if(angle > -22.5 && angle < 22.5) ply.setDirection(Directions.North);
+            if(angle > 22.5 && angle < 67.5) ply.setDirection(Directions.NorthEast);
+            if(angle > 67.5 && angle < 112.5) ply.setDirection(Directions.East);
+            if(angle > 112.5 && angle < 157.5) ply.setDirection(Directions.SouthEast);
+            if(angle > 157.5) ply.setDirection(Directions.South);
+            if(angle < -157.5) ply.setDirection(Directions.South);
+            if(angle > -157.5 && angle < -112.5) ply.setDirection(Directions.SouthWest);
+            if(angle > -112.5 && angle < 67.5) ply.setDirection(Directions.West);
+            if(angle > -67.5 && angle < -112.5) ply.setDirection(Directions.NorthWest);
+        }
+
+        ply.setRotation(angle);
+    }
 }
