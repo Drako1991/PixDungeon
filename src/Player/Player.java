@@ -1,5 +1,6 @@
 package Player;
 
+import Maps.Map;
 import Render.PlayerRender;
 import States.Game;
 import org.newdawn.slick.GameContainer;
@@ -19,11 +20,24 @@ public class Player {
     private static Directions plyDirection;
     private static PlayerRender plyRender;
 
+    public static void writePlayerToFile() {
+
+    }
+
+    public static void readPlayerFromFile() {
+
+    }
+
     public Player(String name, BaseClass plyClass) {
         this.plyClass = plyClass;
         this.name = name;
 
         initPly();
+    }
+
+    public Player changeMap(Map map) {
+        pos = map.getStartPos();
+        return this;
     }
 
     private void initPly() {
