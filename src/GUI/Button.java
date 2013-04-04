@@ -1,6 +1,5 @@
 package GUI;
 
-import BaseClasses.TextCenter;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.RoundedRectangle;
 import org.newdawn.slick.geom.Vector2f;
@@ -15,25 +14,20 @@ public class Button {
     }
 
     public Button addListener() {
-        try{
-            Thread.sleep(50);
-        }catch(InterruptedException e) {
-            e.printStackTrace();
-        }
         if(gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
-            if(gc.getInput().getMouseX() >= pos.x && gc.getInput().getMouseX() <= pos.x + scale.x) {
-                if(gc.getInput().getMouseY() >= pos.y && gc.getInput().getMouseY() <= pos.y + scale.y) {
+            if(gc.getInput().getMouseX()>=pos.x && gc.getInput().getMouseX()<=pos.x + scale.x) {
+                if(gc.getInput().getMouseY()>=pos.y && gc.getInput().getMouseY()<=pos.y + scale.y) {
                     isPressed = true;
-                }else isPressed = false;
-            }else isPressed = false;
-        }else isPressed = false;
+                } else isPressed = false;
+            } else isPressed = false;
+        } else isPressed = false;
         return this;
     }
 
     public Button(GameContainer GC, Image img, Image onPressed, float x, float y, float w, float h) {
         if(!isPressed()) {
             img.draw(x, y, w, h);
-        }else{
+        } else {
             onPressed.draw(x, y, w, h);
         }
         pos = new Vector2f(x, y);
@@ -90,7 +84,7 @@ public class Button {
         return this;
     }
 
-    public Button setPos(float x, float y){
+    public Button setPos(float x, float y) {
         pos = new Vector2f(x, y);
         return this;
     }
