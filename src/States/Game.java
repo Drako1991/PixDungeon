@@ -103,11 +103,11 @@ public class Game extends BasicGameState {
             EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
         }
 
-        try {
+        /*try {
             Thread.sleep(2);
         } catch(InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
 
         if(isMenuOpen) {
             if(createCharacterOpen) {
@@ -207,11 +207,11 @@ public class Game extends BasicGameState {
             createCharacterOpen = !createCharacterOpen;
         }
 
-        try {
+        /*try {
             Thread.sleep(2);
         } catch(InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public void Inventory(GameContainer gc, Graphics g) throws SlickException {
