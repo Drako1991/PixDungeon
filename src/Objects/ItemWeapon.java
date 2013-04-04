@@ -1,11 +1,14 @@
 package Objects;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Charlie
- * Date: 04/04/13
- * Time: 23:57
- * To change this template use File | Settings | File Templates.
- */
-public class ItemWeapon {
+import GUI.SlotTypes;
+
+public class ItemWeapon extends ItemEquipable {
+    public float damage, maxDamage;
+
+    public ItemWeapon(String name, SlotTypes Type, float Damage, float MaxDamage, int Str, int Dex, int Int, int Agi) {
+        super(name, Type, Str, Dex, Int, Agi);
+
+        damage = Damage;
+        maxDamage = MaxDamage;
+    }
 }

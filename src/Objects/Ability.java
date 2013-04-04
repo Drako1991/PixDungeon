@@ -1,11 +1,9 @@
 package Objects;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Charlie
- * Date: 05/04/13
- * Time: 00:05
- * To change this template use File | Settings | File Templates.
- */
-public class Ability {
+import GUI.SlotTypes;
+
+public class Ability extends Item {
+    public Ability(String Name, SlotTypes Slot) {
+        super(Name, Slot);
+    }
 }

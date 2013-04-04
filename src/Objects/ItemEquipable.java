@@ -1,11 +1,32 @@
 package Objects;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Charlie
- * Date: 04/04/13
- * Time: 22:08
- * To change this template use File | Settings | File Templates.
- */
-public class ItemEquipable {
+import GUI.SlotTypes;
+
+public class ItemEquipable extends Item {
+    private int Strength, Dexterity, Intellect, Agility;
+
+    public ItemEquipable(String name, SlotTypes Type, int Str, int Dex, int Int, int Agi) {
+        super(name, Type);
+
+        Strength = Str;
+        Dexterity = Dex;
+        Intellect = Int;
+        Agility = Agi;
+    }
+
+    public int getStrength() {
+        return Strength;
+    }
+
+    public int getDexterity() {
+        return Dexterity;
+    }
+
+    public int getIntellect() {
+        return Intellect;
+    }
+
+    public int getAgility() {
+        return Agility;
+    }
 }
