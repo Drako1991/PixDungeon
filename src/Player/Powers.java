@@ -13,6 +13,11 @@ public class Powers {
         powerColor = color;
     }
 
+    public Powers setMaxPower(int max) {
+        maxPower = max;
+        return this;
+    }
+
     public int getMaxPower() {
         return maxPower;
     }
