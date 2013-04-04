@@ -1,6 +1,5 @@
 package Classes;
 
-import Player.PowerTypes;
 import Player.Powers;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
@@ -94,8 +93,8 @@ public class BaseClass {
             return new Image(this.imgLocation);
         }catch(SlickException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public String getName() {
