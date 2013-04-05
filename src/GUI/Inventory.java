@@ -1,5 +1,6 @@
 package GUI;
 
+import Objects.Item;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -16,8 +17,8 @@ public class Inventory {
         } catch(SlickException e) {
             e.printStackTrace();
         }
-        for(int x = 0; x<=5; x++) {
-            for(int y = 0; y<=6; y++) {
+        for(int x = 0; x <= 5; x++) {
+            for(int y = 0; y <= 6; y++) {
                 slots[x + (y * 5) + y] = new Slot(Types.SlotTypes.Inventory, new Vector2f(gc.getWidth() - 75 - (x * 50), gc.getHeight() / 2 + y * 50), x + (y * 5) + y);
             }
         }
@@ -28,6 +29,28 @@ public class Inventory {
         for(int i = 0; i < slots.length; i++) {
             slots[i].update(gc, g);
         }
+    }
+
+    public static int getItemSlot(Item item) {
+        for(int x = 0; x <= 5; x++) {
+            for(int y = 0; y <= 6; y++) {
+                if(slots[x + (y * 5) + y].getItemInSlot() == item) {
+                    return x + (y * 5) + y;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public static boolean isItemInInventory(Item item) {
+        for(int x = 0; x <= 5; x++) {
+            for(int y = 0; y <= 6; y++) {
+                if(slots[x + (y * 5) + y].getItemInSlot() == item) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public static int getMaxSlots() {
