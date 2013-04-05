@@ -19,7 +19,7 @@ public class Game extends BasicGameState {
     public static Player player = null;
     private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/ isInventoryOpen;
     private static boolean changingMap = true, creatingCharacter = false;
-    private static Map currMap;
+    private static Map curMap;
     private static Vector2f tileSize;
     private static GameContainer gc;
     private static Item itm;
@@ -28,13 +28,9 @@ public class Game extends BasicGameState {
         return gc;
     }
 
-    private static void changeMap(String s) {
-        changingMap = true;
-    }
-
     private static void changeMap(Map map) {
-        currMap = map;
-        changingMap = true;
+        curMap = map;
+        /*changingMap = true;*/
     }
 
     public static void createCharacter(String name, BaseClass Class) {
@@ -77,13 +73,17 @@ public class Game extends BasicGameState {
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        Maps.renderMap(currMap, -player.getPos().x-4, player.getPos().y+2, gc);
+        Maps.renderMap(curMap, -player.getPos().x-4, player.getPos().y+2, gc);
         PlayerRender plyRender = new PlayerRender(player, gc);
         plyRender.renderPlayer();
-
+        changingMap = true;
         if(changingMap) {
             changingMap = false;
         }
+
+        /*if(changingMap) {
+            changingMap = false;
+        }*/
 
         Input input = gc.getInput();
 
@@ -121,9 +121,9 @@ public class Game extends BasicGameState {
                 Main.exitGame();
             }
 
-            if(currMap.getTile((int) player.getPos().x, (int) player.getPos().y) != null) {
-                    g.drawString("Tile: " + currMap.getTile((int) player.getPos().x, (int) player.getPos().y).getName(), 0, gc.getHeight() / 4 - 40);
-                    g.drawString("Solid: " + currMap.getTile((int) player.getPos().x, (int) player.getPos().y).isSolid(), 0, gc.getHeight() / 4 - 60);
+            if(curMap.getTile((int) player.getPos().x, (int) player.getPos().y) != null) {
+                    g.drawString("Tile: " + curMap.getTile((int) player.getPos().x, (int) player.getPos().y).getName(), 0, gc.getHeight() / 4 - 40);
+                    g.drawString("Solid: " + curMap.getTile((int) player.getPos().x, (int) player.getPos().y).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
                 g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
                 g.drawString("Solid: Null", 0, gc.getHeight() / 4 - 60);
@@ -190,7 +190,11 @@ public class Game extends BasicGameState {
     }
 
     public static Map getCurrentMap() {
-        return currMap;
+        return curMap;
+    }
+
+    public static boolean isChangingMap() {
+        return changingMap;
     }
 
     public static boolean isKeyDown(int key) {
