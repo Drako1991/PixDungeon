@@ -49,8 +49,10 @@ public class Slot {
                     }
                 }
 
-                if(itemInSlot instanceof ItemEquipable) {
-                    ((ItemEquipable) itemInSlot).showTooltip();
+                if(Game.getSelectedItem() == null) {
+                    if(itemInSlot instanceof ItemEquipable) {
+                        ((ItemEquipable) itemInSlot).showTooltip();
+                    }
                 }
 
 
