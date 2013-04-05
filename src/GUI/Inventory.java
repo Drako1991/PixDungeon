@@ -1,14 +1,28 @@
 package GUI;
 
+import Objects.Item;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
 
 public class Inventory {
-    public void Inventory(GameContainer gc, Graphics g) throws SlickException {
-        int posX = 0;
-        int posY = 0;
-        g.drawImage(new Image("res/inventory.png"), posX, posY);
+    private static Slot[] slots = new Slot[2];
+    private static Item logoTest = new Item("logoTest", SlotTypes.Inventory, "res/logo.png");
+
+    public static void Inventory(GameContainer gc, Graphics g) {
+        slots[0] = new Slot(SlotTypes.Inventory, new Vector2f(gc.getWidth()/2, gc.getHeight()/2));
+        slots[1] = new Slot(SlotTypes.Inventory, new Vector2f(gc.getWidth()/2 + 100, gc.getHeight()/2));
+
+        slots[0].setItemInSlot(logoTest);
+//        slots[1].setItemInSlot(logoTest);
+
+
+        for(int i = 0; i < slots.length; i++) {
+            if(slots[i].getItemInSlot() != null) {
+                System.out.println(slots[i].getItemInSlot().getName());
+            }else System.out.println("Null");
+            slots[i].render(g);
+            slots[i].update(gc);
+        }
     }
 }
