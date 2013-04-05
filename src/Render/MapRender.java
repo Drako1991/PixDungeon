@@ -28,7 +28,7 @@ public class MapRender {
                             }
                             if(x == 0 && y == 1) {
                                 sideGrass = true;
-                                Tiles.tlGrass.getImage().draw(mPosX, mPosY, width, height);
+                                Tiles.tGrass.getImage().draw(mPosX, mPosY, width, height);
                             }
                             if(x == -1 && y == 0) {
                                 sideGrass = true;
@@ -44,14 +44,18 @@ public class MapRender {
                             }
                             if(x == -1 && y == 1) {
                                 if(map.getTile(posX - 1, posY) == Tiles.grass) {
-                                    sideGrass = true;
-                                    Tiles.trGrass.getImage().draw(mPosX, mPosY, width, height);
+                                    if(map.getTile(posX, posY + 1) != Tiles.path) {
+                                        sideGrass = true;
+                                        Tiles.trGrass.getImage().draw(mPosX, mPosY, width, height);
+                                    }
                                 }
                             }
                             if(x == 1 && y == 1) {
                                 if(map.getTile(posX + 1, posY) == Tiles.grass) {
-                                    sideGrass = true;
-                                    Tiles.tlGrass.getImage().draw(mPosX, mPosY, width, height);
+                                    if(map.getTile(posX, posY + 1) != Tiles.path) {
+                                        sideGrass = true;
+                                        Tiles.tlGrass.getImage().draw(mPosX, mPosY, width, height);
+                                    }
                                 }
                             }
                         }
