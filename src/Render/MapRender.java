@@ -19,8 +19,8 @@ public class MapRender {
 
         if(connectsToPath) {
             if(obj.getEnum() == TileList.grass) {
-                for(int x = -1; x<2; x++) {
-                    for(int y = -1; y<2; y++) {
+                for(int x = -1; x < 2; x++) {
+                    for(int y = -1; y < 2; y++) {
                         if(map.getTile(posX + x, posY + y) == Tiles.path) {
                             if(x == 0 && y == -1) {
                                 sideGrass = true;
