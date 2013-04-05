@@ -1,38 +1,32 @@
 package Objects;
 
+import GUI.Inventory;
 import GUI.Slot;
 import GUI.SlotTypes;
 import States.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 
 public class Item {
     private String itemName;
     private SlotTypes slotType;
-    private boolean isSelected, onGround;
+    private boolean isSelected, onGround, isSelectedOverride;
     private Vector2f selectedPos, pos, scale = new Vector2f(64, 64);
     private Slot slot;
     private GameContainer gc = Game.getGameContainer();
     private Image itemImage;
 
     public void update() {
-        if(gc.getInput().getMouseX() >= slot.getPos().x && gc.getInput().getMouseX() <= slot.getPos().x + slot.getScale()) {
-            if(gc.getInput().getMouseY() >= slot.getPos().y && gc.getInput().getMouseY() <= slot.getPos().y + slot.getScale()) {
-                if(gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
-                    isSelected = true;
-                }else isSelected = false;
-            }else isSelected = false;
-        }else isSelected = false;
-
-        if(isSelected) {
-            selectedPos = new Vector2f(gc.getInput().getMouseX(), gc.getInput().getMouseY());
-            pos = selectedPos;
+        if(isSelected | isSelectedOverride) {
+            pos = new Vector2f(gc.getInput().getMouseX(), gc.getInput().getMouseY());
+            System.out.println("isSelected");
         }else{
-            pos = slot.getPos();
+            pos = new Vector2f(gc.getInput().getMouseX(), gc.getInput().getMouseY());
+//            pos = slot.getPos();
         }
+//        itemImage.draw(pos.x, pos.y, scale.x, scale.y);
     }
 
     public void render() {
@@ -43,9 +37,27 @@ public class Item {
         }
     }
 
-    public Item(String Name, SlotTypes Slot, String imgRef) {
+    public Item addToInventory() {
+        for(int i = 0; i < Inventory.getMaxSlots(); i++) {
+            if(Inventory.getSlot(i) == null) {
+                slot = Inventory.getSlot(i);
+                Inventory.getSlot(i).setItemInSlot(this);
+            }
+        }
+        return this;
+    }
+
+    public Item addToInventory(int slot) {
+        this.slot = Inventory.getSlot(slot);
+        Inventory.getSlot(slot).setItemInSlot(this);
+        return this;
+    }
+
+    public Item(String Name, SlotTypes slotType, Slot slot, String imgRef) {
         itemName = Name;
-        slotType = Slot;
+        this.slotType = slotType;
+        this.slot = slot;
+        slot.setItemInSlot(this);
         try{
             itemImage = new Image(imgRef);
         }catch(SlickException e) {
@@ -84,22 +96,22 @@ public class Item {
     }
 
     public Item toggleSelected() {
-        isSelected = !isSelected;
+        isSelectedOverride = !isSelected;
         return this;
     }
 
     public Item setSelected(boolean selected) {
-        isSelected = selected;
+        isSelectedOverride = selected;
         return this;
     }
 
     public Item setSelected() {
-        isSelected = true;
+        isSelectedOverride = true;
         return this;
     }
 
     public Item setUnselected() {
-        isSelected = false;
+        isSelectedOverride = false;
         return this;
     }
 
