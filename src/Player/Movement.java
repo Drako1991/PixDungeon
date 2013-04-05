@@ -11,7 +11,7 @@ public class Movement {
 
     public static void move(GameContainer gc, Player ply) {
         Input input = gc.getInput();
-        float speedX = -ply.getSpeed() * (Game.getTileSize().x / 64) / 30f, speedY = ply.getSpeed() * (Game.getTileSize().y / 64) / 30f;
+        float speedX = -ply.getSpeed() * (Game.getTileSize().x / 64) / 500, speedY = ply.getSpeed() * (Game.getTileSize().y / 64) / 500;
         boolean w = input.isKeyDown(Input.KEY_W), a = input.isKeyDown(Input.KEY_A), s = input.isKeyDown(Input.KEY_S), d = input.isKeyDown(Input.KEY_D);
         ply.addPos(xSpeed, ySpeed);
         Map map = Game.getCurrentMap();
