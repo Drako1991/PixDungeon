@@ -27,9 +27,8 @@ public class Button {
     public Button(GameContainer GC, Image img, Image onPressed, float x, float y, float w, float h) {
         if(!isPressed()) {
             img.draw(x, y, w, h);
-        } else {
-            onPressed.draw(x, y, w, h);
-        }
+        } else onPressed.draw(x, y, w, h);
+
         pos = new Vector2f(x, y);
         scale = new Vector2f(w, h);
         gc = GC;
@@ -67,38 +66,7 @@ public class Button {
         gc = GC;
     }
 
-    public Button(GameContainer GC, Graphics g, Vector2f Pos, Vector2f Scale) {
-        g.fill(new RoundedRectangle(pos.x, pos.y, scale.x, scale.y, 0.3f));
-        pos = Pos;
-        scale = Scale;
-        gc = GC;
-    }
-
-    public Button setScale(float w, float h) {
-        scale = new Vector2f(w, h);
-        return this;
-    }
-
-    public Button setScale(Vector2f Scale) {
-        scale = Scale;
-        return this;
-    }
-
-    public Button setPos(float x, float y) {
-        pos = new Vector2f(x, y);
-        return this;
-    }
-
-    public Button setPos(Vector2f Pos) {
-        pos = Pos;
-        return this;
-    }
-
     public Vector2f getPos() {
         return pos;
-    }
-
-    public Vector2f getScale() {
-        return scale;
     }
 }
