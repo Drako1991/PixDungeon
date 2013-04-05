@@ -16,6 +16,28 @@ public class Slot {
     private Item itemInSlot;
     private int slotID = 0;
 
+    public Slot update(GameContainer gc, Graphics g) {
+        if(itemInSlot != null) {
+            g.setColor(Color.white);
+            g.texture(new RoundedRectangle(pos.x, pos.y, scale, scale, 5F), itemInSlot.getImage(), true);
+        }
+
+        if(gc.getInput().getMouseX() >= pos.x && gc.getInput().getMouseX() <= pos.x + scale) {
+            if(gc.getInput().getMouseY() >= pos.y && gc.getInput().getMouseY() <= pos.y + scale) {
+                isHoveredOver = true;
+                g.setColor(new Color(255, 255, 255, 100));
+                g.fill(new RoundedRectangle(pos.x, pos.y, scale, scale, 5F));
+                if(gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
+                    if(itemInSlot != null) {
+                        isSelected= true;
+                        itemInSlot.setSelected();
+                    }
+                }
+            }else isHoveredOver = false;
+        }else isHoveredOver = false;
+        return this;
+    }
+
     public Slot(SlotTypes Type, Vector2f Pos) {
         pos = Pos;
         type = Type;
@@ -64,25 +86,6 @@ public class Slot {
 
     public Slot setHovered(boolean hover) {
         isHoveredOver = hover;
-        return this;
-    }
-
-    public Slot update(GameContainer gc, Graphics g) {
-        if(itemInSlot != null) {
-            g.setColor(Color.white);
-            g.texture(new RoundedRectangle(pos.x, pos.y, scale, scale, 5F), itemInSlot.getImage(), true);
-        }
-
-        if(gc.getInput().getMouseX() >= pos.x && gc.getInput().getMouseX() <= pos.x + scale) {
-            if(gc.getInput().getMouseY() >= pos.y && gc.getInput().getMouseY() <= pos.y + scale) {
-                isHoveredOver = true;
-                g.setColor(new Color(255, 255, 255, 100));
-                g.fill(new RoundedRectangle(pos.x, pos.y, scale, scale, 5F));
-                if(gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
-                    isSelected= true;
-                }
-            }else isHoveredOver = false;
-        }else isHoveredOver = false;
         return this;
     }
 
