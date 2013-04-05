@@ -9,7 +9,6 @@ import org.newdawn.slick.geom.Vector2f;
 public class Inventory {
     private static Slot[] slots = new Slot[42];
     private static Image bgImage;
-//    private static Item logoTest = new Item("logoTest", SlotTypes.Inventory, "res/logo.png");
 
     public static void initInventory(GameContainer gc) {
         try {
@@ -19,7 +18,7 @@ public class Inventory {
         }
         for(int x = 0; x<=5; x++) {
             for(int y = 0; y<=6; y++) {
-                slots[x + (y * 5) + y] = new Slot(SlotTypes.Inventory, new Vector2f(gc.getWidth() - 75 - (x * 50), gc.getHeight() / 2 + y * 50));
+                slots[x + (y * 5) + y] = new Slot(Types.SlotTypes.Inventory, new Vector2f(gc.getWidth() - 75 - (x * 50), gc.getHeight() / 2 + y * 50), x + (y * 5) + y);
             }
         }
     }

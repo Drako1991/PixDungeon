@@ -4,10 +4,13 @@ import Audio.MusicList;
 import Classes.BaseClass;
 import Classes.Classes;
 import GUI.CharacterCreation;
+import GUI.Inventory;
+import GUI.Types;
 import Main.Main;
 import Maps.Map;
 import Maps.Maps;
 import Objects.Item;
+import Objects.ItemEquipable;
 import Player.Player;
 import Render.PlayerRender;
 import org.newdawn.slick.*;
@@ -17,15 +20,20 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Game extends BasicGameState {
     public static Player player = null;
-    private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/ isInventoryOpen;
+    private static boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/ isInventoryOpen, isInitialising;
     private static boolean changingMap = true, creatingCharacter = false;
     private static Map curMap;
     private static Vector2f tileSize;
     private static GameContainer gc;
-    private static Item itm;
+    private static Item selectedItem;
+    private static Graphics g;
 
     public static GameContainer getGameContainer() {
         return gc;
+    }
+
+    public static Graphics getGraphics() {
+        return g;
     }
 
     private static void changeMap(Map map) {
@@ -39,6 +47,10 @@ public class Game extends BasicGameState {
             creatingCharacter = false;
             player = new Player(name, Class);
         }
+    }
+
+    public static void setSelectedItem(Item item) {
+        selectedItem = item;
     }
 
     public int getID() {
@@ -63,19 +75,36 @@ public class Game extends BasicGameState {
 
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        isInitialising = true;
+        Inventory.initInventory(gc);
         changeMap(Maps.Map1);
         this.gc = gc;
         tileSize = new Vector2f(64*(gc.getWidth()/1280), 64*(gc.getHeight()/720));
 //        createCharacter("Zurrox", Classes.Archer);
+        Item logoTest = new Item("logoTest", Types.SlotTypes.Inventory, Inventory.getSlot(5), "res/Logo.png");
+        Item logoTest1 = new Item("logoTest1", Types.SlotTypes.Inventory, Inventory.getSlot(4), "res/Logo.png");
+        ItemEquipable logoTest2 = new ItemEquipable("equipTest1", Types.SlotTypes.Inventory, Inventory.getSlot(3), 10, 5, 5, 5, "res/Logo.png");
+//        Inventory.getSlot(2).setItemInSlot(logoTest);
 
         player = new Player("Zurrox", Classes.Archer);
-
+        if(isInitialising) {
+            isInitialising = false;
+        }
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        boolean initRender = true;
+
+        if(initRender) {
+            initRender = false;
+
+            this.g = g;
+        }
+//        System.out.println(Inventory.getSlot(5).getItemInSlot().getName());
         Maps.renderMap(curMap, -player.getPos().x-4, player.getPos().y+2, gc);
         PlayerRender plyRender = new PlayerRender(player, gc);
         plyRender.renderPlayer();
+
         changingMap = true;
         if(changingMap) {
             changingMap = false;
@@ -122,8 +151,8 @@ public class Game extends BasicGameState {
             }
 
             if(curMap.getTile((int) player.getPos().x, (int) player.getPos().y) != null) {
-                    g.drawString("Tile: " + curMap.getTile((int) player.getPos().x, (int) player.getPos().y).getName(), 0, gc.getHeight() / 4 - 40);
-                    g.drawString("Solid: " + curMap.getTile((int) player.getPos().x, (int) player.getPos().y).isSolid(), 0, gc.getHeight() / 4 - 60);
+                g.drawString("Tile: " + curMap.getTile((int) player.getPos().x, (int) player.getPos().y).getName(), 0, gc.getHeight() / 4 - 40);
+                g.drawString("Solid: " + curMap.getTile((int) player.getPos().x, (int) player.getPos().y).isSolid(), 0, gc.getHeight() / 4 - 60);
             } else {
                 g.drawString("Tile: Null", 0, gc.getHeight() / 4 - 40);
                 g.drawString("Solid: Null", 0, gc.getHeight() / 4 - 60);
@@ -133,6 +162,10 @@ public class Game extends BasicGameState {
             g.drawString("MouseX: " + (int) Math.ceil(input.getMouseX()) + ", MouseY: " + (int) Math.ceil(input.getMouseY()), 0, gc.getHeight() / 4);
             g.drawString("PlayerX: " + (int) player.getPos().x + " PlayerPosY: " + (int) player.getPos().y, 0, gc.getHeight() / 4 + 20);
             g.drawString("Dead: " + player.isDead(), 0, gc.getHeight() / 4 - 20);
+        }
+        if(selectedItem != null) {
+//            g.texture(new RoundedRectangle(gc.getInput().getMouseX(), gc.getInput().getMouseY(), 48, 48, 3F), selectedItem.getImage());
+            selectedItem.getImage().draw(gc.getInput().getMouseX(), gc.getInput().getMouseY(), 48, 48);
         }
     }
 
@@ -185,6 +218,14 @@ public class Game extends BasicGameState {
         isInventoryOpen = false;
     }
 
+    public static Item getSelectedItem() {
+        return selectedItem;
+    }
+
+    public static boolean isInventoryOpen() {
+        return isInventoryOpen;
+    }
+
     public static Vector2f getTileSize() {
         return tileSize;
     }
@@ -203,5 +244,9 @@ public class Game extends BasicGameState {
 
     public static boolean isKeyPressed(int key) {
         return gc.getInput().isKeyPressed(key);
+    }
+
+    public static boolean isInitialising() {
+        return isInitialising;
     }
 }
