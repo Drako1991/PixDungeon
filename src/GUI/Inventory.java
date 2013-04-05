@@ -11,18 +11,15 @@ public class Inventory {
 
     public static void Inventory(GameContainer gc, Graphics g) {
         slots[0] = new Slot(SlotTypes.Inventory, new Vector2f(gc.getWidth()/2, gc.getHeight()/2));
-        slots[1] = new Slot(SlotTypes.Inventory, new Vector2f(gc.getWidth()/2 + 100, gc.getHeight()/2));
+        slots[1] = new Slot(SlotTypes.Inventory, new Vector2f(gc.getWidth()/2 + 400, gc.getHeight()/2));
 
         slots[0].setItemInSlot(logoTest);
 //        slots[1].setItemInSlot(logoTest);
 
 
         for(int i = 0; i < slots.length; i++) {
-            if(slots[i].getItemInSlot() != null) {
-                System.out.println(slots[i].getItemInSlot().getName());
-            }else System.out.println("Null");
             slots[i].render(g);
-            slots[i].update(gc);
+            slots[i].update(gc, g);
         }
     }
 }
