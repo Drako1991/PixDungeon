@@ -13,12 +13,16 @@ public class Map {
     private int mapID;
     private Vector2f startPos = new Vector2f(0, 0);
 
+    public Map initMap() {
+        Game.player.changeMap(this);
+        return this;
+    }
+
     public Map renderMap(float mapX, float mapY, GameContainer gc) throws SlickException {
-        boolean changingMap = true;
         int maxY = map[0].length;
         int maxX = map.length;
-        if(changingMap) {
-            Game.player.changeMap(this);
+        if(Game.isChangingMap()) {
+            initMap();
         }
 
         for(int y = 0; y < maxY; y++) {
