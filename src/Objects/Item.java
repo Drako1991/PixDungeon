@@ -5,6 +5,7 @@ import GUI.SlotTypes;
 import States.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 
@@ -12,10 +13,35 @@ public class Item {
     private String itemName;
     private SlotTypes slotType;
     private boolean isSelected, onGround;
-    private Vector2f selectedPos;
+    private Vector2f selectedPos, pos, scale = new Vector2f(64, 64);
     private Slot slot;
     private GameContainer gc = Game.getGameContainer();
     private Image itemImage;
+
+    public void update() {
+        if(gc.getInput().getMouseX() >= slot.getPos().x && gc.getInput().getMouseX() <= slot.getPos().x + slot.getScale()) {
+            if(gc.getInput().getMouseY() >= slot.getPos().y && gc.getInput().getMouseY() <= slot.getPos().y + slot.getScale()) {
+                if(gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
+                    isSelected = true;
+                }else isSelected = false;
+            }else isSelected = false;
+        }else isSelected = false;
+
+        if(isSelected) {
+            selectedPos = new Vector2f(gc.getInput().getMouseX(), gc.getInput().getMouseY());
+            pos = selectedPos;
+        }else{
+            pos = slot.getPos();
+        }
+    }
+
+    public void render() {
+        if(isSelected) {
+            itemImage.draw(pos.x, pos.y, slot.getScale());
+        }else{
+            itemImage.draw(pos.x, pos.y, 64);
+        }
+    }
 
     public Item(String Name, SlotTypes Slot, String imgRef) {
         itemName = Name;
