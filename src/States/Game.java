@@ -1,14 +1,13 @@
 package States;
 
 import Audio.MusicList;
-import BaseClasses.TextCenter;
 import Classes.BaseClass;
 import Classes.Classes;
 import GUI.CharacterCreation;
-import Main.Entity;
 import Main.Main;
 import Maps.Map;
 import Maps.Maps;
+import Objects.Item;
 import Player.Player;
 import Render.PlayerRender;
 import org.newdawn.slick.*;
@@ -17,14 +16,13 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class Game extends BasicGameState {
-    Entity EntityPlayer = null, EntityName = null;
     public static Player player = null;
     private boolean createCharacterOpen = false, isMenuOpen = false, /*isRunning,*/ isInventoryOpen;
     private static boolean changingMap = true, creatingCharacter = false;
     private static Map currMap;
-    private static int players = 0;
     private static Vector2f tileSize;
     private static GameContainer gc;
+    private static Item itm;
 
     public static GameContainer getGameContainer() {
         return gc;
@@ -70,22 +68,15 @@ public class Game extends BasicGameState {
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         changeMap(Maps.Map1);
+        this.gc = gc;
         tileSize = new Vector2f(64*(gc.getWidth()/1280), 64*(gc.getHeight()/720));
 //        createCharacter("Zurrox", Classes.Archer);
 
         player = new Player("Zurrox", Classes.Archer);
-        EntityPlayer = new Entity("Player");
-        EntityName = new Entity("PlayerName");
 
-        initGameContainer(gc);
-    }
-
-    public static void initGameContainer(GameContainer gameContainer) {
-        gc = gameContainer;
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        EntityPlayer.setScale(42 * (gc.getWidth() / 1280), 58 * (gc.getHeight() / 720));
         Maps.renderMap(currMap, -player.getPos().x-4, player.getPos().y+2, gc);
         PlayerRender plyRender = new PlayerRender(player, gc);
         plyRender.renderPlayer();
@@ -98,9 +89,6 @@ public class Game extends BasicGameState {
 
         boolean gameHidden = false;
         if(!gameHidden) {
-            EntityPlayer.render(gc, null, g);
-            EntityName.render(gc, null, g);
-            EntityName.setPosition(new Vector2f(TextCenter.getCenterTextX(player.getName(), gc.getWidth() / 2), gc.getHeight() / 2));
         }
 
         /*try {
@@ -114,7 +102,7 @@ public class Game extends BasicGameState {
                 CharacterCreation.createWindow(gc, g);
             }
             if(isInventoryOpen) {
-                Inventory(gc, g);
+                GUI.Inventory.Inventory(gc, g);
             }
         } else closeAllWindows();
 
@@ -155,28 +143,6 @@ public class Game extends BasicGameState {
 
         if(Main.debugMode()) {
             gc.setShowFPS(true);
-
-            /*if (input.isKeyDown(Input.KEY_X)) {00
-                player.addPower(1);
-            }
-            if (input.isKeyDown(Input.KEY_Z)) {
-                player.takePower(1);
-            }
-            if (input.isKeyDown(Input.KEY_D)) {
-                player.addXP(1);
-            }
-            if (input.isKeyPressed(Input.KEY_W) && !input.isKeyDown(Input.KEY_LSHIFT)) {
-                player.setDead(false);
-            }
-            if (input.isKeyPressed(Input.KEY_W) && input.isKeyDown(Input.KEY_LSHIFT)) {
-                player.setDead(true);
-            }
-            if (input.isKeyDown(Input.KEY_Q)) {
-                player.takeHealth(1);
-            }
-            if (input.isKeyDown(Input.KEY_E)) {
-                player.addHealth(1);
-            }*/
         } else {
             gc.setShowFPS(false);
         }
@@ -188,8 +154,6 @@ public class Game extends BasicGameState {
 
         boolean gamePaused = false;
         if(!gamePaused) {
-            EntityPlayer.update(gc, null, delta);
-            EntityName.update(gc, null, delta);
         }
 
 
@@ -212,11 +176,6 @@ public class Game extends BasicGameState {
         } catch(InterruptedException e) {
             e.printStackTrace();
         }*/
-    }
-
-    public void Inventory(GameContainer gc, Graphics g) throws SlickException {
-
-        g.drawImage(new Image("res/logo.png"), gc.getWidth() - (gc.getWidth() / 4), gc.getHeight() / 2);
     }
 
     public void closeAllWindows() {
