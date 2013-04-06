@@ -1,11 +1,18 @@
 package AI;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Charlie
- * Date: 06/04/13
- * Time: 01:05
- * To change this template use File | Settings | File Templates.
- */
+import Mobs.Mob;
+
 public class AI {
+    private Mob mob;
+    private float speed;
+
+    public AI(Mob mob) {
+        this.mob = mob;
+
+        speed = mob.getSpeed();
+    }
+
+    public AI update() {
+        return this;
+    }
 }
