@@ -1,11 +1,7 @@
 package States;
 
 import GUI.Button;
-import Main.Main;
 import org.newdawn.slick.*;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Font;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.gui.TextField;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -15,6 +11,7 @@ public class CharacterCreation extends BasicGameState {
     private Font font;
     private boolean tfFocused;
     private Button createCharacter;
+    private String text;
 
     public int getID() {
         return States.CharacterCreation.ordinal();
@@ -23,7 +20,7 @@ public class CharacterCreation extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame game) throws SlickException {
         tfFocused = false;
         int width = 250;
-        int height = 25;
+        int height = 35;
         int posX = (gc.getWidth() / 2) - (width / 2);
         int posY = gc.getHeight() / 2 + (gc.getHeight() / 4);
 
@@ -46,6 +43,11 @@ public class CharacterCreation extends BasicGameState {
         createCharacter.addListener();
         if(createCharacter.isPressed()) {
             System.out.println(textField.getText());
+            text = textField.getText();
+        }
+        if(text != null) {
+            g.setColor(Color.red);
+            g.drawString(text, gc.getWidth()/2, gc.getHeight()/2);
         }
     }
 
